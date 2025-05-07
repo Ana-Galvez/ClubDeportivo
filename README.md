@@ -1,4 +1,4 @@
-# Proyecto integador: Club deportivo
+# Proyecto integrador: Club deportivo
 
 ## Tabla de contenidos:
 

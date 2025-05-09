@@ -12,9 +12,12 @@ namespace ClubDeportivo
 {
     public partial class FormHome : Form
     {
-        public FormHome()
+        private string nombreUsuario;
+        public FormHome(string usuario)
         {
             InitializeComponent();
+            nombreUsuario = usuario;
+            labelBienvenida.Text = $"¡Bienvenido/a, {nombreUsuario}!";
         }
 
         private void labelBienvenida_Click(object sender, EventArgs e)
@@ -34,6 +37,7 @@ namespace ClubDeportivo
 
         private void FormHome_Load(object sender, EventArgs e)
         {
+            this.BackgroundImageLayout = ImageLayout.Stretch;
 
         }
 

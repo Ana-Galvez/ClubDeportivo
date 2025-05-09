@@ -11,7 +11,7 @@ namespace ClubDeportivo
         {
             FormIniciarSesion nuevoFormulario = new FormIniciarSesion();
             nuevoFormulario.Show();
-            this.Hide();
+            this.Hide(); //la deja en memoria
         }
     }
 }

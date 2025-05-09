@@ -42,7 +42,7 @@
             panelHeader.ForeColor = Color.FromArgb(0, 70, 160);
             panelHeader.Location = new Point(1, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(798, 60);
+            panelHeader.Size = new Size(798, 53);
             panelHeader.TabIndex = 0;
             // 
             // labelHeader
@@ -50,7 +50,7 @@
             labelHeader.AutoSize = true;
             labelHeader.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelHeader.ForeColor = Color.White;
-            labelHeader.Location = new Point(11, 20);
+            labelHeader.Location = new Point(11, 18);
             labelHeader.Name = "labelHeader";
             labelHeader.Size = new Size(144, 21);
             labelHeader.TabIndex = 0;
@@ -61,7 +61,7 @@
             // 
             labelInicioBienvenida.AutoSize = true;
             labelInicioBienvenida.Font = new Font("Segoe UI", 15.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelInicioBienvenida.Location = new Point(315, 170);
+            labelInicioBienvenida.Location = new Point(327, 148);
             labelInicioBienvenida.Name = "labelInicioBienvenida";
             labelInicioBienvenida.Size = new Size(146, 30);
             labelInicioBienvenida.TabIndex = 1;
@@ -74,26 +74,28 @@
             buttonInicio.FlatStyle = FlatStyle.Flat;
             buttonInicio.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonInicio.ForeColor = Color.White;
-            buttonInicio.Location = new Point(315, 256);
+            buttonInicio.Location = new Point(327, 224);
             buttonInicio.Name = "buttonInicio";
-            buttonInicio.Size = new Size(150, 40);
+            buttonInicio.Size = new Size(150, 35);
             buttonInicio.TabIndex = 2;
             buttonInicio.Text = "Iniciar sesión";
             buttonInicio.UseVisualStyleBackColor = false;
             buttonInicio.Click += buttonInicio_Click;
             // 
-            // Inicio
+            // FormPantallaInicio
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(224, 224, 224);
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 397);
             Controls.Add(buttonInicio);
             Controls.Add(labelInicioBienvenida);
             Controls.Add(panelHeader);
-            Name = "Inicio";
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Name = "FormPantallaInicio";
             Padding = new Padding(10, 0, 0, 0);
-            Text = "Inicio";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "CLUB DEPORTIVO";
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             ResumeLayout(false);

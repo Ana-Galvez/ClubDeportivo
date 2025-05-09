@@ -15,7 +15,7 @@ observar que la longitud debe ser igual que la longitud del atributo de la tabla
 begin
   /* En la consulta muestra el rol que posee esa persona si existe */
   
-  select NomRol
+  select u.NombreUsu, r.NomRol
 	from usuario u inner join roles r on u.RolUsu = r.RolUsu
 		where NombreUsu = Usu and PassUsu = Pass /* se compara con los parametros */
 			and Activo = 1; /* el usuario debe estar activo */

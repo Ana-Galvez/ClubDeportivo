@@ -24,3 +24,17 @@ constraint fk_usuario foreign key(RolUsu) references roles(RolUsu)
 
 insert into usuario(CodUsu,NombreUsu,PassUsu,RolUsu) values
 (1,'Ana','123456',120);
+
+create table cliente(
+IDCliente int PRIMARY KEY not null,
+Nombre varchar(30) not null,
+Apellido varchar(40) not null,
+FechaNacimiento date not null,
+DNI int not null unique,
+Genero ENUM('F','M','Prefiero no decir') not null,
+Direccion varchar(60) not null,
+Telefono varchar(30) not null,
+FechaInscripcion date not null,
+AptoFisico ENUM('Sí','No') not null,
+Socio ENUM('Sí','No') not null
+);

@@ -530,7 +530,9 @@
             Controls.Add(textBoxNombre);
             Controls.Add(labelNombre);
             Controls.Add(labelRegistroTitulo);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "FormRegistroCliente";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Registrar Cliente";
             Load += FormRegistroCliente_Load;
             panelRegistroHeader.ResumeLayout(false);

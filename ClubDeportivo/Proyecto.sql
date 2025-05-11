@@ -26,7 +26,7 @@ insert into usuario(CodUsu,NombreUsu,PassUsu,RolUsu) values
 (1,'Ana','123456',120);
 
 create table cliente(
-IDCliente int PRIMARY KEY not null,
+IDCliente int auto_increment PRIMARY KEY not null,
 Nombre varchar(30) not null,
 Apellido varchar(40) not null,
 FechaNacimiento date not null,

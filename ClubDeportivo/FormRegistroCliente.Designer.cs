@@ -37,9 +37,6 @@
             dateTimePickerFechNac = new DateTimePicker();
             textBoxDNI = new TextBox();
             labelDNI = new Label();
-            labelGénero = new Label();
-            radioButtonFemenino = new RadioButton();
-            radioButtonMasculino = new RadioButton();
             radioButtonPrefNoDecir = new RadioButton();
             dateTimePickerFechIns = new DateTimePicker();
             labelFechInsc = new Label();
@@ -49,15 +46,21 @@
             labelDireccion = new Label();
             radioButtonAptoFisicoNo = new RadioButton();
             radioButtonAptoFisicoSi = new RadioButton();
-            labelAptoFisico = new Label();
             radioButtonSocioNo = new RadioButton();
             radioButtonSocioSi = new RadioButton();
-            labelSocio = new Label();
             buttonRegistroClienteAceptar = new Button();
             buttonRegistroClienteCancelar = new Button();
             panelRegistroHeader = new Panel();
             labelRegistroHeader = new Label();
+            radioButtonFemenino = new RadioButton();
+            radioButtonMasculino = new RadioButton();
+            groupBoxGenero = new GroupBox();
+            groupBoxAptoFisico = new GroupBox();
+            groupBoxSocio = new GroupBox();
             panelRegistroHeader.SuspendLayout();
+            groupBoxGenero.SuspendLayout();
+            groupBoxAptoFisico.SuspendLayout();
+            groupBoxSocio.SuspendLayout();
             SuspendLayout();
             // 
             // labelRegistroTitulo
@@ -86,6 +89,7 @@
             textBoxNombre.Name = "textBoxNombre";
             textBoxNombre.Size = new Size(161, 25);
             textBoxNombre.TabIndex = 10;
+            textBoxNombre.Tag = "required";
             textBoxNombre.TextChanged += textBoxNombre_TextChanged;
             // 
             // textBoxApellido
@@ -94,6 +98,7 @@
             textBoxApellido.Name = "textBoxApellido";
             textBoxApellido.Size = new Size(161, 25);
             textBoxApellido.TabIndex = 12;
+            textBoxApellido.Tag = "required";
             textBoxApellido.TextChanged += textBoxApellido_TextChanged;
             // 
             // labelApellido
@@ -122,6 +127,7 @@
             dateTimePickerFechNac.Name = "dateTimePickerFechNac";
             dateTimePickerFechNac.Size = new Size(161, 25);
             dateTimePickerFechNac.TabIndex = 14;
+            dateTimePickerFechNac.Tag = "required";
             dateTimePickerFechNac.ValueChanged += dateTimePickerFechNac_ValueChanged;
             // 
             // textBoxDNI
@@ -130,6 +136,7 @@
             textBoxDNI.Name = "textBoxDNI";
             textBoxDNI.Size = new Size(161, 25);
             textBoxDNI.TabIndex = 16;
+            textBoxDNI.Tag = "required";
             textBoxDNI.TextChanged += textBoxDNI_TextChanged;
             // 
             // labelDNI
@@ -141,43 +148,10 @@
             labelDNI.TabIndex = 15;
             labelDNI.Text = "DNI";
             // 
-            // labelGénero
-            // 
-            labelGénero.AutoSize = true;
-            labelGénero.Location = new Point(27, 286);
-            labelGénero.Name = "labelGénero";
-            labelGénero.Size = new Size(51, 17);
-            labelGénero.TabIndex = 17;
-            labelGénero.Text = "Género";
-            // 
-            // radioButtonFemenino
-            // 
-            radioButtonFemenino.AutoSize = true;
-            radioButtonFemenino.Location = new Point(191, 284);
-            radioButtonFemenino.Name = "radioButtonFemenino";
-            radioButtonFemenino.Size = new Size(32, 21);
-            radioButtonFemenino.TabIndex = 18;
-            radioButtonFemenino.TabStop = true;
-            radioButtonFemenino.Text = "F";
-            radioButtonFemenino.UseVisualStyleBackColor = true;
-            radioButtonFemenino.CheckedChanged += radioButtonFemenino_CheckedChanged;
-            // 
-            // radioButtonMasculino
-            // 
-            radioButtonMasculino.AutoSize = true;
-            radioButtonMasculino.Location = new Point(229, 284);
-            radioButtonMasculino.Name = "radioButtonMasculino";
-            radioButtonMasculino.Size = new Size(38, 21);
-            radioButtonMasculino.TabIndex = 19;
-            radioButtonMasculino.TabStop = true;
-            radioButtonMasculino.Text = "M";
-            radioButtonMasculino.UseVisualStyleBackColor = true;
-            radioButtonMasculino.CheckedChanged += radioButtonMasculino_CheckedChanged;
-            // 
             // radioButtonPrefNoDecir
             // 
             radioButtonPrefNoDecir.AutoSize = true;
-            radioButtonPrefNoDecir.Location = new Point(273, 284);
+            radioButtonPrefNoDecir.Location = new Point(101, 14);
             radioButtonPrefNoDecir.Name = "radioButtonPrefNoDecir";
             radioButtonPrefNoDecir.Size = new Size(124, 21);
             radioButtonPrefNoDecir.TabIndex = 20;
@@ -189,16 +163,17 @@
             // dateTimePickerFechIns
             // 
             dateTimePickerFechIns.Format = DateTimePickerFormat.Short;
-            dateTimePickerFechIns.Location = new Point(611, 203);
+            dateTimePickerFechIns.Location = new Point(611, 119);
             dateTimePickerFechIns.Name = "dateTimePickerFechIns";
             dateTimePickerFechIns.Size = new Size(161, 25);
             dateTimePickerFechIns.TabIndex = 26;
+            dateTimePickerFechIns.Tag = "required";
             dateTimePickerFechIns.ValueChanged += dateTimePickerFechIns_ValueChanged;
             // 
             // labelFechInsc
             // 
             labelFechInsc.AutoSize = true;
-            labelFechInsc.Location = new Point(447, 209);
+            labelFechInsc.Location = new Point(447, 125);
             labelFechInsc.Name = "labelFechInsc";
             labelFechInsc.Size = new Size(126, 17);
             labelFechInsc.TabIndex = 25;
@@ -206,16 +181,17 @@
             // 
             // textBoxTelefono
             // 
-            textBoxTelefono.Location = new Point(611, 162);
+            textBoxTelefono.Location = new Point(190, 330);
             textBoxTelefono.Name = "textBoxTelefono";
             textBoxTelefono.Size = new Size(161, 25);
             textBoxTelefono.TabIndex = 24;
+            textBoxTelefono.Tag = "required";
             textBoxTelefono.TextChanged += textBoxTelefono_TextChanged;
             // 
             // labelTelefono
             // 
             labelTelefono.AutoSize = true;
-            labelTelefono.Location = new Point(447, 165);
+            labelTelefono.Location = new Point(26, 333);
             labelTelefono.Name = "labelTelefono";
             labelTelefono.Size = new Size(58, 17);
             labelTelefono.TabIndex = 23;
@@ -223,16 +199,17 @@
             // 
             // textBoxDireccion
             // 
-            textBoxDireccion.Location = new Point(611, 122);
+            textBoxDireccion.Location = new Point(191, 288);
             textBoxDireccion.Name = "textBoxDireccion";
             textBoxDireccion.Size = new Size(161, 25);
             textBoxDireccion.TabIndex = 22;
+            textBoxDireccion.Tag = "required";
             textBoxDireccion.TextChanged += textBoxDireccion_TextChanged;
             // 
             // labelDireccion
             // 
             labelDireccion.AutoSize = true;
-            labelDireccion.Location = new Point(447, 125);
+            labelDireccion.Location = new Point(27, 291);
             labelDireccion.Name = "labelDireccion";
             labelDireccion.Size = new Size(62, 17);
             labelDireccion.TabIndex = 21;
@@ -241,7 +218,7 @@
             // radioButtonAptoFisicoNo
             // 
             radioButtonAptoFisicoNo.AutoSize = true;
-            radioButtonAptoFisicoNo.Location = new Point(669, 241);
+            radioButtonAptoFisicoNo.Location = new Point(150, 31);
             radioButtonAptoFisicoNo.Name = "radioButtonAptoFisicoNo";
             radioButtonAptoFisicoNo.Size = new Size(46, 21);
             radioButtonAptoFisicoNo.TabIndex = 29;
@@ -253,7 +230,7 @@
             // radioButtonAptoFisicoSi
             // 
             radioButtonAptoFisicoSi.AutoSize = true;
-            radioButtonAptoFisicoSi.Location = new Point(611, 241);
+            radioButtonAptoFisicoSi.Location = new Point(92, 31);
             radioButtonAptoFisicoSi.Name = "radioButtonAptoFisicoSi";
             radioButtonAptoFisicoSi.Size = new Size(36, 21);
             radioButtonAptoFisicoSi.TabIndex = 28;
@@ -262,19 +239,10 @@
             radioButtonAptoFisicoSi.UseVisualStyleBackColor = true;
             radioButtonAptoFisicoSi.CheckedChanged += radioButtonAptoFisicoSi_CheckedChanged;
             // 
-            // labelAptoFisico
-            // 
-            labelAptoFisico.AutoSize = true;
-            labelAptoFisico.Location = new Point(447, 241);
-            labelAptoFisico.Name = "labelAptoFisico";
-            labelAptoFisico.Size = new Size(84, 17);
-            labelAptoFisico.TabIndex = 27;
-            labelAptoFisico.Text = "¿Apto Físico?";
-            // 
             // radioButtonSocioNo
             // 
             radioButtonSocioNo.AutoSize = true;
-            radioButtonSocioNo.Location = new Point(669, 272);
+            radioButtonSocioNo.Location = new Point(136, 35);
             radioButtonSocioNo.Name = "radioButtonSocioNo";
             radioButtonSocioNo.Size = new Size(46, 21);
             radioButtonSocioNo.TabIndex = 33;
@@ -286,7 +254,7 @@
             // radioButtonSocioSi
             // 
             radioButtonSocioSi.AutoSize = true;
-            radioButtonSocioSi.Location = new Point(611, 272);
+            radioButtonSocioSi.Location = new Point(78, 35);
             radioButtonSocioSi.Name = "radioButtonSocioSi";
             radioButtonSocioSi.Size = new Size(36, 21);
             radioButtonSocioSi.TabIndex = 32;
@@ -295,22 +263,13 @@
             radioButtonSocioSi.UseVisualStyleBackColor = true;
             radioButtonSocioSi.CheckedChanged += radioButtonSocioSi_CheckedChanged;
             // 
-            // labelSocio
-            // 
-            labelSocio.AutoSize = true;
-            labelSocio.Location = new Point(447, 272);
-            labelSocio.Name = "labelSocio";
-            labelSocio.Size = new Size(52, 17);
-            labelSocio.TabIndex = 31;
-            labelSocio.Text = "¿Socio?";
-            // 
             // buttonRegistroClienteAceptar
             // 
             buttonRegistroClienteAceptar.BackColor = Color.FromArgb(0, 70, 160);
             buttonRegistroClienteAceptar.FlatStyle = FlatStyle.Flat;
             buttonRegistroClienteAceptar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonRegistroClienteAceptar.ForeColor = Color.White;
-            buttonRegistroClienteAceptar.Location = new Point(313, 351);
+            buttonRegistroClienteAceptar.Location = new Point(222, 395);
             buttonRegistroClienteAceptar.Name = "buttonRegistroClienteAceptar";
             buttonRegistroClienteAceptar.Size = new Size(200, 32);
             buttonRegistroClienteAceptar.TabIndex = 34;
@@ -324,7 +283,7 @@
             buttonRegistroClienteCancelar.FlatStyle = FlatStyle.Flat;
             buttonRegistroClienteCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             buttonRegistroClienteCancelar.ForeColor = Color.White;
-            buttonRegistroClienteCancelar.Location = new Point(313, 406);
+            buttonRegistroClienteCancelar.Location = new Point(466, 395);
             buttonRegistroClienteCancelar.Name = "buttonRegistroClienteCancelar";
             buttonRegistroClienteCancelar.Size = new Size(200, 32);
             buttonRegistroClienteCancelar.TabIndex = 35;
@@ -354,30 +313,84 @@
             labelRegistroHeader.Text = "CLUB DEPORTIVO";
             labelRegistroHeader.TextAlign = ContentAlignment.MiddleCenter;
             // 
+            // radioButtonFemenino
+            // 
+            radioButtonFemenino.AutoSize = true;
+            radioButtonFemenino.Location = new Point(19, 14);
+            radioButtonFemenino.Name = "radioButtonFemenino";
+            radioButtonFemenino.Size = new Size(32, 21);
+            radioButtonFemenino.TabIndex = 18;
+            radioButtonFemenino.TabStop = true;
+            radioButtonFemenino.Text = "F";
+            radioButtonFemenino.UseVisualStyleBackColor = true;
+            radioButtonFemenino.CheckedChanged += radioButtonFemenino_CheckedChanged;
+            // 
+            // radioButtonMasculino
+            // 
+            radioButtonMasculino.AutoSize = true;
+            radioButtonMasculino.Location = new Point(57, 14);
+            radioButtonMasculino.Name = "radioButtonMasculino";
+            radioButtonMasculino.Size = new Size(38, 21);
+            radioButtonMasculino.TabIndex = 19;
+            radioButtonMasculino.TabStop = true;
+            radioButtonMasculino.Text = "M";
+            radioButtonMasculino.UseVisualStyleBackColor = true;
+            radioButtonMasculino.CheckedChanged += radioButtonMasculino_CheckedChanged;
+            // 
+            // groupBoxGenero
+            // 
+            groupBoxGenero.Controls.Add(radioButtonPrefNoDecir);
+            groupBoxGenero.Controls.Add(radioButtonMasculino);
+            groupBoxGenero.Controls.Add(radioButtonFemenino);
+            groupBoxGenero.Location = new Point(447, 165);
+            groupBoxGenero.Name = "groupBoxGenero";
+            groupBoxGenero.Size = new Size(325, 45);
+            groupBoxGenero.TabIndex = 37;
+            groupBoxGenero.TabStop = false;
+            groupBoxGenero.Tag = "required";
+            groupBoxGenero.Text = "Género";
+            // 
+            // groupBoxAptoFisico
+            // 
+            groupBoxAptoFisico.Controls.Add(radioButtonAptoFisicoNo);
+            groupBoxAptoFisico.Controls.Add(radioButtonAptoFisicoSi);
+            groupBoxAptoFisico.Location = new Point(447, 224);
+            groupBoxAptoFisico.Name = "groupBoxAptoFisico";
+            groupBoxAptoFisico.Size = new Size(325, 61);
+            groupBoxAptoFisico.TabIndex = 38;
+            groupBoxAptoFisico.TabStop = false;
+            groupBoxAptoFisico.Tag = "required";
+            groupBoxAptoFisico.Text = "¿Apto físico?";
+            // 
+            // groupBoxSocio
+            // 
+            groupBoxSocio.Controls.Add(radioButtonSocioNo);
+            groupBoxSocio.Controls.Add(radioButtonSocioSi);
+            groupBoxSocio.Location = new Point(447, 291);
+            groupBoxSocio.Name = "groupBoxSocio";
+            groupBoxSocio.Size = new Size(325, 70);
+            groupBoxSocio.TabIndex = 39;
+            groupBoxSocio.TabStop = false;
+            groupBoxSocio.Tag = "required";
+            groupBoxSocio.Text = "¿Socio?";
+            // 
             // FormRegistroCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(groupBoxSocio);
+            Controls.Add(groupBoxAptoFisico);
+            Controls.Add(groupBoxGenero);
             Controls.Add(panelRegistroHeader);
             Controls.Add(buttonRegistroClienteCancelar);
             Controls.Add(buttonRegistroClienteAceptar);
-            Controls.Add(radioButtonSocioNo);
-            Controls.Add(radioButtonSocioSi);
-            Controls.Add(labelSocio);
-            Controls.Add(radioButtonAptoFisicoNo);
-            Controls.Add(radioButtonAptoFisicoSi);
-            Controls.Add(labelAptoFisico);
             Controls.Add(dateTimePickerFechIns);
             Controls.Add(labelFechInsc);
             Controls.Add(textBoxTelefono);
             Controls.Add(labelTelefono);
             Controls.Add(textBoxDireccion);
             Controls.Add(labelDireccion);
-            Controls.Add(radioButtonPrefNoDecir);
-            Controls.Add(radioButtonMasculino);
-            Controls.Add(radioButtonFemenino);
-            Controls.Add(labelGénero);
             Controls.Add(textBoxDNI);
             Controls.Add(labelDNI);
             Controls.Add(dateTimePickerFechNac);
@@ -392,6 +405,12 @@
             Load += FormRegistroCliente_Load;
             panelRegistroHeader.ResumeLayout(false);
             panelRegistroHeader.PerformLayout();
+            groupBoxGenero.ResumeLayout(false);
+            groupBoxGenero.PerformLayout();
+            groupBoxAptoFisico.ResumeLayout(false);
+            groupBoxAptoFisico.PerformLayout();
+            groupBoxSocio.ResumeLayout(false);
+            groupBoxSocio.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -407,9 +426,6 @@
         private DateTimePicker dateTimePickerFechNac;
         private TextBox textBoxDNI;
         private Label labelDNI;
-        private Label labelGénero;
-        private RadioButton radioButtonFemenino;
-        private RadioButton radioButtonMasculino;
         private RadioButton radioButtonPrefNoDecir;
         private DateTimePicker dateTimePickerFechIns;
         private Label labelFechInsc;
@@ -419,13 +435,16 @@
         private Label labelDireccion;
         private RadioButton radioButtonAptoFisicoNo;
         private RadioButton radioButtonAptoFisicoSi;
-        private Label labelAptoFisico;
         private RadioButton radioButtonSocioNo;
         private RadioButton radioButtonSocioSi;
-        private Label labelSocio;
         private Button buttonRegistroClienteAceptar;
         private Button buttonRegistroClienteCancelar;
         private Panel panelRegistroHeader;
         private Label labelRegistroHeader;
+        private RadioButton radioButtonFemenino;
+        private RadioButton radioButtonMasculino;
+        private GroupBox groupBoxGenero;
+        private GroupBox groupBoxAptoFisico;
+        private GroupBox groupBoxSocio;
     }
 }

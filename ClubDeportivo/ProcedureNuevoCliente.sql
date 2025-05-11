@@ -8,8 +8,8 @@
   in Gen enum('F','M','Prefiero no decir'), 
   in Dir varchar(60), in Tel varchar(30), 
   in FechaInsc date, 
-  in AptoF enum('Sí','No'), 
-  in Soc enum('Sí','No'), 
+  in AptoF tinyint, 
+  in Soc tinyint, 
   out rta int
 )
  begin

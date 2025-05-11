@@ -35,6 +35,6 @@ Genero ENUM('F','M','Prefiero no decir') not null,
 Direccion varchar(60) not null,
 Telefono varchar(30) not null,
 FechaInscripcion date not null,
-AptoFisico ENUM('Sí','No') not null,
-Socio ENUM('Sí','No') not null
+AptoFisico tinyint not null,
+Socio tinyint not null
 );

@@ -57,6 +57,16 @@
             groupBoxGenero = new GroupBox();
             groupBoxAptoFisico = new GroupBox();
             groupBoxSocio = new GroupBox();
+            labelAsterisco = new Label();
+            label1 = new Label();
+            label2 = new Label();
+            label3 = new Label();
+            label4 = new Label();
+            label5 = new Label();
+            label6 = new Label();
+            label7 = new Label();
+            label8 = new Label();
+            labelWarning = new Label();
             panelRegistroHeader.SuspendLayout();
             groupBoxGenero.SuspendLayout();
             groupBoxAptoFisico.SuspendLayout();
@@ -127,7 +137,7 @@
             dateTimePickerFechNac.Name = "dateTimePickerFechNac";
             dateTimePickerFechNac.Size = new Size(161, 25);
             dateTimePickerFechNac.TabIndex = 14;
-            dateTimePickerFechNac.Tag = "required";
+            dateTimePickerFechNac.Tag = "\"required\"";
             dateTimePickerFechNac.ValueChanged += dateTimePickerFechNac_ValueChanged;
             // 
             // textBoxDNI
@@ -163,17 +173,17 @@
             // dateTimePickerFechIns
             // 
             dateTimePickerFechIns.Format = DateTimePickerFormat.Short;
-            dateTimePickerFechIns.Location = new Point(611, 119);
+            dateTimePickerFechIns.Location = new Point(603, 120);
             dateTimePickerFechIns.Name = "dateTimePickerFechIns";
             dateTimePickerFechIns.Size = new Size(161, 25);
             dateTimePickerFechIns.TabIndex = 26;
-            dateTimePickerFechIns.Tag = "required";
+            dateTimePickerFechIns.Tag = "";
             dateTimePickerFechIns.ValueChanged += dateTimePickerFechIns_ValueChanged;
             // 
             // labelFechInsc
             // 
             labelFechInsc.AutoSize = true;
-            labelFechInsc.Location = new Point(447, 125);
+            labelFechInsc.Location = new Point(439, 126);
             labelFechInsc.Name = "labelFechInsc";
             labelFechInsc.Size = new Size(126, 17);
             labelFechInsc.TabIndex = 25;
@@ -275,7 +285,7 @@
             buttonRegistroClienteAceptar.TabIndex = 34;
             buttonRegistroClienteAceptar.Text = "Aceptar y emitir carnet";
             buttonRegistroClienteAceptar.UseVisualStyleBackColor = false;
-            buttonRegistroClienteAceptar.Click += buttonRegistro_Click;
+            buttonRegistroClienteAceptar.Click += buttonRegistroClienteAceptar_Click;
             // 
             // buttonRegistroClienteCancelar
             // 
@@ -342,43 +352,163 @@
             groupBoxGenero.Controls.Add(radioButtonPrefNoDecir);
             groupBoxGenero.Controls.Add(radioButtonMasculino);
             groupBoxGenero.Controls.Add(radioButtonFemenino);
-            groupBoxGenero.Location = new Point(447, 165);
+            groupBoxGenero.Location = new Point(439, 166);
             groupBoxGenero.Name = "groupBoxGenero";
             groupBoxGenero.Size = new Size(325, 45);
             groupBoxGenero.TabIndex = 37;
             groupBoxGenero.TabStop = false;
-            groupBoxGenero.Tag = "required";
+            groupBoxGenero.Tag = "\"required\"";
             groupBoxGenero.Text = "Género";
             // 
             // groupBoxAptoFisico
             // 
             groupBoxAptoFisico.Controls.Add(radioButtonAptoFisicoNo);
             groupBoxAptoFisico.Controls.Add(radioButtonAptoFisicoSi);
-            groupBoxAptoFisico.Location = new Point(447, 224);
+            groupBoxAptoFisico.Location = new Point(439, 225);
             groupBoxAptoFisico.Name = "groupBoxAptoFisico";
             groupBoxAptoFisico.Size = new Size(325, 61);
             groupBoxAptoFisico.TabIndex = 38;
             groupBoxAptoFisico.TabStop = false;
-            groupBoxAptoFisico.Tag = "required";
+            groupBoxAptoFisico.Tag = "\"required\"";
             groupBoxAptoFisico.Text = "¿Apto físico?";
             // 
             // groupBoxSocio
             // 
             groupBoxSocio.Controls.Add(radioButtonSocioNo);
             groupBoxSocio.Controls.Add(radioButtonSocioSi);
-            groupBoxSocio.Location = new Point(447, 291);
+            groupBoxSocio.Location = new Point(439, 292);
             groupBoxSocio.Name = "groupBoxSocio";
             groupBoxSocio.Size = new Size(325, 70);
             groupBoxSocio.TabIndex = 39;
             groupBoxSocio.TabStop = false;
-            groupBoxSocio.Tag = "required";
+            groupBoxSocio.Tag = "\"required\"";
             groupBoxSocio.Text = "¿Socio?";
+            // 
+            // labelAsterisco
+            // 
+            labelAsterisco.AutoSize = true;
+            labelAsterisco.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            labelAsterisco.ForeColor = Color.Red;
+            labelAsterisco.Location = new Point(358, 129);
+            labelAsterisco.Name = "labelAsterisco";
+            labelAsterisco.Size = new Size(17, 21);
+            labelAsterisco.TabIndex = 40;
+            labelAsterisco.Text = "*";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.ForeColor = Color.Red;
+            label1.Location = new Point(358, 168);
+            label1.Name = "label1";
+            label1.Size = new Size(17, 21);
+            label1.TabIndex = 41;
+            label1.Text = "*";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.ForeColor = Color.Red;
+            label2.Location = new Point(358, 206);
+            label2.Name = "label2";
+            label2.Size = new Size(17, 21);
+            label2.TabIndex = 42;
+            label2.Text = "*";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.ForeColor = Color.Red;
+            label3.Location = new Point(358, 246);
+            label3.Name = "label3";
+            label3.Size = new Size(17, 21);
+            label3.TabIndex = 43;
+            label3.Text = "*";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label4.ForeColor = Color.Red;
+            label4.Location = new Point(358, 292);
+            label4.Name = "label4";
+            label4.Size = new Size(17, 21);
+            label4.TabIndex = 44;
+            label4.Text = "*";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.ForeColor = Color.Red;
+            label5.Location = new Point(357, 333);
+            label5.Name = "label5";
+            label5.Size = new Size(17, 21);
+            label5.TabIndex = 45;
+            label5.Text = "*";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.ForeColor = Color.Red;
+            label6.Location = new Point(770, 180);
+            label6.Name = "label6";
+            label6.Size = new Size(17, 21);
+            label6.TabIndex = 46;
+            label6.Text = "*";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.ForeColor = Color.Red;
+            label7.Location = new Point(770, 248);
+            label7.Name = "label7";
+            label7.Size = new Size(17, 21);
+            label7.TabIndex = 47;
+            label7.Text = "*";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.ForeColor = Color.Red;
+            label8.Location = new Point(770, 314);
+            label8.Name = "label8";
+            label8.Size = new Size(17, 21);
+            label8.TabIndex = 48;
+            label8.Text = "*";
+            // 
+            // labelWarning
+            // 
+            labelWarning.AutoSize = true;
+            labelWarning.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelWarning.ForeColor = Color.Red;
+            labelWarning.Location = new Point(357, 375);
+            labelWarning.Name = "labelWarning";
+            labelWarning.Size = new Size(125, 13);
+            labelWarning.TabIndex = 49;
+            labelWarning.Text = "* Campos  obligatorios";
             // 
             // FormRegistroCliente
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(labelWarning);
+            Controls.Add(label8);
+            Controls.Add(label7);
+            Controls.Add(label6);
+            Controls.Add(label5);
+            Controls.Add(label4);
+            Controls.Add(label3);
+            Controls.Add(label2);
+            Controls.Add(label1);
+            Controls.Add(labelAsterisco);
             Controls.Add(groupBoxSocio);
             Controls.Add(groupBoxAptoFisico);
             Controls.Add(groupBoxGenero);
@@ -446,5 +576,15 @@
         private GroupBox groupBoxGenero;
         private GroupBox groupBoxAptoFisico;
         private GroupBox groupBoxSocio;
+        private Label labelAsterisco;
+        private Label label1;
+        private Label label2;
+        private Label label3;
+        private Label label4;
+        private Label label5;
+        private Label label6;
+        private Label label7;
+        private Label label8;
+        private Label labelWarning;
     }
 }

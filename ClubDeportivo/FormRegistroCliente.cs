@@ -13,11 +13,13 @@ namespace ClubDeportivo
 {
     public partial class FormRegistroCliente : Form
     {
-      private string nombreUsuario;
+        private string nombreUsuario;
+        private DateTime fechaInicial;
         public FormRegistroCliente(string usuario)
         {
             InitializeComponent();
             nombreUsuario = usuario;
+            fechaInicial = dateTimePickerFechNac.Value;
         }
         //al cargar el formulario sale un recordatorio del apto fisico
         private void FormRegistroCliente_Load(object sender, EventArgs e)
@@ -102,12 +104,50 @@ namespace ClubDeportivo
         {
 
         }
+        // Validar campos requeridos
+        private bool ValidarCamposObligatorios()
+        {
+            if(textBoxNombre.Text == ""|| textBoxApellido.Text == ""|| textBoxDNI.Text == ""|| textBoxDireccion.Text == ""|| textBoxTelefono.Text == "" ){
+                return false;
+            }
+
+            bool radioSeleccionadoGenero = groupBoxGenero.Controls
+        .OfType<RadioButton>()
+        .Any(r => r.Checked);
+
+            bool radioSeleccionadoSocio = groupBoxSocio.Controls
+       .OfType<RadioButton>()
+       .Any(r => r.Checked);
+            bool radioSeleccionadoAptoFisico = groupBoxAptoFisico.Controls
+        .OfType<RadioButton>()
+        .Any(r => r.Checked);
+
+            if (!radioSeleccionadoGenero || !radioSeleccionadoSocio || !radioSeleccionadoAptoFisico)
+            {
+                return false;
+            }
+
+            if (dateTimePickerFechNac.Value.Date == fechaInicial.Date)
+            {
+                return false;
+            }
+
+            return true; 
+        }
+
         //############################################
         //Botones
         //ACEPTAR Y EMITIR CARNET
-        private void buttonRegistro_Click(object sender, EventArgs e)
+        private void buttonRegistroClienteAceptar_Click(object sender, EventArgs e)
         {
-           
+            // Función de validación
+            if (!ValidarCamposObligatorios())
+            {
+                
+                MessageBox.Show("Todos los campos son obligatorios.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            //Configuracion aceptar
+
         }
         //CANCELAR 
         private void buttonRegistroClienteCancelar_Click(object sender, EventArgs e)
@@ -117,6 +157,7 @@ namespace ClubDeportivo
             this.Hide();
         }
 
+        
     }
-    }
+}
 

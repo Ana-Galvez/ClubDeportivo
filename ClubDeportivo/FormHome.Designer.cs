@@ -35,6 +35,7 @@
             buttonListadoSociosMorosos = new Button();
             panelHeader = new Panel();
             labelHeader = new Label();
+            buttonSalir = new Button();
             panelHeader.SuspendLayout();
             SuspendLayout();
             // 
@@ -95,6 +96,7 @@
             // panelHeader
             // 
             panelHeader.BackColor = Color.FromArgb(0, 70, 160);
+            panelHeader.Controls.Add(buttonSalir);
             panelHeader.Controls.Add(labelHeader);
             panelHeader.ForeColor = Color.FromArgb(0, 70, 160);
             panelHeader.Location = new Point(1, 0);
@@ -113,6 +115,16 @@
             labelHeader.TabIndex = 0;
             labelHeader.Text = "CLUB DEPORTIVO";
             labelHeader.TextAlign = ContentAlignment.MiddleLeft;
+            // 
+            // buttonSalir
+            // 
+            buttonSalir.Location = new Point(692, 16);
+            buttonSalir.Name = "buttonSalir";
+            buttonSalir.Size = new Size(95, 23);
+            buttonSalir.TabIndex = 1;
+            buttonSalir.Text = "Cerrar Sección";
+            buttonSalir.UseVisualStyleBackColor = true;
+            buttonSalir.Click += buttonSalir_Click;
             // 
             // FormHome
             // 
@@ -144,5 +156,6 @@
         private Button buttonListadoSociosMorosos;
         private Panel panelHeader;
         private Label labelHeader;
+        private Button buttonSalir;
     }
 }

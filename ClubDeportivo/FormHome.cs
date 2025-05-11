@@ -27,7 +27,9 @@ namespace ClubDeportivo
 
         private void buttonRegistrarCliente_Click(object sender, EventArgs e)
         {
-
+            FormRegistroCliente nuevoFormulario = new FormRegistroCliente();
+            nuevoFormulario.Show();
+            this.Hide();
         }
 
         private void buttonRegistrarPago_Click(object sender, EventArgs e)

@@ -53,7 +53,6 @@ namespace ClubDeportivo
             DialogResult resultado = MessageBox.Show("¿Estás seguro que deseas cerrar sesión?", "Cerrar sesión", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (resultado == DialogResult.Yes)
             {
-                // Oculta el formulario actual (por ejemplo, FormHome)
                 this.Hide();
 
                 // Abre nuevamente el formulario de inicio de sesión

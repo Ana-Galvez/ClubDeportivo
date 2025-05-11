@@ -34,8 +34,8 @@
             buttonRegistrarPago = new Button();
             buttonListadoSociosMorosos = new Button();
             panelHeader = new Panel();
-            labelHeader = new Label();
             buttonSalir = new Button();
+            labelHeader = new Label();
             panelHeader.SuspendLayout();
             SuspendLayout();
             // 
@@ -104,6 +104,16 @@
             panelHeader.Size = new Size(798, 53);
             panelHeader.TabIndex = 4;
             // 
+            // buttonSalir
+            // 
+            buttonSalir.Location = new Point(692, 16);
+            buttonSalir.Name = "buttonSalir";
+            buttonSalir.Size = new Size(95, 23);
+            buttonSalir.TabIndex = 1;
+            buttonSalir.Text = "Cerrar Sesión";
+            buttonSalir.UseVisualStyleBackColor = true;
+            buttonSalir.Click += buttonSalir_Click;
+            // 
             // labelHeader
             // 
             labelHeader.AutoSize = true;
@@ -115,16 +125,6 @@
             labelHeader.TabIndex = 0;
             labelHeader.Text = "CLUB DEPORTIVO";
             labelHeader.TextAlign = ContentAlignment.MiddleLeft;
-            // 
-            // buttonSalir
-            // 
-            buttonSalir.Location = new Point(692, 16);
-            buttonSalir.Name = "buttonSalir";
-            buttonSalir.Size = new Size(95, 23);
-            buttonSalir.TabIndex = 1;
-            buttonSalir.Text = "Cerrar Sección";
-            buttonSalir.UseVisualStyleBackColor = true;
-            buttonSalir.Click += buttonSalir_Click;
             // 
             // FormHome
             // 

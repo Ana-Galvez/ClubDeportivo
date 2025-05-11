@@ -58,6 +58,7 @@ namespace ClubDeportivo
                 // Abre nuevamente el formulario de inicio de sesión
                 FormIniciarSesion login = new FormIniciarSesion();
                 login.Show();
+
             }
         }
     }

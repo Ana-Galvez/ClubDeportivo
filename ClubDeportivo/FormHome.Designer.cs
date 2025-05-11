@@ -43,7 +43,7 @@
             labelBienvenida.AutoSize = true;
             labelBienvenida.BackColor = Color.Transparent;
             labelBienvenida.Font = new Font("Segoe UI", 15.75F);
-            labelBienvenida.Location = new Point(297, 77);
+            labelBienvenida.Location = new Point(319, 96);
             labelBienvenida.Name = "labelBienvenida";
             labelBienvenida.Size = new Size(146, 30);
             labelBienvenida.TabIndex = 0;

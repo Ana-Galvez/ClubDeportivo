@@ -135,18 +135,100 @@ namespace ClubDeportivo
             return true; 
         }
 
+        //Versión del validar datos de entrada con mensajes
+        private string ValidarCamposObligatoriosDetalle()
+        {
+            //nombre
+            if (string.IsNullOrWhiteSpace(textBoxNombre.Text))
+                return "Debe ingresar el nombre.";
+            //apellido
+            if (string.IsNullOrWhiteSpace(textBoxApellido.Text))
+                return "Debe ingresar el apellido.";
+            //Fecha nac
+            if (dateTimePickerFechNac.Value.Date == DateTime.Today)
+                return "Debe seleccionar una fecha de nacimiento válida.";
+            if (dateTimePickerFechNac.Value.Date > DateTime.Today)
+                return "La fecha de nacimiento no puede ser futura.";
+            //dni
+            if (string.IsNullOrWhiteSpace(textBoxDNI.Text))
+                return "Debe ingresar el DNI.";
+            //dirección
+            if (string.IsNullOrWhiteSpace(textBoxDireccion.Text))
+                return "Debe ingresar la dirección.";
+            //telefono
+            if (string.IsNullOrWhiteSpace(textBoxTelefono.Text))
+                return "Debe ingresar el teléfono.";
+            //genero
+            bool generoOk = groupBoxGenero.Controls.OfType<RadioButton>().Any(r => r.Checked);
+            if (!generoOk)
+                return "Debe seleccionar un género.";
+            //apto fisico
+            bool aptoOk = groupBoxAptoFisico.Controls.OfType<RadioButton>().Any(r => r.Checked);
+            if (!aptoOk)
+                return "Debe indicar si tiene apto físico.";
+            //socio o no socio
+            bool socioOk = groupBoxSocio.Controls.OfType<RadioButton>().Any(r => r.Checked);
+            if (!socioOk)
+                return "Debe indicar si es socio.";
+
+            return ""; // Todo OK
+        }
+
+
         //############################################
         //Botones
         //ACEPTAR Y EMITIR CARNET
         private void buttonRegistroClienteAceptar_Click(object sender, EventArgs e)
         {
-            // Función de validación
-            if (!ValidarCamposObligatorios())
-            {
-                
+            // ------------valido datos obligatorios ---------------------------
+            /*if (!ValidarCamposObligatorios())
+            {                
                 MessageBox.Show("Todos los campos son obligatorios.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }*/
+            string mensajeValidacion = ValidarCamposObligatoriosDetalle();
+            if (mensajeValidacion != "")
+            {
+                MessageBox.Show(mensajeValidacion, "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
             }
-            //Configuracion aceptar
+            //------------ obtengo los datos ------------------------------------
+            //género
+            string genero = radioButtonFemenino.Checked ? "F" : radioButtonMasculino.Checked ? "M" : "Prefiero no decir";
+            //apto físico
+            bool aptoFisico = radioButtonAptoFisicoSi.Checked;
+            // Socio o no socio
+            bool socio = radioButtonSocioSi.Checked;
+            // objeto cliente
+            Entidades.E_Cliente cliente = new Entidades.E_Cliente
+            {
+                Nombre = textBoxNombre.Text.Trim(),
+                Apellido = textBoxApellido.Text.Trim(),
+                FechaNacimiento = dateTimePickerFechNac.Value.Date,
+                DNI = int.Parse(textBoxDNI.Text.Trim()),
+                Genero = genero,
+                Direccion = textBoxDireccion.Text.Trim(),
+                Telefono = textBoxTelefono.Text.Trim(),
+                FechaInscripcion = dateTimePickerFechIns.Value.Date,
+                AptoFisico = aptoFisico,
+                Socio = socio
+            };
+
+            // Llamar al método de inserción
+            Datos.Cliente clienteDatos = new Datos.Cliente();
+            string respuesta = clienteDatos.Nuevo_Cliente(cliente);
+
+            // Mostrar resultado
+            if (respuesta.StartsWith("Cliente creado"))
+            {
+                MessageBox.Show(respuesta, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                FormHome volver = new FormHome(nombreUsuario);
+                volver.Show();
+                this.Hide();
+            }
+            else
+            {
+                MessageBox.Show(respuesta, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
 
         }
         //CANCELAR 

@@ -166,6 +166,9 @@ namespace ClubDeportivo
             bool aptoOk = groupBoxAptoFisico.Controls.OfType<RadioButton>().Any(r => r.Checked);
             if (!aptoOk)
                 return "Debe indicar si tiene apto físico.";
+            else if (!radioButtonAptoFisicoSi.Checked)
+                return "Solo se pueden registrar clientes con apto físico aprobado.";
+
             //socio o no socio
             bool socioOk = groupBoxSocio.Controls.OfType<RadioButton>().Any(r => r.Checked);
             if (!socioOk)

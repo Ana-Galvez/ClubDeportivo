@@ -35,7 +35,7 @@ namespace ClubDeportivo.Datos
 
                 //Salida -> -1 si ya existe el dni en la base de datos
                 MySqlParameter respuestaBD = new MySqlParameter("rta", MySqlDbType.Int32);
-               respuestaBD.Direction = ParameterDirection.Output;
+                respuestaBD.Direction = ParameterDirection.Output;
                 comando.Parameters.Add(respuestaBD);
 
                 sqlCon.Open();

@@ -21,7 +21,8 @@ namespace ClubDeportivo.Datos
                 sqlCon = Conexion.getInstancia().CrearConexion();
                 MySqlCommand comando = new MySqlCommand("NuevoCliente", sqlCon);
                 comando.CommandType = CommandType.StoredProcedure;
-                //Datos entrada
+
+                //Definición de los parametros
                 comando.Parameters.Add("p_Nombre", MySqlDbType.VarChar).Value = c.Nombre;
                 comando.Parameters.Add("p_Apellido", MySqlDbType.VarChar).Value = c.Apellido;
                 comando.Parameters.Add("p_FechaNacimiento", MySqlDbType.Date).Value = c.FechaNacimiento;

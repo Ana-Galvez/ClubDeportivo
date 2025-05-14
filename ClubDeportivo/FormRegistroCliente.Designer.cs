@@ -533,7 +533,7 @@
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Name = "FormRegistroCliente";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registrar Cliente";
+            Text = "CLUB DEPORTIVO";
             Load += FormRegistroCliente_Load;
             panelRegistroHeader.ResumeLayout(false);
             panelRegistroHeader.PerformLayout();

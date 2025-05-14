@@ -9,24 +9,6 @@ namespace ClubDeportivo
             InitializeComponent();
         }
 
-        //prueba sin base de datos
-        /*private void buttonIngresar_Click(object sender, EventArgs e)
-        {
-            string usuario = textBoxUsuario.Text;
-            string contrasena = textBoxContrasena.Text;
-
-            if (usuario == "admin" && contrasena == "1234")
-            {
-                FormHome formHome = new FormHome();
-                formHome.Show();
-                this.Hide();//this.Close();
-            }
-            else
-            {
-                MessageBox.Show("Usuario o contraseña incorrectos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }*/
-
         private void buttonIngresar_Click(object sender, EventArgs e)
         {
             string usuario = textBoxUsuario.Text.Trim();
@@ -53,8 +35,6 @@ namespace ClubDeportivo
         }
 
 
-
-        //nose si queremos q el boton cancelar vuelva a inicio o cierre todo
         private void buttonCancelar_Click(object sender, EventArgs e)
         {
             FormPantallaInicio formInicio = new FormPantallaInicio();
@@ -62,16 +42,6 @@ namespace ClubDeportivo
             this.Hide();// this.Close();        
         }
 
-        //version que cierra toda la aplicación
-        /*private void buttonCancelar_Click(object sender, EventArgs e)
-        {
-            Application.Exit(); 
-        }*/
         
-
-        /* private void labelInicioBienvenida_Click(object sender, EventArgs e)
-         {
-
-         }*/
     }
 }

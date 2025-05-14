@@ -54,7 +54,6 @@ namespace ClubDeportivo
             if (resultado == DialogResult.Yes)
             {
                 this.Hide();
-
                 // Abre nuevamente el formulario de inicio de sesión
                 FormIniciarSesion login = new FormIniciarSesion();
                 login.Show();

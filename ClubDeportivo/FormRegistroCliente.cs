@@ -184,10 +184,7 @@ namespace ClubDeportivo
         private void buttonRegistroClienteAceptar_Click(object sender, EventArgs e)
         {
             // ------------valido datos obligatorios ---------------------------
-            /*if (!ValidarCamposObligatorios())
-            {                
-                MessageBox.Show("Todos los campos son obligatorios.", "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            }*/
+            
             string mensajeValidacion = ValidarCamposObligatoriosDetalle();
             if (mensajeValidacion != "")
             {

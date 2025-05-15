@@ -221,16 +221,15 @@ namespace ClubDeportivo
             // Mostrar resultado
             if (respuesta.StartsWith("Cliente creado"))
             {
-                //MessageBox.Show(respuesta, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                //FormHome volver = new FormHome(nombreUsuario);
-                //volver.Show();
                 string idStr = respuesta.Replace("Cliente creado con ID: ", "").Trim();
                 if (int.TryParse(idStr, out int id))
                 {
                     cliente.IDCliente = id;
                 }
-                FormCarnet nuevoFormulario = new FormCarnet(cliente,nombreUsuario);
-                nuevoFormulario.Show();
+                MessageBox.Show(respuesta, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                FormCarnet volver = new FormCarnet(cliente, nombreUsuario);
+                volver.Show();
                 this.Hide();
             }
             else

@@ -107,6 +107,7 @@
             buttonCancelar.TabIndex = 6;
             buttonCancelar.Text = "Cancelar";
             buttonCancelar.UseVisualStyleBackColor = false;
+            buttonCancelar.Click += buttonCancelar_Click;
             // 
             // labelInicioBienvenida
             // 

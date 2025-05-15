@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ClubDeportivo.Datos;
+using ClubDeportivo.Entidades;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +9,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using ClubDeportivo.Datos;
 
 namespace ClubDeportivo
 {
@@ -220,9 +221,16 @@ namespace ClubDeportivo
             // Mostrar resultado
             if (respuesta.StartsWith("Cliente creado"))
             {
-                MessageBox.Show(respuesta, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                FormHome volver = new FormHome(nombreUsuario);
-                volver.Show();
+                //MessageBox.Show(respuesta, "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //FormHome volver = new FormHome(nombreUsuario);
+                //volver.Show();
+                string idStr = respuesta.Replace("Cliente creado con ID: ", "").Trim();
+                if (int.TryParse(idStr, out int id))
+                {
+                    cliente.IDCliente = id;
+                }
+                FormCarnet nuevoFormulario = new FormCarnet(cliente,nombreUsuario);
+                nuevoFormulario.Show();
                 this.Hide();
             }
             else

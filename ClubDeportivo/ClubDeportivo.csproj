@@ -16,4 +16,8 @@
     <Compile Update="FormIniciarSesion.cs" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+
 </Project>

@@ -56,7 +56,9 @@ git clone https://github.com/Ana-Galvez/ClubDeportivo.git
 - Desde su gestor de base de datos, correr el script que se encuentra en:
 
 ````
-cd database/proyecto_centrodeport.sql
+cd ClubDeportivo
+cd database
+proyecto_centrodeport.sql
 ````
 - Levantar el servidor para la base de datos desde su gestor de base de datos.
 

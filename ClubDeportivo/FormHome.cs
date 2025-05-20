@@ -41,7 +41,7 @@ namespace ClubDeportivo
                     if (modal.EsSocioModal)
                     {
                         // Abrir formulario para socios
-                        new FormPagoSocio().Show();
+                        new FormPagoSocio(nombreUsuario).Show();
                         this.Close();
                     }
                     

@@ -13,9 +13,11 @@ namespace ClubDeportivo
 {
     public partial class FormPagoSocio : Form
     {
-        public FormPagoSocio()
+        private string nombreUsuario;
+        public FormPagoSocio(string usuario)
         {
             InitializeComponent();
+            nombreUsuario = usuario;
         }
         //Si se elige tarjeta se habilitan los campos
         private void comboBoxModoPago_SelectedIndexChanged(object sender, EventArgs e)
@@ -63,9 +65,6 @@ namespace ClubDeportivo
             // Se validan como campos obligarios solo si el modo de pago seleccionado es Tarjeta
             if (comboBoxModoPago.SelectedItem?.ToString() == "Tarjeta")
             {
-                //Fecha de vencimiento
-                if (dateTimePickerFechVen.Value.Date <= DateTime.Today)
-                    return "La fecha de vencimiento de la tarjeta debe ser futura.";
                 //Cuota
                 if (string.IsNullOrWhiteSpace(comboBoxNumCuota.Text))
                     return "Debe ingresar la cantidad de cuotas a pagar.";
@@ -75,6 +74,9 @@ namespace ClubDeportivo
                 //Num Verificación
                 if (string.IsNullOrWhiteSpace(textBoxNumVerificacion.Text))
                     return "Debe ingresar el N° de verificación de la tarjeta.";
+                //Fecha de vencimiento
+                if (dateTimePickerFechVen.Value.Date <= DateTime.Today)
+                    return "La fecha de vencimiento de la tarjeta debe ser futura.";
             }
             return ""; 
         }
@@ -92,7 +94,7 @@ namespace ClubDeportivo
         }
         private void buttonPagoSocioCancelar_Click(object sender, EventArgs e)
         {
-            new FormHome().Show();
+            new FormHome(nombreUsuario).Show();
             this.Close();
         }
     }

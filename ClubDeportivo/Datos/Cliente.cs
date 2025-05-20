@@ -62,5 +62,40 @@ namespace ClubDeportivo.Datos
 
             return respuesta;
         }
+        public DataTable VerificarClienteID(int idCliente)
+        {
+            MySqlDataReader resultado;
+            DataTable tabla = new DataTable();
+            MySqlConnection sqlCon = new MySqlConnection();
+            try
+            {
+                sqlCon = Conexion.getInstancia().CrearConexion();
+
+                MySqlCommand comando = new MySqlCommand
+            ("VerificarClienteID", sqlCon);
+                comando.CommandType = CommandType.StoredProcedure;
+
+                comando.Parameters.Add("p_ClienteID",
+                MySqlDbType.VarChar).Value = idCliente;
+
+                sqlCon.Open();
+                resultado = comando.ExecuteReader();
+
+                tabla.Load(resultado);
+
+                return tabla;
+            }
+            catch (Exception ex)
+            {
+                throw;
+            }
+
+            finally
+            {
+                if (sqlCon.State == ConnectionState.Open)
+                { sqlCon.Close(); }
+                ;
+            }
+        }
     }
 }

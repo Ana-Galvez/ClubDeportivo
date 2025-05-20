@@ -34,7 +34,19 @@ namespace ClubDeportivo
 
         private void buttonRegistrarPago_Click(object sender, EventArgs e)
         {
-
+            using (var modal = new ModalPagoSocioONoSocio())
+            {
+                if (modal.ShowDialog() == DialogResult.OK)
+                {
+                    if (modal.EsSocioModal)
+                    {
+                        // Abrir formulario para socios
+                        new FormPagoSocio().Show();
+                        this.Close();
+                    }
+                    
+                }
+            }
         }
 
         private void FormHome_Load(object sender, EventArgs e)

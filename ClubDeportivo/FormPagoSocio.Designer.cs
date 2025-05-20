@@ -413,7 +413,7 @@
             Controls.Add(panelPagoSocioHeader);
             Name = "FormPagoSocio";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registrar pago socio";
+            Text = "CLUB DEPORTIVO";
             panelPagoSocioHeader.ResumeLayout(false);
             panelPagoSocioHeader.PerformLayout();
             ResumeLayout(false);

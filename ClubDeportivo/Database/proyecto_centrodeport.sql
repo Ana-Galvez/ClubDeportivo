@@ -127,6 +127,17 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 INSERT INTO `usuario` (`CodUsu`, `NombreUsu`, `PassUsu`, `RolUsu`, `Activo`) VALUES
 	(1, 'Ana', '123456', 120, 1);
 
+-- Volcando datos para el procedure verificarClienteID
+  	DELIMITER //
+CREATE PROCEDURE `VerificarClienteID`(
+    IN p_ClienteID INT
+)
+BEGIN
+-- Busco el id de cliente en la tabla cliente, devuelve el valor si existe
+    SELECT IDCliente FROM cliente WHERE IDCliente = p_ClienteID;
+END//
+DELIMITER ;
+
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;

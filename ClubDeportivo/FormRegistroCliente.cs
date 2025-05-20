@@ -105,36 +105,6 @@ namespace ClubDeportivo
         {
 
         }
-        // Validar campos requeridos
-        private bool ValidarCamposObligatorios()
-        {
-            if(textBoxNombre.Text == ""|| textBoxApellido.Text == ""|| textBoxDNI.Text == ""|| textBoxDireccion.Text == ""|| textBoxTelefono.Text == "" ){
-                return false;
-            }
-
-            bool radioSeleccionadoGenero = groupBoxGenero.Controls
-        .OfType<RadioButton>()
-        .Any(r => r.Checked);
-
-            bool radioSeleccionadoSocio = groupBoxSocio.Controls
-       .OfType<RadioButton>()
-       .Any(r => r.Checked);
-            bool radioSeleccionadoAptoFisico = groupBoxAptoFisico.Controls
-        .OfType<RadioButton>()
-        .Any(r => r.Checked);
-
-            if (!radioSeleccionadoGenero || !radioSeleccionadoSocio || !radioSeleccionadoAptoFisico)
-            {
-                return false;
-            }
-
-            if (dateTimePickerFechNac.Value.Date == fechaInicial.Date)
-            {
-                return false;
-            }
-
-            return true; 
-        }
 
         //Versión del validar datos de entrada con mensajes
         private string ValidarCamposObligatoriosDetalle()
@@ -185,7 +155,7 @@ namespace ClubDeportivo
         private void buttonRegistroClienteAceptar_Click(object sender, EventArgs e)
         {
             // ------------valido datos obligatorios ---------------------------
-            
+           
             string mensajeValidacion = ValidarCamposObligatoriosDetalle();
             if (mensajeValidacion != "")
             {

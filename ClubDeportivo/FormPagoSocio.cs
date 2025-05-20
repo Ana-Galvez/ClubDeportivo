@@ -96,7 +96,6 @@ namespace ClubDeportivo
                 return;
             }
             
-                MessageBox.Show("Pago registrado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
         }
         private void buttonPagoSocioCancelar_Click(object sender, EventArgs e)
         {

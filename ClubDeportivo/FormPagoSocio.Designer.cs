@@ -68,7 +68,7 @@
             buttonPagoSocioCancelar.FlatStyle = FlatStyle.Flat;
             buttonPagoSocioCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             buttonPagoSocioCancelar.ForeColor = Color.White;
-            buttonPagoSocioCancelar.Location = new Point(295, 396);
+            buttonPagoSocioCancelar.Location = new Point(430, 377);
             buttonPagoSocioCancelar.Name = "buttonPagoSocioCancelar";
             buttonPagoSocioCancelar.Size = new Size(200, 32);
             buttonPagoSocioCancelar.TabIndex = 57;
@@ -82,7 +82,7 @@
             buttonPagoSocioAceptar.FlatStyle = FlatStyle.Flat;
             buttonPagoSocioAceptar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonPagoSocioAceptar.ForeColor = Color.White;
-            buttonPagoSocioAceptar.Location = new Point(295, 341);
+            buttonPagoSocioAceptar.Location = new Point(206, 377);
             buttonPagoSocioAceptar.Name = "buttonPagoSocioAceptar";
             buttonPagoSocioAceptar.Size = new Size(200, 32);
             buttonPagoSocioAceptar.TabIndex = 56;
@@ -128,6 +128,7 @@
             // 
             // comboBoxNumCuota
             // 
+            comboBoxNumCuota.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxNumCuota.Enabled = false;
             comboBoxNumCuota.FormattingEnabled = true;
             comboBoxNumCuota.Items.AddRange(new object[] { "3", "6" });
@@ -148,6 +149,7 @@
             // 
             // comboBoxModoPago
             // 
+            comboBoxModoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxModoPago.FormattingEnabled = true;
             comboBoxModoPago.Items.AddRange(new object[] { "Efectivo", "Tarjeta" });
             comboBoxModoPago.Location = new Point(188, 288);
@@ -167,8 +169,11 @@
             // 
             // comboBoxSeleccionarCuota
             // 
+            comboBoxSeleccionarCuota.BackColor = Color.White;
+            comboBoxSeleccionarCuota.DropDownStyle = ComboBoxStyle.DropDownList;
+            comboBoxSeleccionarCuota.Font = new Font("Segoe UI", 9.75F);
             comboBoxSeleccionarCuota.FormattingEnabled = true;
-            comboBoxSeleccionarCuota.Items.AddRange(new object[] { "Enero '25", "Febrero '25", "Marzo '25", "Abril '25", "Mayo '25", "Junio '25", "Julio '25", "Agosto '25", "Septiembre '25", "Octubre '25", "Noviembre '25", "Diciembre '25" });
+            comboBoxSeleccionarCuota.Items.AddRange(new object[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" });
             comboBoxSeleccionarCuota.Location = new Point(188, 238);
             comboBoxSeleccionarCuota.Name = "comboBoxSeleccionarCuota";
             comboBoxSeleccionarCuota.Size = new Size(161, 25);
@@ -349,7 +354,7 @@
             // 
             label9.AutoSize = true;
             label9.ForeColor = Color.Red;
-            label9.Location = new Point(328, 321);
+            label9.Location = new Point(328, 342);
             label9.Name = "label9";
             label9.Size = new Size(140, 17);
             label9.TabIndex = 66;

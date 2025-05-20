@@ -40,11 +40,11 @@
             // labelModalPagoPregunta
             // 
             labelModalPagoPregunta.AutoSize = true;
-            labelModalPagoPregunta.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelModalPagoPregunta.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelModalPagoPregunta.ForeColor = Color.Black;
-            labelModalPagoPregunta.Location = new Point(336, 158);
+            labelModalPagoPregunta.Location = new Point(328, 167);
             labelModalPagoPregunta.Name = "labelModalPagoPregunta";
-            labelModalPagoPregunta.Size = new Size(120, 32);
+            labelModalPagoPregunta.Size = new Size(97, 25);
             labelModalPagoPregunta.TabIndex = 11;
             labelModalPagoPregunta.Text = "¿Es socio?";
             // 
@@ -52,13 +52,13 @@
             // 
             buttonModalPagoNo.BackColor = Color.FromArgb(0, 70, 160);
             buttonModalPagoNo.FlatStyle = FlatStyle.Flat;
-            buttonModalPagoNo.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonModalPagoNo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             buttonModalPagoNo.ForeColor = Color.White;
-            buttonModalPagoNo.Location = new Point(325, 309);
+            buttonModalPagoNo.Location = new Point(308, 309);
             buttonModalPagoNo.Name = "buttonModalPagoNo";
             buttonModalPagoNo.Size = new Size(150, 40);
             buttonModalPagoNo.TabIndex = 10;
-            buttonModalPagoNo.Text = "NO";
+            buttonModalPagoNo.Text = "No";
             buttonModalPagoNo.UseVisualStyleBackColor = false;
             buttonModalPagoNo.Click += buttonModalPagoNo_Click;
             // 
@@ -66,13 +66,13 @@
             // 
             buttonModalPagoSi.BackColor = Color.FromArgb(0, 70, 160);
             buttonModalPagoSi.FlatStyle = FlatStyle.Flat;
-            buttonModalPagoSi.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
+            buttonModalPagoSi.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             buttonModalPagoSi.ForeColor = Color.White;
-            buttonModalPagoSi.Location = new Point(325, 222);
+            buttonModalPagoSi.Location = new Point(308, 222);
             buttonModalPagoSi.Name = "buttonModalPagoSi";
             buttonModalPagoSi.Size = new Size(150, 40);
             buttonModalPagoSi.TabIndex = 9;
-            buttonModalPagoSi.Text = "SI";
+            buttonModalPagoSi.Text = "Si";
             buttonModalPagoSi.UseVisualStyleBackColor = false;
             buttonModalPagoSi.Click += buttonModalPagoSi_Click;
             // 
@@ -82,7 +82,7 @@
             panelModalPagoHeader.Controls.Add(labelLoginHeader);
             panelModalPagoHeader.Location = new Point(-2, 0);
             panelModalPagoHeader.Name = "panelModalPagoHeader";
-            panelModalPagoHeader.Size = new Size(805, 48);
+            panelModalPagoHeader.Size = new Size(801, 48);
             panelModalPagoHeader.TabIndex = 8;
             // 
             // labelLoginHeader
@@ -101,11 +101,11 @@
             // labelModalPagoTitulo
             // 
             labelModalPagoTitulo.AutoSize = true;
-            labelModalPagoTitulo.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            labelModalPagoTitulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelModalPagoTitulo.ForeColor = Color.Black;
             labelModalPagoTitulo.Location = new Point(308, 73);
             labelModalPagoTitulo.Name = "labelModalPagoTitulo";
-            labelModalPagoTitulo.Size = new Size(195, 32);
+            labelModalPagoTitulo.Size = new Size(154, 25);
             labelModalPagoTitulo.TabIndex = 12;
             labelModalPagoTitulo.Text = "Registro de pago";
             // 

@@ -56,6 +56,8 @@ namespace ClubDeportivo
             //Monto
             if (string.IsNullOrWhiteSpace(textBoxMontoPagoSocio.Text))
                 return "Debe ingresar el monto a pagar.";
+            if (!int.TryParse(textBoxMontoPagoSocio.Text, out int monto) || monto <= 0)
+                return "El monto debe ser un número válido y mayor a 0.";
             //Seleccionar Cuota
             if (string.IsNullOrWhiteSpace(comboBoxSeleccionarCuota.Text))
                 return "Debe ingresar la cuota a pagar.";
@@ -71,9 +73,13 @@ namespace ClubDeportivo
                 //Num Tarjeta
                 if (string.IsNullOrWhiteSpace(textBoxNumTarjeta.Text))
                     return "Debe ingresar el N° de tarjeta.";
+                if (!int.TryParse(textBoxNumTarjeta.Text, out _))
+                    return "El N° de tarjeta debe contener solo números.";
                 //Num Verificación
                 if (string.IsNullOrWhiteSpace(textBoxNumVerificacion.Text))
                     return "Debe ingresar el N° de verificación de la tarjeta.";
+                if (!int.TryParse(textBoxNumVerificacion.Text, out _))
+                    return "El N° de verificación debe contener solo números.";
                 //Fecha de vencimiento
                 if (dateTimePickerFechVen.Value.Date <= DateTime.Today)
                     return "La fecha de vencimiento de la tarjeta debe ser futura.";

@@ -176,7 +176,7 @@ CREATE TABLE IF NOT EXISTS `Cuotas` (
 -- Volcando datos para la tabla proyecto.cuotas 
 INSERT INTO Cuotas (IDCliente, Monto, ModoPago, Estado, FechaPago, FechaVencimiento) VALUES
 (1, 1500.00, 'Efectivo', 'Pagada', '2025-05-10', '2025-06-10'),
-(1, 1500.00, 'Tarjeta', 'Pendiente', NULL, '2025-06-10'),
-(4, 2000.00, 'Transferencia', 'Pagada', '2025-05-15', '2025-06-10'),
-(3, 1200.00, 'Efectivo', 'Pendiente', NULL, '2025-06-10');
+(2, 1500.00, 'Tarjeta', 'Pendiente', NULL, '2025-06-10'),
+(3, 2000.00, 'Transferencia', 'Pagada', '2025-05-15', '2025-06-10'),
+(4, 1200.00, 'Efectivo', 'Pendiente', NULL, '2025-06-10');
 

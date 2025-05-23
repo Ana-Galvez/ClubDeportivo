@@ -195,9 +195,9 @@
             labelPagoSocioTitulo.ForeColor = Color.Black;
             labelPagoSocioTitulo.Location = new Point(292, 85);
             labelPagoSocioTitulo.Name = "labelPagoSocioTitulo";
-            labelPagoSocioTitulo.Size = new Size(203, 25);
+            labelPagoSocioTitulo.Size = new Size(183, 25);
             labelPagoSocioTitulo.TabIndex = 45;
-            labelPagoSocioTitulo.Text = "Registro de pago socio";
+            labelPagoSocioTitulo.Text = "Registrar pago socio";
             // 
             // dateTimePickerFechVen
             // 
@@ -269,40 +269,44 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label1.ForeColor = Color.Red;
             label1.Location = new Point(355, 159);
             label1.Name = "label1";
-            label1.Size = new Size(13, 17);
+            label1.Size = new Size(17, 21);
             label1.TabIndex = 58;
             label1.Text = "*";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label2.ForeColor = Color.Red;
             label2.Location = new Point(355, 196);
             label2.Name = "label2";
-            label2.Size = new Size(13, 17);
+            label2.Size = new Size(17, 21);
             label2.TabIndex = 59;
             label2.Text = "*";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label3.ForeColor = Color.Red;
             label3.Location = new Point(355, 241);
             label3.Name = "label3";
-            label3.Size = new Size(13, 17);
+            label3.Size = new Size(17, 21);
             label3.TabIndex = 60;
             label3.Text = "*";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label4.ForeColor = Color.Red;
             label4.Location = new Point(355, 293);
             label4.Name = "label4";
-            label4.Size = new Size(13, 17);
+            label4.Size = new Size(17, 21);
             label4.TabIndex = 61;
             label4.Text = "*";
             // 
@@ -310,10 +314,11 @@
             // 
             label5Warning.AutoSize = true;
             label5Warning.Enabled = false;
+            label5Warning.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label5Warning.ForeColor = Color.Red;
             label5Warning.Location = new Point(734, 159);
             label5Warning.Name = "label5Warning";
-            label5Warning.Size = new Size(13, 17);
+            label5Warning.Size = new Size(17, 21);
             label5Warning.TabIndex = 62;
             label5Warning.Text = "*";
             // 
@@ -321,10 +326,11 @@
             // 
             label6Warning.AutoSize = true;
             label6Warning.Enabled = false;
+            label6Warning.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label6Warning.ForeColor = Color.Red;
             label6Warning.Location = new Point(734, 202);
             label6Warning.Name = "label6Warning";
-            label6Warning.Size = new Size(13, 17);
+            label6Warning.Size = new Size(17, 21);
             label6Warning.TabIndex = 63;
             label6Warning.Text = "*";
             // 
@@ -332,10 +338,11 @@
             // 
             label7Warning.AutoSize = true;
             label7Warning.Enabled = false;
+            label7Warning.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label7Warning.ForeColor = Color.Red;
             label7Warning.Location = new Point(734, 246);
             label7Warning.Name = "label7Warning";
-            label7Warning.Size = new Size(13, 17);
+            label7Warning.Size = new Size(17, 21);
             label7Warning.TabIndex = 64;
             label7Warning.Text = "*";
             // 
@@ -343,20 +350,22 @@
             // 
             label8Warning.AutoSize = true;
             label8Warning.Enabled = false;
+            label8Warning.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label8Warning.ForeColor = Color.Red;
             label8Warning.Location = new Point(734, 291);
             label8Warning.Name = "label8Warning";
-            label8Warning.Size = new Size(13, 17);
+            label8Warning.Size = new Size(17, 21);
             label8Warning.TabIndex = 65;
             label8Warning.Text = "*";
             // 
             // label9
             // 
             label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 8.25F);
             label9.ForeColor = Color.Red;
             label9.Location = new Point(328, 342);
             label9.Name = "label9";
-            label9.Size = new Size(140, 17);
+            label9.Size = new Size(122, 13);
             label9.TabIndex = 66;
             label9.Text = "* Campos obligatorios";
             // 
@@ -413,7 +422,7 @@
             Controls.Add(panelPagoSocioHeader);
             Name = "FormPagoSocio";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "Registrar pago socio";
+            Text = "CLUB DEPORTIVO";
             panelPagoSocioHeader.ResumeLayout(false);
             panelPagoSocioHeader.PerformLayout();
             ResumeLayout(false);

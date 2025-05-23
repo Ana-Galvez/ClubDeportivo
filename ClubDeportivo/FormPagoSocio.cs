@@ -95,7 +95,7 @@ namespace ClubDeportivo
                 MessageBox.Show(mensajeValidacion, "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+            new ModalReciboSocio().Show();
         }
         private void buttonPagoSocioCancelar_Click(object sender, EventArgs e)
         {

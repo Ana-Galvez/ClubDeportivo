@@ -42,7 +42,7 @@
             labelModalPagoPregunta.AutoSize = true;
             labelModalPagoPregunta.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelModalPagoPregunta.ForeColor = Color.Black;
-            labelModalPagoPregunta.Location = new Point(258, 136);
+            labelModalPagoPregunta.Location = new Point(252, 136);
             labelModalPagoPregunta.Name = "labelModalPagoPregunta";
             labelModalPagoPregunta.Size = new Size(97, 25);
             labelModalPagoPregunta.TabIndex = 11;
@@ -54,7 +54,7 @@
             buttonModalPagoNo.FlatStyle = FlatStyle.Flat;
             buttonModalPagoNo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             buttonModalPagoNo.ForeColor = Color.White;
-            buttonModalPagoNo.Location = new Point(238, 278);
+            buttonModalPagoNo.Location = new Point(232, 278);
             buttonModalPagoNo.Name = "buttonModalPagoNo";
             buttonModalPagoNo.Size = new Size(150, 40);
             buttonModalPagoNo.TabIndex = 10;
@@ -68,7 +68,7 @@
             buttonModalPagoSi.FlatStyle = FlatStyle.Flat;
             buttonModalPagoSi.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             buttonModalPagoSi.ForeColor = Color.White;
-            buttonModalPagoSi.Location = new Point(238, 191);
+            buttonModalPagoSi.Location = new Point(232, 191);
             buttonModalPagoSi.Name = "buttonModalPagoSi";
             buttonModalPagoSi.Size = new Size(150, 40);
             buttonModalPagoSi.TabIndex = 9;

@@ -43,6 +43,10 @@ namespace ClubDeportivo
                         // Abrir formulario para socios
                         new FormPagoSocio(nombreUsuario).Show();
                         this.Close();
+                    } else
+                    {
+                        new FormPagoNoSocio(nombreUsuario).Show();
+                            this.Close();
                     }
                     
                 }

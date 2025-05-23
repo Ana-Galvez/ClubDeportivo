@@ -84,7 +84,7 @@ namespace ClubDeportivo
                 if (dateTimePickerFechVen.Value.Date <= DateTime.Today)
                     return "La fecha de vencimiento de la tarjeta debe ser futura.";
             }
-            return ""; 
+            return "";
         }
         private void buttonPagoSocioAceptar_Click(object sender, EventArgs e)
         {
@@ -95,12 +95,27 @@ namespace ClubDeportivo
                 MessageBox.Show(mensajeValidacion, "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
-            
+
         }
         private void buttonPagoSocioCancelar_Click(object sender, EventArgs e)
         {
             new FormHome(nombreUsuario).Show();
             this.Close();
+        }
+
+        private void labelPagoSocioTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxSeleccionarCuota_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxNumCuota_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -26,6 +26,13 @@ Para resolver la tarea te proponemos:
 - Codificar:
     - El acceso a la ventana Principal
     - Los nuevos socios del club deportivo.
+### Tarea 6: Diseñar los documentos de salida
+
+Para resolver la tarea te proponemos:
+- Diseñar los documentos del sistema:
+    - Incluirlos en la solución como formularios independientes que muestran los objetos para manipular con el usuario.
+- Codificar:
+    - La funcionalidad de los procesos
 
 
 ***

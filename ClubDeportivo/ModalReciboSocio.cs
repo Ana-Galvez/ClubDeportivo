@@ -16,10 +16,26 @@ namespace ClubDeportivo
         {
             InitializeComponent();
         }
+        //datos pasados desde formPagoSocio
+        public int IdPagoSocioDb;
+        public string? NombreYApellidoSocioDb;
+        public string? ReciboSocioCuotaDb;
+        public int ReciboSocioMontoDb;
+        public string ReciboSocioModoPagoDb;
+        public int? ReciboSocioNCuotasDb;
+        public DateTime ReciboSocioFechaDb;
+      
 
         private void ModalReciboSocio_Load(object sender, EventArgs e)
         {
-            //acá se tienen que traer los datos desde la db para mostrarlos
+            labelIdPagoSocioDb.Text = IdPagoSocioDb.ToString();
+            labelNombreYApellidoSocioDb.Text= NombreYApellidoSocioDb;
+            labelReciboSocioCuotaDb.Text= ReciboSocioCuotaDb;
+            labelReciboSocioMontoDb.Text = ReciboSocioMontoDb.ToString();
+            labelReciboSocioModoPagoDb.Text = ReciboSocioModoPagoDb;
+            labelReciboSocioNCuotasDb.Text= ReciboSocioNCuotasDb.ToString();
+            labelReciboSocioFechaDb.Text= ReciboSocioFechaDb.ToString();
+           
         }
     }
 }

@@ -143,3 +143,40 @@ DELIMITER ;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
+
+-- Volcando estructura para la tabla proyecto.socios 
+CREATE TABLE IF NOT EXISTS `socios` (
+  `IDCliente` INT(11) NOT NULL,
+  `FechaAltaSocio` DATE NOT NULL,
+  PRIMARY KEY (`IDCliente`),
+  CONSTRAINT `fk_socio_cliente`
+    FOREIGN KEY (`IDCliente`) REFERENCES `cliente`(`IDCliente`)
+    ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla proyecto.socios
+INSERT INTO socios (IDCliente, FechaAltaSocio) VALUES
+(1, '2024-01-15'),
+(4, '2023-06-30'),
+(3, '2025-05-20');
+
+-- Volcando estructura para la tabla proyecto.cuotas
+CREATE TABLE IF NOT EXISTS `Cuotas` (
+  `IdCuota` INT(11) NOT NULL AUTO_INCREMENT,
+  `IDCliente` INT(11) NOT NULL,
+  `Monto` DECIMAL(10,2) NOT NULL,
+  `ModoPago` ENUM('Efectivo', 'Tarjeta', 'Transferencia') NOT NULL,
+  `Estado` ENUM('Pagada', 'Pendiente') NOT NULL,
+  `FechaPago` DATE NOT NULL,
+  `FechaVencimiento` DATE NOT NULL,
+  PRIMARY KEY (`IdCuota`),
+  CONSTRAINT `fk_cuota_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente`(`IDCliente`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla proyecto.cuotas 
+INSERT INTO Cuotas (IDCliente, Monto, ModoPago, Estado, FechaPago, FechaVencimiento) VALUES
+(1, 1500.00, 'Efectivo', 'Pagada', '2025-05-10', '2025-06-10'),
+(1, 1500.00, 'Tarjeta', 'Pendiente', NULL, '2025-06-10'),
+(4, 2000.00, 'Transferencia', 'Pagada', '2025-05-15', '2025-06-10'),
+(3, 1200.00, 'Efectivo', 'Pendiente', NULL, '2025-06-10');
+

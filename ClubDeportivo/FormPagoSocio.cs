@@ -27,7 +27,8 @@ namespace ClubDeportivo
             comboBoxNumCuota.Enabled = habilitar;
             labelNumTarjeta.Enabled = habilitar;
             textBoxNumTarjeta.Enabled = habilitar;
-            textBoxNumVerificacion.Enabled = habilitarlabelNumVerificacion.Enabled = habilitar;
+            textBoxNumVerificacion.Enabled =habilitar;
+            labelNumVerificacion.Enabled = habilitar;
             labelFechVenc.Enabled = habilitar;
             dateTimePickerFechVen.Enabled = habilitar;
             label5Warning.Enabled = habilitar;

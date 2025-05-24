@@ -19,24 +19,25 @@ namespace ClubDeportivo
             this.Text = "Club Deportivo";
         }
         //datos pasados desde formPagoSocio
-        public int IdPagoSocioDb;
-        public string? NombreYApellidoSocioDb;
-        public string? ReciboSocioCuotaDb;
-        public int ReciboSocioMontoDb;
-        public string ReciboSocioModoPagoDb;
-        public int? ReciboSocioNCuotasDb;
-        public DateTime ReciboSocioFechaDb;
+        public int? idCliente;
+        public string? nombreApellido;
+        public decimal? montoPago;
+        public string? cuotaAbonada;
+        public string? modoPago;
+        public int? numCuotas;
+        public string? numTarjeta;
+        public string? numVerificacion;
 
 
         private void ModalReciboSocio_Load(object sender, EventArgs e)
         {
-            labelIdPagoSocioDb.Text = IdPagoSocioDb.ToString();
-            labelNombreYApellidoSocioDb.Text = NombreYApellidoSocioDb;
-            labelReciboSocioCuotaDb.Text = ReciboSocioCuotaDb;
-            labelReciboSocioMontoDb.Text = ReciboSocioMontoDb.ToString();
-            labelReciboSocioModoPagoDb.Text = ReciboSocioModoPagoDb;
-            labelReciboSocioNCuotasDb.Text = ReciboSocioNCuotasDb.ToString();
-            labelReciboSocioFechaDb.Text = ReciboSocioFechaDb.ToString();
+            labelIdPagoSocioDb.Text = Convert.ToString(idCliente);
+            labelNombreYApellidoSocioDb.Text = nombreApellido;
+            labelReciboSocioCuotaDb.Text = cuotaAbonada;
+            labelReciboSocioMontoDb.Text = Convert.ToString(montoPago);
+            labelReciboSocioModoPagoDb.Text = modoPago;
+            labelReciboSocioNCuotasDb.Text = numCuotas.HasValue ? numCuotas.Value.ToString() : "No aplica";
+            labelReciboSocioFechaDb.Text = DateTime.UtcNow.ToShortDateString();
 
         }
 
@@ -71,9 +72,6 @@ namespace ClubDeportivo
             }
 
             buttonReciboSocioImprimir.Visible = true;
-            
-            // FormHome principal = new FormHome(usuario);
-            //principal.Show();
 
             this.Close();
         }
@@ -117,13 +115,15 @@ namespace ClubDeportivo
             posY += espacioEntreLineas * 2;
 
             // Contenido principal
-            e.Graphics.DrawString($"Número de Socio: {IdPagoSocioDb}", font, brush, 200, posY); posY += espacioEntreLineas;
-            e.Graphics.DrawString($"Nombre y Apellido: {NombreYApellidoSocioDb}", font, brush, 200, posY); posY += espacioEntreLineas;
-            e.Graphics.DrawString($"Cuota: {ReciboSocioCuotaDb}", font, brush, 200, posY); posY += espacioEntreLineas;
-            e.Graphics.DrawString($"Monto: {ReciboSocioMontoDb}", font, brush, 200, posY); posY += espacioEntreLineas;
-            e.Graphics.DrawString($"Modo de Pago: {ReciboSocioModoPagoDb}", font, brush, 200, posY); posY += espacioEntreLineas;
-            e.Graphics.DrawString($"Número de Cuotas: {ReciboSocioNCuotasDb}", font, brush, 200, posY); posY += espacioEntreLineas;
-            e.Graphics.DrawString($"Próximo Vencimiento: {ReciboSocioFechaDb.ToShortDateString()}", font, brush, 200, posY); posY += espacioEntreLineas;
+            e.Graphics.DrawString($"Número de Socio: {idCliente}", font, brush, 200, posY); posY += espacioEntreLineas;
+            e.Graphics.DrawString($"Nombre y Apellido: {nombreApellido}", font, brush, 200, posY); posY += espacioEntreLineas;
+            e.Graphics.DrawString($"Cuota abonada: {cuotaAbonada}", font, brush, 200, posY); posY += espacioEntreLineas;
+            e.Graphics.DrawString($"Monto: {montoPago}", font, brush, 200, posY); posY += espacioEntreLineas;
+            e.Graphics.DrawString($"Modo de Pago: {modoPago}", font, brush, 200, posY); posY += espacioEntreLineas;
+            e.Graphics.DrawString($"Número de Cuotas: {numCuotas}", font, brush, 200, posY); posY += espacioEntreLineas;
+            e.Graphics.DrawString($"Fecha de pago: {DateTime.UtcNow.ToShortDateString()}", font, brush, 200, posY); posY += espacioEntreLineas;
+           
+            //e.Graphics.DrawString($"Próximo Vencimiento: {ReciboSocioFechaDb.ToShortDateString()}", font, brush, 200, posY); posY += espacioEntreLineas;
 
             // Línea divisoria
             e.Graphics.DrawString("---------------------------------------------", fontPequeña, brush, 200, posY);
@@ -138,41 +138,6 @@ namespace ClubDeportivo
             string nota2 = "Este comprobante no es válido como factura fiscal";
             SizeF sizeNota2 = e.Graphics.MeasureString(nota2, fontMini);
             e.Graphics.DrawString(nota2, fontMini, brush, (pageWidth - sizeNota2.Width) / 2, posY);
-
-        }
-
-        private void labelIdPagoSocioDb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelNombreYApellidoSocioDb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelReciboSocioCuotaDb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelReciboSocioMontoDb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelReciboSocioModoPagoDb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelReciboSocioNCuotasDb_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelReciboSocioFechaDb_Click(object sender, EventArgs e)
-        {
 
         }
     }

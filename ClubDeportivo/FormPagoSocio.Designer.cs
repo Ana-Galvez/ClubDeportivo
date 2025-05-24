@@ -197,9 +197,10 @@
             labelPagoSocioTitulo.ForeColor = Color.Black;
             labelPagoSocioTitulo.Location = new Point(292, 75);
             labelPagoSocioTitulo.Name = "labelPagoSocioTitulo";
-            labelPagoSocioTitulo.Size = new Size(183, 25);
+            labelPagoSocioTitulo.Size = new Size(184, 25);
             labelPagoSocioTitulo.TabIndex = 45;
-            labelPagoSocioTitulo.Text = "Registrar pago socio";
+            labelPagoSocioTitulo.Text = "Registrar Pago Socio";
+            labelPagoSocioTitulo.Click += labelPagoSocioTitulo_Click;
             // 
             // dateTimePickerFechVen
             // 

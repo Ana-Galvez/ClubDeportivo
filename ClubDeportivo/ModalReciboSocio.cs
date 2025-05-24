@@ -59,7 +59,6 @@ namespace ClubDeportivo
                 pd.PrinterSettings.PrintFileName = saveDialog.FileName;
                 pd.DefaultPageSettings.Landscape = true;
 
-
                 try
                 {
                     pd.Print();
@@ -88,7 +87,7 @@ namespace ClubDeportivo
             Font fontMini = new Font("Roboto", 9);
             Brush brush = Brushes.Black;
 
-            // Márgenes y espaciado+
+            // Márgenes y espaciado
             float posY = 20;
             float pageWidth = e.PageBounds.Width;
             float espacioEntreLineas = 25;
@@ -99,7 +98,7 @@ namespace ClubDeportivo
             e.Graphics.DrawString(titulo, fontTitulo, brush, (pageWidth - sizeTitulo.Width) / 2, posY);
             posY += espacioEntreLineas;
 
-            // Fecha y hora en esquina superior derecha
+            // Fecha y hora actual
             string fechaTexto = $"Fecha de Impresión: {DateTime.Now.ToShortDateString()}";
             string horaTexto = $"Hora de Impresión: {DateTime.Now.ToShortTimeString()}";
             SizeF sizeFecha = e.Graphics.MeasureString(fechaTexto, fontPequeña);
@@ -130,7 +129,7 @@ namespace ClubDeportivo
             e.Graphics.DrawString("---------------------------------------------", fontPequeña, brush, 200, posY);
             posY += espacioEntreLineas;
 
-            // Frases finales centradas y pequeñas
+            // Avisos generales
             string nota1 = "Este comprobante refleja el pago del socio en el sistema.";
             SizeF sizeNota1 = e.Graphics.MeasureString(nota1, fontMini);
             e.Graphics.DrawString(nota1, fontMini, brush, (pageWidth - sizeNota1.Width) / 2, posY);

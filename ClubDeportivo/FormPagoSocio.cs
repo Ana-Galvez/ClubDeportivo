@@ -109,5 +109,10 @@ namespace ClubDeportivo
         {
 
         }
+
+        private void labelPagoSocioTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

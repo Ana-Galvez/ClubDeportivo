@@ -27,8 +27,7 @@ namespace ClubDeportivo
             comboBoxNumCuota.Enabled = habilitar;
             labelNumTarjeta.Enabled = habilitar;
             textBoxNumTarjeta.Enabled = habilitar;
-            textBoxNumVerificacion.Enabled = habilitar;
-            labelNumVerificacion.Enabled = habilitar;
+            textBoxNumVerificacion.Enabled = habilitarlabelNumVerificacion.Enabled = habilitar;
             labelFechVenc.Enabled = habilitar;
             dateTimePickerFechVen.Enabled = habilitar;
             label5Warning.Enabled = habilitar;
@@ -84,10 +83,12 @@ namespace ClubDeportivo
                 if (dateTimePickerFechVen.Value.Date <= DateTime.Today)
                     return "La fecha de vencimiento de la tarjeta debe ser futura.";
             }
-            return ""; 
+            return "";
         }
+
         private void buttonPagoSocioAceptar_Click(object sender, EventArgs e)
         {
+
             //verifico las validaciones de campos y que el cliente existe
             string mensajeValidacion = ValidarCamposObligatoriosDetalle();
             if (mensajeValidacion != "")
@@ -97,10 +98,16 @@ namespace ClubDeportivo
             }
             new ModalReciboSocio().Show();
         }
+
         private void buttonPagoSocioCancelar_Click(object sender, EventArgs e)
         {
             new FormHome(nombreUsuario).Show();
             this.Close();
+        }
+
+        private void comboBoxSeleccionarCuota_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

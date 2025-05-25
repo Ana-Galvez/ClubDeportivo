@@ -193,7 +193,9 @@ namespace ClubDeportivo
                 doc.numVerificacion = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumVerificacion.Text : null;
 
                 int idCuotaSeleccionada = Convert.ToInt32(comboBoxSeleccionarCuota.SelectedValue);
-
+                //usuario para home
+                doc.usuarioActual= nombreUsuario;
+                
                 // Actualizar estado de la cuota existente
                 E_Socio.RegistrarPago(idCuotaSeleccionada, DateTime.UtcNow);
 
@@ -210,7 +212,7 @@ namespace ClubDeportivo
             }
             MessageBox.Show("Pago registrado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             doc.Show();
-
+            this.Close();
         }
         private void buttonPagoSocioCancelar_Click(object sender, EventArgs e)
         {
@@ -218,9 +220,5 @@ namespace ClubDeportivo
             this.Close();
         }
 
-        private void FormPagoSocio_Load(object sender, EventArgs e)
-        {
-
-        }
     }
 }

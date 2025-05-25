@@ -27,6 +27,7 @@ namespace ClubDeportivo
         public int? numCuotas;
         public string? numTarjeta;
         public string? numVerificacion;
+        public string usuarioActual;
 
 
         private void ModalReciboSocio_Load(object sender, EventArgs e)
@@ -73,6 +74,7 @@ namespace ClubDeportivo
 
             buttonReciboSocioImprimir.Visible = true;
 
+            new FormHome(usuarioActual).Show();
             this.Close();
         }
 

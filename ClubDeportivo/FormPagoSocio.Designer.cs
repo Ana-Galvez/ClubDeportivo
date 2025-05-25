@@ -428,7 +428,6 @@
             Name = "FormPagoSocio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";
-            Load += FormPagoSocio_Load;
             panelPagoSocioHeader.ResumeLayout(false);
             panelPagoSocioHeader.PerformLayout();
             ResumeLayout(false);

@@ -122,7 +122,7 @@ namespace ClubDeportivo
             e.Graphics.DrawString($"Modo de Pago: {modoPago}", font, brush, 200, posY); posY += espacioEntreLineas;
             e.Graphics.DrawString($"Número de Cuotas: {numCuotas}", font, brush, 200, posY); posY += espacioEntreLineas;
             e.Graphics.DrawString($"Fecha de pago: {DateTime.UtcNow.ToShortDateString()}", font, brush, 200, posY); posY += espacioEntreLineas;
-           
+
             //e.Graphics.DrawString($"Próximo Vencimiento: {ReciboSocioFechaDb.ToShortDateString()}", font, brush, 200, posY); posY += espacioEntreLineas;
 
             // Línea divisoria

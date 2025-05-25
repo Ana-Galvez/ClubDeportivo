@@ -178,11 +178,8 @@ namespace ClubDeportivo
             {
                 var datosSocio = E_Socio.ObtenerDatosSocio(Convert.ToInt32(textBoxIdClienteSocio.Text));
                 // Obtener datos de la db y pasarlos al formulario siguiente
-                if (datosSocio == null || string.IsNullOrEmpty(datosSocio.NombreApellido))
-                {
-                    MessageBox.Show("Error al obtener los datos del socio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                doc.nombreApellido = datosSocio.NombreApellido;
+               
                 // Datos ingresados manualmente en el formulario y pasarlos al formulario siguiente
                 doc.idCliente = Convert.ToInt32(textBoxIdClienteSocio.Text);
                 doc.montoPago = decimal.Parse(textBoxMontoPagoSocio.Text);

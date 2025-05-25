@@ -235,7 +235,8 @@
             textBoxIdClienteSocio.Name = "textBoxIdClienteSocio";
             textBoxIdClienteSocio.Size = new Size(161, 25);
             textBoxIdClienteSocio.TabIndex = 40;
-            textBoxIdClienteSocio.MouseLeave += textBoxIdClienteSocio_Leave;
+            textBoxIdClienteSocio.KeyDown += textBoxIdClienteSocio_KeyDown;
+            textBoxIdClienteSocio.Validating += textBoxIdClienteSocio_Validating;
             // 
             // labelIdClienteSocio
             // 
@@ -373,8 +374,10 @@
             // 
             // textBoxMontoPagoSocio
             // 
+            textBoxMontoPagoSocio.BackColor = Color.White;
             textBoxMontoPagoSocio.Location = new Point(188, 244);
             textBoxMontoPagoSocio.Name = "textBoxMontoPagoSocio";
+            textBoxMontoPagoSocio.ReadOnly = true;
             textBoxMontoPagoSocio.Size = new Size(161, 25);
             textBoxMontoPagoSocio.TabIndex = 67;
             // 
@@ -425,6 +428,7 @@
             Name = "FormPagoSocio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";
+            Load += FormPagoSocio_Load;
             panelPagoSocioHeader.ResumeLayout(false);
             panelPagoSocioHeader.PerformLayout();
             ResumeLayout(false);

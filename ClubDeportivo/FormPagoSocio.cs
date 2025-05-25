@@ -23,6 +23,7 @@ namespace ClubDeportivo
             nombreUsuario = usuario;
         }
 
+
         //Si se elige tarjeta se habilitan los campos
         private void comboBoxModoPago_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -48,56 +49,86 @@ namespace ClubDeportivo
                 if (!E_Socio.EsSocio(idCliente))
                 {
                     MessageBox.Show("El ID del cliente no existe o no es socio .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                    comboBoxSeleccionarCuota.DataSource = null;
-                    comboBoxSeleccionarCuota.Items.Clear();
+                    BeginInvoke(new Action(() =>
+                    {
+                        comboBoxSeleccionarCuota.DataSource = null;
+                        comboBoxSeleccionarCuota.Items.Clear();
+                    }));
                     return;
                 }
 
                 DataTable cuotas = E_Socio.ObtenerCuotasImpagas(idCliente);
-                if (cuotas.Rows.Count == 0)
+                BeginInvoke(new Action(() =>
                 {
-                    MessageBox.Show("No hay cuotas pendientes para este cliente.", "Sin cuotas", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    comboBoxSeleccionarCuota.DataSource = null;
-                    comboBoxSeleccionarCuota.Items.Clear();
-                }
-                else
-                {
-                    comboBoxSeleccionarCuota.DataSource = cuotas;
-                    comboBoxSeleccionarCuota.DisplayMember = "FechaVencimiento";
-                    comboBoxSeleccionarCuota.ValueMember = "IdCuota";
-                }
+                    if (cuotas.Rows.Count == 0)
+                    {
+                        MessageBox.Show("No hay cuotas pendientes para este cliente.", "Sin cuotas", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        comboBoxSeleccionarCuota.DataSource = null;
+                        comboBoxSeleccionarCuota.Items.Clear();
+                    }
+                    else
+                    {
+                        comboBoxSeleccionarCuota.DataSource = cuotas;
+                        comboBoxSeleccionarCuota.DisplayMember = "FechaVencimiento";
+                        comboBoxSeleccionarCuota.ValueMember = "IdCuota";
+                        comboBoxSeleccionarCuota.Refresh();
+                        comboBoxSeleccionarCuota.Update();
+                    }
+                }));
             }
             else
             {
                 MessageBox.Show("ID de cliente inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
             }
         }
-
-        private void textBoxIdClienteSocio_Leave(object sender, EventArgs e)
+        private bool ValidarYProcesarIdCliente()
         {
-            //Id Cliente
-            //Valida que no esté vacio el campo
-            if (string.IsNullOrWhiteSpace(textBoxIdClienteSocio.Text))
-            {
-                MessageBox.Show("Debe ingresar ID del cliente..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+            string textoId = textBoxIdClienteSocio.Text.Trim();
 
-            }//Verifica que solo se usen números
-            else if
-                (!int.TryParse(textBoxIdClienteSocio.Text, out int idCliente))
+            if (string.IsNullOrWhiteSpace(textoId))
             {
+                MessageBox.Show("Debe ingresar ID del cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
 
+            if (!int.TryParse(textoId, out int idCliente))
+            {
                 MessageBox.Show("El ID del cliente debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                return false;
             }
             CargarCuotasImpagas();
+            return true;
         }
+
+        private void textBoxIdClienteSocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (ValidarYProcesarIdCliente())
+                {
+                    this.SelectNextControl(textBoxIdClienteSocio, true, true, true, true);
+                }
+                else
+                {
+                    e.Handled = true;
+                }
+            }
+        }
+
         private void comboBoxSeleccionarCuota_Monto(object sender, EventArgs e)
         {
             if (comboBoxSeleccionarCuota.SelectedItem is DataRowView filaSeleccionada)
             {
                 decimal monto = Convert.ToDecimal(filaSeleccionada["Monto"]);
                 textBoxMontoPagoSocio.Text = monto.ToString();
+            }
+        }
+        private void textBoxIdClienteSocio_Validating(object sender, CancelEventArgs e)
+        {
+            if (!ValidarYProcesarIdCliente())
+            {
+                e.Cancel = true;
             }
         }
 
@@ -147,7 +178,11 @@ namespace ClubDeportivo
             {
                 var datosSocio = E_Socio.ObtenerDatosSocio(Convert.ToInt32(textBoxIdClienteSocio.Text));
                 // Obtener datos de la db y pasarlos al formulario siguiente
-                doc.nombreApellido = datosSocio.NombreApellido;
+                if (datosSocio == null || string.IsNullOrEmpty(datosSocio.NombreApellido))
+                {
+                    MessageBox.Show("Error al obtener los datos del socio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 // Datos ingresados manualmente en el formulario y pasarlos al formulario siguiente
                 doc.idCliente = Convert.ToInt32(textBoxIdClienteSocio.Text);
                 doc.montoPago = decimal.Parse(textBoxMontoPagoSocio.Text);
@@ -186,5 +221,9 @@ namespace ClubDeportivo
             this.Close();
         }
 
+        private void FormPagoSocio_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

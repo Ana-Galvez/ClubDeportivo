@@ -110,12 +110,63 @@ namespace ClubDeportivo
         }
 
         // Métodos vacíos (si no los usás, podés eliminarlos)
-        private void labelPagoSocioTitulo_Click(object sender, EventArgs e) { }
-        private void labelIdClienteSocio_Click(object sender, EventArgs e) { }
-        private void textBoxIdClienteSocio_TextChanged(object sender, EventArgs e) { }
+        private void labelPagoNoSocioTitulo_Click(object sender, EventArgs e) { }
+        private void labelIdClienteNoSocio_Click(object sender, EventArgs e) { }
+        private void textBoxIdClienteNoSocio_TextChanged(object sender, EventArgs e) { }
         private void labelSeleccionarActividad_Click(object sender, EventArgs e) { }
         private void textBoxMonto_TextChanged(object sender, EventArgs e) { }
         private void labelHorarios_Click(object sender, EventArgs e) { }
         private void textBoxHorarios_TextChanged(object sender, EventArgs e) { }
+
+        private void panelPagoNoSocioHeader_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void labelInicioHeader_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void labelMonto_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonPagoNoSocioAceptar_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void buttonPagoNoSocioCancelar_Click(object sender, EventArgs e)
+        {
+            new FormHome(nombreUsuario).Show();
+            this.Close();
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            // Código que querés ejecutar cuando cambia el texto
+        }
+
+        private void FormPagoNoSocio_Load_1(object sender, EventArgs e)
+        {
+            // Código al cargar el formulario
+        }
+
+        private void labelFormaPago_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBoxFormaPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

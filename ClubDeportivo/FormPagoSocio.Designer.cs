@@ -102,7 +102,7 @@
             // 
             labelNumVerificacion.AutoSize = true;
             labelNumVerificacion.Enabled = false;
-            labelNumVerificacion.Location = new Point(403, 215);
+            labelNumVerificacion.Location = new Point(403, 249);
             labelNumVerificacion.Name = "labelNumVerificacion";
             labelNumVerificacion.Size = new Size(101, 15);
             labelNumVerificacion.TabIndex = 54;
@@ -152,8 +152,8 @@
             // 
             comboBoxModoPago.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxModoPago.FormattingEnabled = true;
-            comboBoxModoPago.Items.AddRange(new object[] { "Efectivo", "Tarjeta" });
-            comboBoxModoPago.Location = new Point(188, 254);
+            comboBoxModoPago.Items.AddRange(new object[] { "Efectivo", "Tarjeta", "Transferencia" });
+            comboBoxModoPago.Location = new Point(188, 288);
             comboBoxModoPago.Name = "comboBoxModoPago";
             comboBoxModoPago.Size = new Size(161, 23);
             comboBoxModoPago.TabIndex = 49;
@@ -173,18 +173,18 @@
             comboBoxSeleccionarCuota.BackColor = Color.White;
             comboBoxSeleccionarCuota.DropDownStyle = ComboBoxStyle.DropDownList;
             comboBoxSeleccionarCuota.Font = new Font("Segoe UI", 9.75F);
+            comboBoxSeleccionarCuota.ForeColor = SystemColors.WindowText;
             comboBoxSeleccionarCuota.FormattingEnabled = true;
-            comboBoxSeleccionarCuota.Items.AddRange(new object[] { "Enero", "Febrero", "Marzo", "Abril", "Mayo", "Junio", "Julio", "Agosto", "Septiembre", "Octubre", "Noviembre", "Diciembre" });
-            comboBoxSeleccionarCuota.Location = new Point(188, 210);
+            comboBoxSeleccionarCuota.Location = new Point(188, 199);
             comboBoxSeleccionarCuota.Name = "comboBoxSeleccionarCuota";
             comboBoxSeleccionarCuota.Size = new Size(161, 25);
             comboBoxSeleccionarCuota.TabIndex = 47;
-            comboBoxSeleccionarCuota.SelectedIndexChanged += comboBoxSeleccionarCuota_SelectedIndexChanged;
+            comboBoxSeleccionarCuota.SelectedIndexChanged += comboBoxSeleccionarCuota_Monto;
             // 
             // labelSelectCuota
             // 
             labelSelectCuota.AutoSize = true;
-            labelSelectCuota.Location = new Point(24, 222);
+            labelSelectCuota.Location = new Point(24, 207);
             labelSelectCuota.Name = "labelSelectCuota";
             labelSelectCuota.Size = new Size(100, 15);
             labelSelectCuota.TabIndex = 46;
@@ -197,16 +197,15 @@
             labelPagoSocioTitulo.ForeColor = Color.Black;
             labelPagoSocioTitulo.Location = new Point(292, 75);
             labelPagoSocioTitulo.Name = "labelPagoSocioTitulo";
-            labelPagoSocioTitulo.Size = new Size(204, 25);
+            labelPagoSocioTitulo.Size = new Size(184, 25);
             labelPagoSocioTitulo.TabIndex = 45;
-            labelPagoSocioTitulo.Text = "Registro de Pago Socio";
-            labelPagoSocioTitulo.Click += labelPagoSocioTitulo_Click;
+            labelPagoSocioTitulo.Text = "Registrar Pago Socio";
             // 
             // dateTimePickerFechVen
             // 
             dateTimePickerFechVen.Enabled = false;
             dateTimePickerFechVen.Format = DateTimePickerFormat.Short;
-            dateTimePickerFechVen.Location = new Point(567, 251);
+            dateTimePickerFechVen.Location = new Point(567, 284);
             dateTimePickerFechVen.Margin = new Padding(0);
             dateTimePickerFechVen.Name = "dateTimePickerFechVen";
             dateTimePickerFechVen.Size = new Size(161, 23);
@@ -225,7 +224,7 @@
             // labelMontoSocio
             // 
             labelMontoSocio.AutoSize = true;
-            labelMontoSocio.Location = new Point(24, 183);
+            labelMontoSocio.Location = new Point(24, 252);
             labelMontoSocio.Name = "labelMontoSocio";
             labelMontoSocio.Size = new Size(43, 15);
             labelMontoSocio.TabIndex = 41;
@@ -237,6 +236,8 @@
             textBoxIdClienteSocio.Name = "textBoxIdClienteSocio";
             textBoxIdClienteSocio.Size = new Size(161, 23);
             textBoxIdClienteSocio.TabIndex = 40;
+            textBoxIdClienteSocio.KeyDown += textBoxIdClienteSocio_KeyDown;
+            textBoxIdClienteSocio.Validating += textBoxIdClienteSocio_Validating;
             // 
             // labelIdClienteSocio
             // 
@@ -272,40 +273,44 @@
             // label1
             // 
             label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label1.ForeColor = Color.Red;
             label1.Location = new Point(355, 140);
             label1.Name = "label1";
-            label1.Size = new Size(12, 15);
+            label1.Size = new Size(17, 21);
             label1.TabIndex = 58;
             label1.Text = "*";
             // 
             // label2
             // 
             label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label2.ForeColor = Color.Red;
-            label2.Location = new Point(355, 173);
+            label2.Location = new Point(355, 246);
             label2.Name = "label2";
-            label2.Size = new Size(12, 15);
+            label2.Size = new Size(17, 21);
             label2.TabIndex = 59;
             label2.Text = "*";
             // 
             // label3
             // 
             label3.AutoSize = true;
+            label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(355, 213);
+            label3.Location = new Point(355, 202);
             label3.Name = "label3";
-            label3.Size = new Size(12, 15);
+            label3.Size = new Size(17, 21);
             label3.TabIndex = 60;
             label3.Text = "*";
             // 
             // label4
             // 
             label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label4.ForeColor = Color.Red;
-            label4.Location = new Point(355, 259);
+            label4.Location = new Point(355, 294);
             label4.Name = "label4";
-            label4.Size = new Size(12, 15);
+            label4.Size = new Size(17, 21);
             label4.TabIndex = 61;
             label4.Text = "*";
             // 
@@ -313,10 +318,11 @@
             // 
             label5Warning.AutoSize = true;
             label5Warning.Enabled = false;
+            label5Warning.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label5Warning.ForeColor = Color.Red;
             label5Warning.Location = new Point(734, 140);
             label5Warning.Name = "label5Warning";
-            label5Warning.Size = new Size(12, 15);
+            label5Warning.Size = new Size(17, 21);
             label5Warning.TabIndex = 62;
             label5Warning.Text = "*";
             // 
@@ -324,10 +330,11 @@
             // 
             label6Warning.AutoSize = true;
             label6Warning.Enabled = false;
+            label6Warning.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label6Warning.ForeColor = Color.Red;
             label6Warning.Location = new Point(734, 178);
             label6Warning.Name = "label6Warning";
-            label6Warning.Size = new Size(12, 15);
+            label6Warning.Size = new Size(17, 21);
             label6Warning.TabIndex = 63;
             label6Warning.Text = "*";
             // 
@@ -335,10 +342,11 @@
             // 
             label7Warning.AutoSize = true;
             label7Warning.Enabled = false;
+            label7Warning.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label7Warning.ForeColor = Color.Red;
             label7Warning.Location = new Point(734, 217);
             label7Warning.Name = "label7Warning";
-            label7Warning.Size = new Size(12, 15);
+            label7Warning.Size = new Size(17, 21);
             label7Warning.TabIndex = 64;
             label7Warning.Text = "*";
             // 
@@ -346,34 +354,38 @@
             // 
             label8Warning.AutoSize = true;
             label8Warning.Enabled = false;
+            label8Warning.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label8Warning.ForeColor = Color.Red;
             label8Warning.Location = new Point(734, 257);
             label8Warning.Name = "label8Warning";
-            label8Warning.Size = new Size(12, 15);
+            label8Warning.Size = new Size(17, 21);
             label8Warning.TabIndex = 65;
             label8Warning.Text = "*";
             // 
             // label9
             // 
             label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 8.25F);
             label9.ForeColor = Color.Red;
             label9.Location = new Point(328, 302);
             label9.Name = "label9";
-            label9.Size = new Size(125, 15);
+            label9.Size = new Size(122, 13);
             label9.TabIndex = 66;
             label9.Text = "* Campos obligatorios";
             // 
             // textBoxMontoPagoSocio
             // 
-            textBoxMontoPagoSocio.Location = new Point(188, 176);
+            textBoxMontoPagoSocio.BackColor = Color.White;
+            textBoxMontoPagoSocio.Location = new Point(188, 244);
             textBoxMontoPagoSocio.Name = "textBoxMontoPagoSocio";
-            textBoxMontoPagoSocio.Size = new Size(161, 23);
+            textBoxMontoPagoSocio.ReadOnly = true;
+            textBoxMontoPagoSocio.Size = new Size(161, 25);
             textBoxMontoPagoSocio.TabIndex = 67;
             // 
             // labelMoneda
             // 
             labelMoneda.AutoSize = true;
-            labelMoneda.Location = new Point(167, 183);
+            labelMoneda.Location = new Point(167, 252);
             labelMoneda.Name = "labelMoneda";
             labelMoneda.Size = new Size(13, 15);
             labelMoneda.TabIndex = 68;

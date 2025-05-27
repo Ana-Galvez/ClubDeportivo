@@ -43,7 +43,7 @@
             labelModalPagoPregunta.AutoSize = true;
             labelModalPagoPregunta.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelModalPagoPregunta.ForeColor = Color.Black;
-            labelModalPagoPregunta.Location = new Point(262, 124);
+            labelModalPagoPregunta.Location = new Point(264, 129);
             labelModalPagoPregunta.Name = "labelModalPagoPregunta";
             labelModalPagoPregunta.Size = new Size(97, 25);
             labelModalPagoPregunta.TabIndex = 11;
@@ -56,7 +56,7 @@
             buttonModalPagoNo.FlatStyle = FlatStyle.Flat;
             buttonModalPagoNo.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             buttonModalPagoNo.ForeColor = Color.White;
-            buttonModalPagoNo.Location = new Point(242, 253);
+            buttonModalPagoNo.Location = new Point(244, 253);
             buttonModalPagoNo.Name = "buttonModalPagoNo";
             buttonModalPagoNo.Size = new Size(150, 40);
             buttonModalPagoNo.TabIndex = 10;
@@ -71,7 +71,7 @@
             buttonModalPagoSi.FlatStyle = FlatStyle.Flat;
             buttonModalPagoSi.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold);
             buttonModalPagoSi.ForeColor = Color.White;
-            buttonModalPagoSi.Location = new Point(242, 166);
+            buttonModalPagoSi.Location = new Point(244, 171);
             buttonModalPagoSi.Name = "buttonModalPagoSi";
             buttonModalPagoSi.Size = new Size(150, 40);
             buttonModalPagoSi.TabIndex = 9;
@@ -107,16 +107,16 @@
             labelModalPagoTitulo.AutoSize = true;
             labelModalPagoTitulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelModalPagoTitulo.ForeColor = Color.Black;
-            labelModalPagoTitulo.Location = new Point(238, 77);
+            labelModalPagoTitulo.Location = new Point(251, 69);
             labelModalPagoTitulo.Name = "labelModalPagoTitulo";
-            labelModalPagoTitulo.Size = new Size(154, 25);
+            labelModalPagoTitulo.Size = new Size(134, 25);
             labelModalPagoTitulo.TabIndex = 12;
-            labelModalPagoTitulo.Text = "Registro de pago";
+            labelModalPagoTitulo.Text = "Registrar pago";
             // 
             // ModalPagoSocioONoSocio
             // 
             AutoScaleMode = AutoScaleMode.None;
-            ClientSize = new Size(632, 333);
+            ClientSize = new Size(639, 358);
             Controls.Add(labelModalPagoTitulo);
             Controls.Add(labelModalPagoPregunta);
             Controls.Add(buttonModalPagoNo);

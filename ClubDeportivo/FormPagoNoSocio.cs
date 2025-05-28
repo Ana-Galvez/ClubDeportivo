@@ -21,7 +21,7 @@ namespace ClubDeportivo
         {
             InitializeComponent();
             nombreUsuario = usuario;
-          
+            buttonPagoNoSocioCancelar.CausesValidation = false;
         }
         private List<E_Actividad> actividades;
         private void FormPagoNoSocio_Load(object sender, EventArgs e)

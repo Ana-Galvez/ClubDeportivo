@@ -211,7 +211,7 @@ CREATE TABLE IF NOT EXISTS noSocios (
 INSERT INTO noSocios (IDCliente, FechaAltaNoSocio) VALUES
 (2, '2025-05-10');
 
-CREATE TABLE IF NOT EXISTS actividad (
+CREATE TABLE IF NOT EXISTS actividades (
   IDActividad INT AUTO_INCREMENT PRIMARY KEY,
   Nombre VARCHAR(50) NOT NULL,
   DiaSemana VARCHAR(15) NOT NULL,
@@ -223,14 +223,15 @@ CREATE TABLE IF NOT EXISTS pago_actividad (
   IdPagoActividad INT AUTO_INCREMENT PRIMARY KEY,
   IDCliente INT NOT NULL,
   IdActividad INT NOT NULL,
-  Fecha DATE NOT NULL DEFAULT CURRENT_DATE,
+  FechaPago DATE NOT NULL DEFAULT CURRENT_DATE,
   ModoPago ENUM('Efectivo', 'Tarjeta', 'Transferencia') NOT NULL DEFAULT 'Efectivo',
   Monto DECIMAL(10,2) NOT NULL,
+  Estado ENUM('Pagada', 'Pendiente') NOT NULL DEFAULT 'Pendiente',
   FOREIGN KEY (IDCliente) REFERENCES cliente(IDCliente) ON DELETE CASCADE,
-  FOREIGN KEY (IdActividad) REFERENCES actividad(IdActividad) ON DELETE CASCADE
+  FOREIGN KEY (IdActividad) REFERENCES actividades(IdActividad) ON DELETE CASCADE
 );
 
-INSERT INTO actividad (Nombre, DiaSemana, Hora, Precio) VALUES
+INSERT INTO actividades (Nombre, DiaSemana, Hora, Precio) VALUES
 ('Natación', 'Lunes', '11:00:00', 5000),
 ('Natación', 'Jueves', '15:00:00', 5000),
 ('Pilates', 'Lunes', '18:00:00', 8000),

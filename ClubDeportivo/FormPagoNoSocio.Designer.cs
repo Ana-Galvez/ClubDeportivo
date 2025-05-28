@@ -36,9 +36,7 @@
             labelSeleccionarActividad = new Label();
             comboBoxSeleccionarActividad = new ComboBox();
             labelMonto = new Label();
-            textBoxMonto = new TextBox();
             labelHorarios = new Label();
-            textBoxHorarios = new TextBox();
             buttonPagoNoSocioCancelar = new Button();
             buttonPagoNoSocioAceptar = new Button();
             label1 = new Label();
@@ -46,6 +44,9 @@
             label3 = new Label();
             label4 = new Label();
             label6 = new Label();
+            labelMoneda = new Label();
+            textBoxMontoPagoNoSocio = new TextBox();
+            textBoxHoraActividad = new TextBox();
             panelPagoNoSocioHeader.SuspendLayout();
             SuspendLayout();
             // 
@@ -71,7 +72,6 @@
             labelInicioHeader.TabIndex = 0;
             labelInicioHeader.Text = "CLUB DEPORTIVO";
             labelInicioHeader.TextAlign = ContentAlignment.MiddleCenter;
-            labelInicioHeader.Click += labelInicioHeader_Click;
             // 
             // labelPagoNoSocioTitulo
             // 
@@ -83,7 +83,6 @@
             labelPagoNoSocioTitulo.Size = new Size(210, 25);
             labelPagoNoSocioTitulo.TabIndex = 46;
             labelPagoNoSocioTitulo.Text = "Registrar pago no socio";
-            labelPagoNoSocioTitulo.Click += labelPagoNoSocioTitulo_Click;
             // 
             // labelIdClienteNoSocio
             // 
@@ -93,7 +92,6 @@
             labelIdClienteNoSocio.Size = new Size(63, 17);
             labelIdClienteNoSocio.TabIndex = 47;
             labelIdClienteNoSocio.Text = "ID Cliente";
-            labelIdClienteNoSocio.Click += labelIdClienteNoSocio_Click;
             // 
             // textBoxIdClienteNoSocio
             // 
@@ -101,7 +99,6 @@
             textBoxIdClienteNoSocio.Name = "textBoxIdClienteNoSocio";
             textBoxIdClienteNoSocio.Size = new Size(161, 25);
             textBoxIdClienteNoSocio.TabIndex = 48;
-            textBoxIdClienteNoSocio.TextChanged += textBoxIdClienteNoSocio_TextChanged;
             // 
             // labelSeleccionarActividad
             // 
@@ -111,7 +108,6 @@
             labelSeleccionarActividad.Size = new Size(131, 17);
             labelSeleccionarActividad.TabIndex = 49;
             labelSeleccionarActividad.Text = "Seleccionar Actividad";
-            labelSeleccionarActividad.Click += labelSeleccionarActividad_Click;
             // 
             // comboBoxSeleccionarActividad
             // 
@@ -126,38 +122,20 @@
             // labelMonto
             // 
             labelMonto.AutoSize = true;
-            labelMonto.Location = new Point(259, 264);
+            labelMonto.Location = new Point(259, 318);
             labelMonto.Name = "labelMonto";
             labelMonto.Size = new Size(47, 17);
             labelMonto.TabIndex = 51;
             labelMonto.Text = "Monto";
-            labelMonto.Click += labelMonto_Click;
-            // 
-            // textBoxMonto
-            // 
-            textBoxMonto.Location = new Point(426, 256);
-            textBoxMonto.Name = "textBoxMonto";
-            textBoxMonto.Size = new Size(160, 25);
-            textBoxMonto.TabIndex = 52;
-            textBoxMonto.TextChanged += textBoxMonto_TextChanged;
             // 
             // labelHorarios
             // 
             labelHorarios.AutoSize = true;
-            labelHorarios.Location = new Point(259, 325);
+            labelHorarios.Location = new Point(258, 265);
             labelHorarios.Name = "labelHorarios";
             labelHorarios.Size = new Size(59, 17);
             labelHorarios.TabIndex = 53;
             labelHorarios.Text = "Horarios";
-            labelHorarios.Click += labelHorarios_Click;
-            // 
-            // textBoxHorarios
-            // 
-            textBoxHorarios.Location = new Point(426, 317);
-            textBoxHorarios.Name = "textBoxHorarios";
-            textBoxHorarios.Size = new Size(161, 25);
-            textBoxHorarios.TabIndex = 54;
-            textBoxHorarios.TextChanged += textBoxHorarios_TextChanged;
             // 
             // buttonPagoNoSocioCancelar
             // 
@@ -214,7 +192,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(592, 259);
+            label3.Location = new Point(592, 313);
             label3.Name = "label3";
             label3.Size = new Size(17, 21);
             label3.TabIndex = 64;
@@ -225,7 +203,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold);
             label4.ForeColor = Color.Red;
-            label4.Location = new Point(592, 321);
+            label4.Location = new Point(591, 261);
             label4.Name = "label4";
             label4.Size = new Size(17, 21);
             label4.TabIndex = 65;
@@ -241,13 +219,42 @@
             label6.Size = new Size(124, 13);
             label6.TabIndex = 67;
             label6.Text = "* Campos Obligatorios";
-            label6.Click += label6_Click;
+            // 
+            // labelMoneda
+            // 
+            labelMoneda.AutoSize = true;
+            labelMoneda.Location = new Point(405, 318);
+            labelMoneda.Name = "labelMoneda";
+            labelMoneda.Size = new Size(15, 17);
+            labelMoneda.TabIndex = 70;
+            labelMoneda.Text = "$";
+            // 
+            // textBoxMontoPagoNoSocio
+            // 
+            textBoxMontoPagoNoSocio.BackColor = Color.White;
+            textBoxMontoPagoNoSocio.Location = new Point(426, 313);
+            textBoxMontoPagoNoSocio.Name = "textBoxMontoPagoNoSocio";
+            textBoxMontoPagoNoSocio.ReadOnly = true;
+            textBoxMontoPagoNoSocio.Size = new Size(161, 25);
+            textBoxMontoPagoNoSocio.TabIndex = 69;
+            // 
+            // textBoxHoraActividad
+            // 
+            textBoxHoraActividad.BackColor = Color.White;
+            textBoxHoraActividad.Location = new Point(426, 261);
+            textBoxHoraActividad.Name = "textBoxHoraActividad";
+            textBoxHoraActividad.ReadOnly = true;
+            textBoxHoraActividad.Size = new Size(161, 25);
+            textBoxHoraActividad.TabIndex = 71;
             // 
             // FormPagoNoSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
+            Controls.Add(textBoxHoraActividad);
+            Controls.Add(labelMoneda);
+            Controls.Add(textBoxMontoPagoNoSocio);
             Controls.Add(label6);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -255,9 +262,7 @@
             Controls.Add(label1);
             Controls.Add(buttonPagoNoSocioCancelar);
             Controls.Add(buttonPagoNoSocioAceptar);
-            Controls.Add(textBoxHorarios);
             Controls.Add(labelHorarios);
-            Controls.Add(textBoxMonto);
             Controls.Add(labelMonto);
             Controls.Add(comboBoxSeleccionarActividad);
             Controls.Add(labelSeleccionarActividad);
@@ -267,8 +272,8 @@
             Controls.Add(panelPagoNoSocioHeader);
             Name = "FormPagoNoSocio";
             StartPosition = FormStartPosition.CenterScreen;
-            Text = "FormPagoNoSocio";
-            Load += FormPagoNoSocio_Load_1;
+            Text = "CLUB DEPORTIVO";
+            Load += FormPagoNoSocio_Load;
             panelPagoNoSocioHeader.ResumeLayout(false);
             panelPagoNoSocioHeader.PerformLayout();
             ResumeLayout(false);
@@ -285,9 +290,7 @@
         private Label labelSeleccionarActividad;
         private ComboBox comboBoxSeleccionarActividad;
         private Label labelMonto;
-        private TextBox textBoxMonto;
         private Label labelHorarios;
-        private TextBox textBoxHorarios;
         private Button buttonPagoNoSocioCancelar;
         private Button buttonPagoNoSocioAceptar;
         private Label label1;
@@ -295,5 +298,8 @@
         private Label label3;
         private Label label4;
         private Label label6;
+        private Label labelMoneda;
+        private TextBox textBoxMontoPagoNoSocio;
+        private TextBox textBoxHoraActividad;
     }
 }

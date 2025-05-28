@@ -58,7 +58,6 @@
             panelPagoNoSocioHeader.Name = "panelPagoNoSocioHeader";
             panelPagoNoSocioHeader.Size = new Size(801, 48);
             panelPagoNoSocioHeader.TabIndex = 39;
-            panelPagoNoSocioHeader.Paint += panelPagoNoSocioHeader_Paint;
             // 
             // labelInicioHeader
             // 

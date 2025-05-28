@@ -1,5 +1,6 @@
 ﻿using ClubDeportivo.Datos;
 using ClubDeportivo.Entidades;
+using ClubDeportivo.Helpers.Validaciones;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -89,21 +90,12 @@ namespace ClubDeportivo
         }
         private bool ValidarYProcesarIdCliente()
         {
-            string textoId = textBoxIdClienteSocio.Text.Trim();
-
-            if (string.IsNullOrWhiteSpace(textoId))
+            if (ValidacionIdClienteHelper.ValidarIdCliente(textBoxIdClienteSocio, out int idCliente))
             {
-                MessageBox.Show("Debe ingresar ID del cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
+                CargarCuotasImpagas();
+                return true;
             }
-
-            if (!int.TryParse(textoId, out int idCliente))
-            {
-                MessageBox.Show("El ID del cliente debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return false;
-            }
-            CargarCuotasImpagas();
-            return true;
+            return false;
         }
 
         private void textBoxIdClienteSocio_KeyDown(object sender, KeyEventArgs e)
@@ -139,35 +131,16 @@ namespace ClubDeportivo
 
         private string ValidarCamposObligatoriosDetalle()
         {
-            //Monto
-            if (string.IsNullOrWhiteSpace(textBoxMontoPagoSocio.Text))
-                return "Debe ingresar el monto a pagar.";
-            //Seleccionar Cuota
-            if (string.IsNullOrWhiteSpace(comboBoxSeleccionarCuota.Text))
-                return "Debe ingresar la cuota a pagar.";
-            //Modo Pago
-            if (string.IsNullOrWhiteSpace(comboBoxModoPago.Text))
-                return "Debe ingresar el modo de pago.";
-            // Se validan como campos obligarios solo si el modo de pago seleccionado es Tarjeta
-            if (comboBoxModoPago.SelectedItem?.ToString() == "Tarjeta")
-            {
-                //Fecha de vencimiento
-                if (dateTimePickerFechVen.Value.Date <= DateTime.Today)
-                    return "La fecha de vencimiento de la tarjeta debe ser futura.";
-                //Cuota
-                if (string.IsNullOrWhiteSpace(comboBoxNumCuota.Text))
-                    return "Debe ingresar la cantidad de cuotas a pagar.";
-                //Num Tarjeta
-                if (string.IsNullOrWhiteSpace(textBoxNumTarjeta.Text))
-                    return "Debe ingresar el N° de tarjeta.";
-                //Num Verificación
-                if (string.IsNullOrWhiteSpace(textBoxNumVerificacion.Text))
-                    return "Debe ingresar el N° de verificación de la tarjeta.";
-            }
-            return "";
+            return ValidacionCamposPagoSocio.ValidarCamposPagoSocio(
+                textBoxMontoPagoSocio.Text,
+                comboBoxSeleccionarCuota.Text,
+                comboBoxModoPago.Text,
+                textBoxNumTarjeta.Text,
+                textBoxNumVerificacion.Text,
+                comboBoxNumCuota.Text,
+                dateTimePickerFechVen.Value
+            );
         }
-
-
         private void buttonPagoSocioAceptar_Click(object sender, EventArgs e)
         {
             //verifico las validaciones de campos

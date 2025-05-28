@@ -80,6 +80,25 @@ namespace ClubDeportivo.Datos
             }
             return (false, false);
         }
+        public static bool ValidarYProcesarIdCliente(string textoId, out int idCliente)
+    {
+        idCliente = 0;
+        textoId = textoId?.Trim();
+
+        if (string.IsNullOrWhiteSpace(textoId))
+        {
+            MessageBox.Show("Debe ingresar ID del cliente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
+        }
+
+        if (!int.TryParse(textoId, out idCliente))
+        {
+            MessageBox.Show("El ID del cliente debe ser un número válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            return false;
+        }
+
+        return true;
+    }
         public static string ObtenerDatosCliente(int idCliente)
         {
             using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())

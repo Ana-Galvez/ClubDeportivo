@@ -64,10 +64,6 @@ namespace ClubDeportivo
             }
         }
 
-        private void panelPagoNoSocioHeader_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
         private void buttonPagoNoSocioAceptar_Click(object sender, EventArgs e)
         {
 

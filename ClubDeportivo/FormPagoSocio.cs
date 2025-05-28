@@ -1,4 +1,5 @@
-﻿using ClubDeportivo.Entidades;
+﻿using ClubDeportivo.Datos;
+using ClubDeportivo.Entidades;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
@@ -46,7 +47,7 @@ namespace ClubDeportivo
             if (int.TryParse(textBoxIdClienteSocio.Text, out int idCliente))
             {
                 //Valida el cliente existe y es socio
-                if (!E_Socio.EsSocio(idCliente))
+                if (!Socio.EsSocio(idCliente))
                 {
                     MessageBox.Show("El ID del cliente no existe o no es socio .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     BeginInvoke(new Action(() =>
@@ -57,7 +58,7 @@ namespace ClubDeportivo
                     return;
                 }
 
-                DataTable cuotas = E_Socio.ObtenerCuotasImpagas(idCliente);
+                DataTable cuotas = Socio.ObtenerCuotasImpagas(idCliente);
                 BeginInvoke(new Action(() =>
                 {
                     if (cuotas.Rows.Count == 0)
@@ -176,7 +177,7 @@ namespace ClubDeportivo
             MySqlConnection sqlCon = new MySqlConnection();
             try
             {
-                var datosSocio = E_Socio.ObtenerDatosSocio(Convert.ToInt32(textBoxIdClienteSocio.Text));
+                var datosSocio = Socio.ObtenerDatosSocio(Convert.ToInt32(textBoxIdClienteSocio.Text));
                 // Obtener datos de la db y pasarlos al formulario siguiente
                 doc.nombreApellido = datosSocio.NombreApellido;
                
@@ -197,7 +198,7 @@ namespace ClubDeportivo
                 doc.usuarioActual= nombreUsuario;
                 
                 // Actualizar estado de la cuota existente
-                E_Socio.RegistrarPago(idCuotaSeleccionada, DateTime.UtcNow);
+                Socio.RegistrarPago(idCuotaSeleccionada, DateTime.UtcNow);
 
             }
             catch (Exception ex)

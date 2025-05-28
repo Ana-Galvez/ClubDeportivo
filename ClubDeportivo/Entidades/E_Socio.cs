@@ -9,99 +9,29 @@ using System.Threading.Tasks;
 
 namespace ClubDeportivo.Entidades
 {
-    internal class E_Socio
+    public class E_Socio
     {
-        public static bool EsSocio(int idCliente)
-        {
-            using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
-            {
-                sqlCon.Open();
-                string query = "SELECT Socio FROM cliente WHERE IDCliente = @id";
-                using (MySqlCommand cmd = new MySqlCommand(query, sqlCon))
-                {
-                    cmd.Parameters.AddWithValue("@id", idCliente);
-                    object result = cmd.ExecuteScalar();
+        public int IDCliente { get; set; }
+        public string Nombre { get; set; }
+        public string Apellido { get; set; }
+        public bool EsSocio { get; set; }
+    }
 
-                    if (result == null) return false;
-                    return Convert.ToBoolean(result);
-                }
-            }
-        }
-        public class CuotaImpaga
-        {
-            public int IdCuota { get; set; }
-            public DateTime FechaVencimiento { get; set; }
-            public decimal Monto { get; set; }
+    public class CuotaImpaga
+    {
+        public int IdCuota { get; set; }
+        public DateTime FechaVencimiento { get; set; }
+        public decimal Monto { get; set; }
 
-            public override string ToString()
-            {
-                return $"Cuota {IdCuota} - Vence {FechaVencimiento:dd/MM/yyyy} - ${Monto}";
-            }
-        }
-        public static DataTable ObtenerCuotasImpagas(int idCliente)
+        public override string ToString()
         {
-            DataTable tabla = new DataTable();
-            using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
-            {
-                sqlCon.Open();
-                string query = @"SELECT IdCuota, FechaVencimiento, Monto
-                         FROM cuotas 
-                         WHERE IDCliente = @id AND Estado = 'Pendiente'";
-                using (MySqlCommand cmd = new MySqlCommand(query, sqlCon))
-                {
-                    cmd.Parameters.AddWithValue("@id", idCliente);
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.Fill(tabla);
-                }
-            }
-            return tabla;
+            return $"Cuota {IdCuota} - Vence {FechaVencimiento:dd/MM/yyyy} - ${Monto}";
         }
-        public class DatosSocio
-        {
-            public string NombreApellido { get; set; }
-            public bool EsSocio { get; set; }
-        }
+    }
 
-        public static DatosSocio ObtenerDatosSocio(int idCliente)
-        {
-            using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
-            {
-                sqlCon.Open();
-                string query = "SELECT CONCAT(Nombre, ' ', Apellido) AS nombreCompleto, Socio FROM cliente WHERE IDCliente = @id";
-                using (MySqlCommand cmd = new MySqlCommand(query, sqlCon))
-                {
-                    cmd.Parameters.AddWithValue("@id", idCliente);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return new DatosSocio
-                            {
-                                NombreApellido = reader.GetString(0),
-                                EsSocio = !reader.IsDBNull(1) && reader.GetBoolean(1)
-                            };
-                        }
-                        else return null;
-                    }
-                }
-            }
-        }
-        public static void RegistrarPago(int idCuota, DateTime fechaPago)
-        {
-            using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
-            {
-                sqlCon.Open();
-                string query = @"UPDATE cuotas 
-                         SET Estado = 'Pagada', 
-                             FechaPago = @fecha 
-                         WHERE IdCuota = @idCuota";
-                using (MySqlCommand cmd = new MySqlCommand(query, sqlCon))
-                {
-                    cmd.Parameters.AddWithValue("@fecha", fechaPago);
-                    cmd.Parameters.AddWithValue("@idCuota", idCuota);
-                    cmd.ExecuteNonQuery();
-                }
-            }
-        }
+    public class DatosSocio
+    {
+        public string NombreApellido { get; set; }
+        public bool EsSocio { get; set; }
     }
 }

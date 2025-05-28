@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClubDeportivo.Datos
+namespace ClubDeportivo.Entidades
 {
-    internal class Cuota
+    internal class E_Cuota
     {
         public int IdCuota { get; set; }
         public int IdCliente { get; set; }

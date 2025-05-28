@@ -73,8 +73,8 @@ namespace ClubDeportivo
                     else
                     {
                         comboBoxSeleccionarCuota.DataSource = cuotas;
-                        comboBoxSeleccionarCuota.DisplayMember = "FechaVencimiento"; // nombre de la propiedad de E_Cuota
-                        comboBoxSeleccionarCuota.ValueMember = "IdCuota"; // nombre de la propiedad de E_Cuota
+                        comboBoxSeleccionarCuota.DisplayMember = "FechaVencimiento"; 
+                        comboBoxSeleccionarCuota.ValueMember = "IdCuota"; 
                         comboBoxSeleccionarCuota.Refresh();
                         comboBoxSeleccionarCuota.Update();
                     }
@@ -189,9 +189,9 @@ namespace ClubDeportivo
                 doc.idCliente = Convert.ToInt32(textBoxIdClienteSocio.Text);
                 doc.montoPago = decimal.Parse(textBoxMontoPagoSocio.Text);
                 doc.modoPago = comboBoxModoPago.SelectedItem.ToString();
-                if (comboBoxSeleccionarCuota.SelectedItem is DataRowView fila)
+                if (comboBoxSeleccionarCuota.SelectedItem is E_Cuota cuota)
                 {
-                    doc.cuotaAbonada = Convert.ToDateTime(fila["FechaVencimiento"]).ToString("dd/MM/yyyy"); // o el formato que prefieras
+                    doc.cuotaAbonada = cuota.FechaVencimiento.ToString("dd/MM/yyyy");
                 }
                 doc.numCuotas = string.IsNullOrEmpty(comboBoxNumCuota.Text) ? null : int.Parse(comboBoxNumCuota.Text);
                 doc.numTarjeta = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumTarjeta.Text : null;

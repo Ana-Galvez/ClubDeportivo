@@ -138,9 +138,9 @@
             labelCuotaReciboSocio.AutoSize = true;
             labelCuotaReciboSocio.Location = new Point(100, 190);
             labelCuotaReciboSocio.Name = "labelCuotaReciboSocio";
-            labelCuotaReciboSocio.Size = new Size(90, 17);
+            labelCuotaReciboSocio.Size = new Size(98, 17);
             labelCuotaReciboSocio.TabIndex = 63;
-            labelCuotaReciboSocio.Text = "Mes abonado";
+            labelCuotaReciboSocio.Text = "Cuota abonada";
             // 
             // labelNombreYApellidoSocioDb
             // 

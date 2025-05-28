@@ -200,7 +200,7 @@ namespace ClubDeportivo
                 doc.usuarioActual = nombreUsuario;
 
                 // Actualizar estado de la cuota existente
-                Socio.RegistrarPago(idCuotaSeleccionada, DateTime.UtcNow);
+                Socio.RegistrarPagoCuota(idCuotaSeleccionada, DateTime.UtcNow);
 
             }
             catch (Exception ex)

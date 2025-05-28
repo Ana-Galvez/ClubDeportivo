@@ -31,7 +31,7 @@ namespace ClubDeportivo.Datos
         }
 
        
-        public static void RegistrarPago(int idCuota, DateTime fechaPago)
+        public static void RegistrarPagoCuota(int idCuota, DateTime fechaPago)
         {
             using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
             {

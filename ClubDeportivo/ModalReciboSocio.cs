@@ -37,7 +37,6 @@ namespace ClubDeportivo
             labelReciboSocioCuotaDb.Text = cuotaAbonada;
             labelReciboSocioMontoDb.Text = Convert.ToString(montoPago);
             labelReciboSocioModoPagoDb.Text = modoPago;
-            //Todo: corregir, no se ve si no es tarjeta
             labelReciboSocioNCuotasDb.Text = numCuotas.HasValue ? numCuotas.Value.ToString() : "No aplica";
             labelReciboSocioFechaDb.Text = DateTime.UtcNow.ToShortDateString();
 

@@ -204,7 +204,6 @@
             labelNombreReciboSocio.Size = new Size(118, 17);
             labelNombreReciboSocio.TabIndex = 85;
             labelNombreReciboSocio.Text = "Nombre y apellido";
-            
             // 
             // labelReciboNoSocioHoraDb
             // 
@@ -246,6 +245,7 @@
             Controls.Add(panel1);
             Controls.Add(panelReciboPagoNoSocio);
             Name = "ModalReciboNoSocio";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";
             Load += ModalReciboNoSocio_Load;
             panelReciboPagoNoSocio.ResumeLayout(false);

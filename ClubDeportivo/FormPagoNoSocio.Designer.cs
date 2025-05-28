@@ -98,6 +98,8 @@
             textBoxIdClienteNoSocio.Name = "textBoxIdClienteNoSocio";
             textBoxIdClienteNoSocio.Size = new Size(161, 25);
             textBoxIdClienteNoSocio.TabIndex = 48;
+            textBoxIdClienteNoSocio.KeyDown += textBoxIdClienteNoSocio_KeyDown;
+            textBoxIdClienteNoSocio.Validating += textBoxIdClienteNoSocio_Validating;
             // 
             // labelSeleccionarActividad
             // 

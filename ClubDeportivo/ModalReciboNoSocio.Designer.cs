@@ -33,17 +33,19 @@
             panel1 = new Panel();
             labelReciboNoSocioTitulo = new Label();
             label1 = new Label();
-            labelReciboSocioMontoDb = new Label();
+            labelReciboNoSocioMontoDb = new Label();
             label3 = new Label();
-            labelIdPagoSocioDb = new Label();
+            labelIdPagoNoSocioDb = new Label();
             label2 = new Label();
             buttonReciboSocioImprimir = new Button();
             labelReciboSocioModoPagoDb = new Label();
             labelModoPagoReciboNoSocio = new Label();
-            labelReciboSocioCuotaDb = new Label();
+            labelReciboNoSocioActividad = new Label();
             labelActCont = new Label();
-            labelNombreYApellidoSocioDb = new Label();
+            labelNombreYApellidoNoSocioDb = new Label();
             labelNombreReciboSocio = new Label();
+            labelReciboNoSocioHoraDb = new Label();
+            label5 = new Label();
             panelReciboPagoNoSocio.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -54,7 +56,7 @@
             panelReciboPagoNoSocio.Controls.Add(labelReciboPagoNoSocio);
             panelReciboPagoNoSocio.Location = new Point(2, 2);
             panelReciboPagoNoSocio.Name = "panelReciboPagoNoSocio";
-            panelReciboPagoNoSocio.Size = new Size(404, 42);
+            panelReciboPagoNoSocio.Size = new Size(404, 48);
             panelReciboPagoNoSocio.TabIndex = 70;
             // 
             // labelReciboPagoNoSocio
@@ -62,7 +64,7 @@
             labelReciboPagoNoSocio.AutoSize = true;
             labelReciboPagoNoSocio.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelReciboPagoNoSocio.ForeColor = Color.White;
-            labelReciboPagoNoSocio.Location = new Point(0, 8);
+            labelReciboPagoNoSocio.Location = new Point(0, 9);
             labelReciboPagoNoSocio.Name = "labelReciboPagoNoSocio";
             labelReciboPagoNoSocio.Padding = new Padding(10, 0, 0, 0);
             labelReciboPagoNoSocio.Size = new Size(181, 25);
@@ -74,9 +76,9 @@
             // 
             panel1.BorderStyle = BorderStyle.FixedSingle;
             panel1.Controls.Add(labelReciboNoSocioTitulo);
-            panel1.Location = new Point(69, 81);
+            panel1.Location = new Point(69, 92);
             panel1.Name = "panel1";
-            panel1.Size = new Size(287, 28);
+            panel1.Size = new Size(287, 31);
             panel1.TabIndex = 84;
             // 
             // labelReciboNoSocioTitulo
@@ -89,54 +91,51 @@
             labelReciboNoSocioTitulo.Size = new Size(282, 25);
             labelReciboNoSocioTitulo.TabIndex = 60;
             labelReciboNoSocioTitulo.Text = "Comprobante de Pago No Socio";
-            labelReciboNoSocioTitulo.Click += labelReciboNoSocioTitulo_Click_1;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(259, 222);
+            label1.Location = new Point(259, 280);
             label1.Name = "label1";
-            label1.Size = new Size(13, 15);
+            label1.Size = new Size(15, 17);
             label1.TabIndex = 100;
             label1.Text = "$";
             // 
-            // labelReciboSocioMontoDb
+            // labelReciboNoSocioMontoDb
             // 
-            labelReciboSocioMontoDb.AutoSize = true;
-            labelReciboSocioMontoDb.Location = new Point(271, 222);
-            labelReciboSocioMontoDb.Name = "labelReciboSocioMontoDb";
-            labelReciboSocioMontoDb.Size = new Size(38, 15);
-            labelReciboSocioMontoDb.TabIndex = 99;
-            labelReciboSocioMontoDb.Text = "label3";
+            labelReciboNoSocioMontoDb.AutoSize = true;
+            labelReciboNoSocioMontoDb.Location = new Point(271, 280);
+            labelReciboNoSocioMontoDb.Name = "labelReciboNoSocioMontoDb";
+            labelReciboNoSocioMontoDb.Size = new Size(43, 17);
+            labelReciboNoSocioMontoDb.TabIndex = 99;
+            labelReciboNoSocioMontoDb.Text = "label3";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(101, 222);
+            label3.Location = new Point(101, 280);
             label3.Name = "label3";
-            label3.Size = new Size(43, 15);
+            label3.Size = new Size(47, 17);
             label3.TabIndex = 98;
             label3.Text = "Monto";
-            label3.Click += label3_Click_1;
             // 
-            // labelIdPagoSocioDb
+            // labelIdPagoNoSocioDb
             // 
-            labelIdPagoSocioDb.AutoSize = true;
-            labelIdPagoSocioDb.Location = new Point(259, 137);
-            labelIdPagoSocioDb.Name = "labelIdPagoSocioDb";
-            labelIdPagoSocioDb.Size = new Size(38, 15);
-            labelIdPagoSocioDb.TabIndex = 97;
-            labelIdPagoSocioDb.Text = "label2";
+            labelIdPagoNoSocioDb.AutoSize = true;
+            labelIdPagoNoSocioDb.Location = new Point(259, 155);
+            labelIdPagoNoSocioDb.Name = "labelIdPagoNoSocioDb";
+            labelIdPagoNoSocioDb.Size = new Size(43, 17);
+            labelIdPagoNoSocioDb.TabIndex = 97;
+            labelIdPagoNoSocioDb.Text = "label2";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(101, 137);
+            label2.Location = new Point(101, 155);
             label2.Name = "label2";
-            label2.Size = new Size(58, 15);
+            label2.Size = new Size(63, 17);
             label2.TabIndex = 96;
             label2.Text = "ID Cliente";
-            label2.Click += label2_Click;
             // 
             // buttonReciboSocioImprimir
             // 
@@ -144,91 +143,110 @@
             buttonReciboSocioImprimir.FlatStyle = FlatStyle.Flat;
             buttonReciboSocioImprimir.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonReciboSocioImprimir.ForeColor = Color.White;
-            buttonReciboSocioImprimir.Location = new Point(101, 301);
+            buttonReciboSocioImprimir.Location = new Point(101, 341);
             buttonReciboSocioImprimir.Name = "buttonReciboSocioImprimir";
-            buttonReciboSocioImprimir.Size = new Size(200, 28);
+            buttonReciboSocioImprimir.Size = new Size(200, 32);
             buttonReciboSocioImprimir.TabIndex = 93;
             buttonReciboSocioImprimir.Text = "Imprimir";
             buttonReciboSocioImprimir.UseVisualStyleBackColor = false;
+            buttonReciboSocioImprimir.Click += buttonReciboSocioImprimir_Click;
             // 
             // labelReciboSocioModoPagoDb
             // 
             labelReciboSocioModoPagoDb.AutoSize = true;
-            labelReciboSocioModoPagoDb.Location = new Point(259, 247);
+            labelReciboSocioModoPagoDb.Location = new Point(259, 308);
             labelReciboSocioModoPagoDb.Name = "labelReciboSocioModoPagoDb";
-            labelReciboSocioModoPagoDb.Size = new Size(38, 15);
+            labelReciboSocioModoPagoDb.Size = new Size(43, 17);
             labelReciboSocioModoPagoDb.TabIndex = 90;
             labelReciboSocioModoPagoDb.Text = "label5";
             // 
             // labelModoPagoReciboNoSocio
             // 
             labelModoPagoReciboNoSocio.AutoSize = true;
-            labelModoPagoReciboNoSocio.Location = new Point(101, 247);
+            labelModoPagoReciboNoSocio.Location = new Point(101, 308);
             labelModoPagoReciboNoSocio.Name = "labelModoPagoReciboNoSocio";
-            labelModoPagoReciboNoSocio.Size = new Size(85, 15);
+            labelModoPagoReciboNoSocio.Size = new Size(98, 17);
             labelModoPagoReciboNoSocio.TabIndex = 89;
             labelModoPagoReciboNoSocio.Text = "Modo de pago";
-            labelModoPagoReciboNoSocio.Click += labelModoPagoReciboNoSocio_Click;
             // 
-            // labelReciboSocioCuotaDb
+            // labelReciboNoSocioActividad
             // 
-            labelReciboSocioCuotaDb.AutoSize = true;
-            labelReciboSocioCuotaDb.Location = new Point(259, 196);
-            labelReciboSocioCuotaDb.Name = "labelReciboSocioCuotaDb";
-            labelReciboSocioCuotaDb.Size = new Size(38, 15);
-            labelReciboSocioCuotaDb.TabIndex = 88;
-            labelReciboSocioCuotaDb.Text = "label3";
+            labelReciboNoSocioActividad.AutoSize = true;
+            labelReciboNoSocioActividad.Location = new Point(259, 222);
+            labelReciboNoSocioActividad.Name = "labelReciboNoSocioActividad";
+            labelReciboNoSocioActividad.Size = new Size(43, 17);
+            labelReciboNoSocioActividad.TabIndex = 88;
+            labelReciboNoSocioActividad.Text = "label3";
             // 
             // labelActCont
             // 
             labelActCont.AutoSize = true;
-            labelActCont.Location = new Point(101, 196);
+            labelActCont.Location = new Point(101, 222);
             labelActCont.Name = "labelActCont";
-            labelActCont.Size = new Size(119, 15);
+            labelActCont.Size = new Size(130, 17);
             labelActCont.TabIndex = 87;
             labelActCont.Text = "Actividad Contratada";
-            labelActCont.Click += labelActCont_Click;
             // 
-            // labelNombreYApellidoSocioDb
+            // labelNombreYApellidoNoSocioDb
             // 
-            labelNombreYApellidoSocioDb.AutoSize = true;
-            labelNombreYApellidoSocioDb.Location = new Point(259, 166);
-            labelNombreYApellidoSocioDb.Name = "labelNombreYApellidoSocioDb";
-            labelNombreYApellidoSocioDb.Size = new Size(38, 15);
-            labelNombreYApellidoSocioDb.TabIndex = 86;
-            labelNombreYApellidoSocioDb.Text = "label2";
+            labelNombreYApellidoNoSocioDb.AutoSize = true;
+            labelNombreYApellidoNoSocioDb.Location = new Point(259, 188);
+            labelNombreYApellidoNoSocioDb.Name = "labelNombreYApellidoNoSocioDb";
+            labelNombreYApellidoNoSocioDb.Size = new Size(43, 17);
+            labelNombreYApellidoNoSocioDb.TabIndex = 86;
+            labelNombreYApellidoNoSocioDb.Text = "label2";
             // 
             // labelNombreReciboSocio
             // 
             labelNombreReciboSocio.AutoSize = true;
-            labelNombreReciboSocio.Location = new Point(101, 166);
+            labelNombreReciboSocio.Location = new Point(101, 188);
             labelNombreReciboSocio.Name = "labelNombreReciboSocio";
-            labelNombreReciboSocio.Size = new Size(105, 15);
+            labelNombreReciboSocio.Size = new Size(118, 17);
             labelNombreReciboSocio.TabIndex = 85;
             labelNombreReciboSocio.Text = "Nombre y apellido";
-            labelNombreReciboSocio.Click += labelNombreReciboSocio_Click;
+            
+            // 
+            // labelReciboNoSocioHoraDb
+            // 
+            labelReciboNoSocioHoraDb.AutoSize = true;
+            labelReciboNoSocioHoraDb.Location = new Point(259, 252);
+            labelReciboNoSocioHoraDb.Name = "labelReciboNoSocioHoraDb";
+            labelReciboNoSocioHoraDb.Size = new Size(43, 17);
+            labelReciboNoSocioHoraDb.TabIndex = 102;
+            labelReciboNoSocioHoraDb.Text = "label3";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(101, 252);
+            label5.Name = "label5";
+            label5.Size = new Size(53, 17);
+            label5.TabIndex = 101;
+            label5.Text = "Horario";
             // 
             // ModalReciboNoSocio
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(401, 341);
+            ClientSize = new Size(401, 386);
+            Controls.Add(labelReciboNoSocioHoraDb);
+            Controls.Add(label5);
             Controls.Add(label1);
-            Controls.Add(labelReciboSocioMontoDb);
+            Controls.Add(labelReciboNoSocioMontoDb);
             Controls.Add(label3);
-            Controls.Add(labelIdPagoSocioDb);
+            Controls.Add(labelIdPagoNoSocioDb);
             Controls.Add(label2);
             Controls.Add(buttonReciboSocioImprimir);
             Controls.Add(labelReciboSocioModoPagoDb);
             Controls.Add(labelModoPagoReciboNoSocio);
-            Controls.Add(labelReciboSocioCuotaDb);
+            Controls.Add(labelReciboNoSocioActividad);
             Controls.Add(labelActCont);
-            Controls.Add(labelNombreYApellidoSocioDb);
+            Controls.Add(labelNombreYApellidoNoSocioDb);
             Controls.Add(labelNombreReciboSocio);
             Controls.Add(panel1);
             Controls.Add(panelReciboPagoNoSocio);
             Name = "ModalReciboNoSocio";
-            Text = "ModalReciboNoSocio";
+            Text = "CLUB DEPORTIVO";
             Load += ModalReciboNoSocio_Load;
             panelReciboPagoNoSocio.ResumeLayout(false);
             panelReciboPagoNoSocio.PerformLayout();
@@ -245,16 +263,18 @@
         private Panel panel1;
         private Label labelReciboNoSocioTitulo;
         private Label label1;
-        private Label labelReciboSocioMontoDb;
+        private Label labelReciboNoSocioMontoDb;
         private Label label3;
-        private Label labelIdPagoSocioDb;
+        private Label labelIdPagoNoSocioDb;
         private Label label2;
         private Button buttonReciboSocioImprimir;
         private Label labelReciboSocioModoPagoDb;
         private Label labelModoPagoReciboNoSocio;
-        private Label labelReciboSocioCuotaDb;
+        private Label labelReciboNoSocioActividad;
         private Label labelActCont;
-        private Label labelNombreYApellidoSocioDb;
+        private Label labelNombreYApellidoNoSocioDb;
         private Label labelNombreReciboSocio;
+        private Label labelReciboNoSocioHoraDb;
+        private Label label5;
     }
 }

@@ -16,53 +16,24 @@ namespace ClubDeportivo
         {
             InitializeComponent();
         }
-
+        //datos pasados desde formPagoSocio
+        public int? idCliente;
+        public string? nombreApellido;
+        public decimal? montoPago;
+        public string? actividadAbonada;
+        public string? horario;
+        public string? modoPago = "Efectivo";
+        public string usuarioActual;
         private void ModalReciboNoSocio_Load(object sender, EventArgs e)
         {
-
+            labelIdPagoNoSocioDb.Text = Convert.ToString(idCliente);
+            labelNombreYApellidoNoSocioDb.Text = nombreApellido;
+            labelReciboNoSocioActividad.Text = actividadAbonada;
+            labelReciboNoSocioHoraDb.Text = horario;
+            labelReciboNoSocioMontoDb.Text = Convert.ToString(montoPago);
+            labelReciboSocioModoPagoDb.Text = modoPago;
         }
-
-        private void labelReciboNoSocioTitulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label6_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelReciboNoSocioTitulo_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelNombreReciboSocio_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelActCont_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label3_Click_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void labelModoPagoReciboNoSocio_Click(object sender, EventArgs e)
+        private void buttonReciboSocioImprimir_Click(object sender, EventArgs e)
         {
 
         }

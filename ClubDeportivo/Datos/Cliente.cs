@@ -62,40 +62,44 @@ namespace ClubDeportivo.Datos
 
             return respuesta;
         }
-        public DataTable VerificarClienteID(int idCliente)
+        public (bool existe, bool esSocio) VerificarClienteIDYBooleanSocio(int idCliente)
         {
-            MySqlDataReader resultado;
-            DataTable tabla = new DataTable();
-            MySqlConnection sqlCon = new MySqlConnection();
-            try
+            using var sqlCon = Conexion.getInstancia().CrearConexion();
+            using var cmd = new MySqlCommand("VerificarClienteIDYBooleanSocio", sqlCon);
+            cmd.CommandType = CommandType.StoredProcedure;
+            cmd.Parameters.AddWithValue("p_ClienteID", idCliente);
+
+            sqlCon.Open();
+            using var reader = cmd.ExecuteReader();
+
+            if (reader.Read())
             {
-                sqlCon = Conexion.getInstancia().CrearConexion();
+                bool esSocio = !reader.IsDBNull(reader.GetOrdinal("EsSocio")) && reader.GetBoolean("EsSocio");
 
-                MySqlCommand comando = new MySqlCommand
-            ("VerificarClienteID", sqlCon);
-                comando.CommandType = CommandType.StoredProcedure;
-
-                comando.Parameters.Add("p_ClienteID",
-                MySqlDbType.VarChar).Value = idCliente;
-
-                sqlCon.Open();
-                resultado = comando.ExecuteReader();
-
-                tabla.Load(resultado);
-
-                return tabla;
+                return (true, esSocio);
             }
-            catch (Exception ex)
-            {
-                throw;
-            }
-
-            finally
-            {
-                if (sqlCon.State == ConnectionState.Open)
-                { sqlCon.Close(); }
-                ;
-            }
+            return (false, false);
         }
+        public static string ObtenerDatosCliente(int idCliente)
+        {
+            using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
+            {
+                sqlCon.Open();
+                string query = "SELECT CONCAT(Nombre, ' ', Apellido) AS NombreCompleto FROM cliente WHERE IDCliente = @id";
+                using (MySqlCommand cmd = new MySqlCommand(query, sqlCon))
+                {
+                    cmd.Parameters.AddWithValue("@id", idCliente);
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            return reader.GetString("NombreCompleto");
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
     }
 }

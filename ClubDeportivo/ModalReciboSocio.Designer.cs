@@ -167,9 +167,9 @@
             labelReciboNoSocioTitulo.ForeColor = Color.Black;
             labelReciboNoSocioTitulo.Location = new Point(3, 0);
             labelReciboNoSocioTitulo.Name = "labelReciboNoSocioTitulo";
-            labelReciboNoSocioTitulo.Size = new Size(252, 25);
+            labelReciboNoSocioTitulo.Size = new Size(251, 25);
             labelReciboNoSocioTitulo.TabIndex = 60;
-            labelReciboNoSocioTitulo.Text = "Comprobante de Pago Socio";
+            labelReciboNoSocioTitulo.Text = "Comprobante de pago socio";
             // 
             // labelReciboSocioNCuotasDb
             // 

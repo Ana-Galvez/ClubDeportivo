@@ -266,6 +266,7 @@
             Controls.Add(labelPagoNoSocioTitulo);
             Controls.Add(panelPagoNoSocioHeader);
             Name = "FormPagoNoSocio";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "FormPagoNoSocio";
             Load += FormPagoNoSocio_Load_1;
             panelPagoNoSocioHeader.ResumeLayout(false);

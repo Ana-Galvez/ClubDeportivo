@@ -47,7 +47,9 @@ namespace ClubDeportivo
             if (int.TryParse(textBoxIdClienteSocio.Text, out int idCliente))
             {
                 //Valida el cliente existe y es socio
-                if (!Socio.EsSocio(idCliente))
+                var (existe, esSocio) = new Cliente().VerificarClienteIDYBooleanSocio(idCliente);
+
+                if (!existe || !esSocio)
                 {
                     MessageBox.Show("El ID del cliente no existe o no es socio .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     BeginInvoke(new Action(() =>
@@ -177,10 +179,10 @@ namespace ClubDeportivo
             MySqlConnection sqlCon = new MySqlConnection();
             try
             {
-                var datosSocio = Socio.ObtenerDatosSocio(Convert.ToInt32(textBoxIdClienteSocio.Text));
+                var datosSocio = Cliente.ObtenerDatosCliente(Convert.ToInt32(textBoxIdClienteSocio.Text));
                 // Obtener datos de la db y pasarlos al formulario siguiente
-                doc.nombreApellido = datosSocio.NombreApellido;
-               
+                doc.nombreApellido = datosSocio;
+
                 // Datos ingresados manualmente en el formulario y pasarlos al formulario siguiente
                 doc.idCliente = Convert.ToInt32(textBoxIdClienteSocio.Text);
                 doc.montoPago = decimal.Parse(textBoxMontoPagoSocio.Text);
@@ -195,8 +197,8 @@ namespace ClubDeportivo
 
                 int idCuotaSeleccionada = Convert.ToInt32(comboBoxSeleccionarCuota.SelectedValue);
                 //usuario para home
-                doc.usuarioActual= nombreUsuario;
-                
+                doc.usuarioActual = nombreUsuario;
+
                 // Actualizar estado de la cuota existente
                 Socio.RegistrarPago(idCuotaSeleccionada, DateTime.UtcNow);
 
@@ -220,20 +222,5 @@ namespace ClubDeportivo
             new FormHome(nombreUsuario).Show();
             this.Close();
         }
-
-        private void labelPagoSocioTitulo_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxSeleccionarCuota_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void comboBoxNumCuota_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
-        }
     }
-}
+    }

@@ -147,6 +147,18 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando datos para el procedure VerificarClienteIDYBooleanSocio, para obtener si el cliente esta registrado y es o no socio
+DELIMITER //
+CREATE PROCEDURE `VerificarClienteIDYBooleanSocio`(
+    IN p_ClienteID INT
+)
+BEGIN
+    SELECT 
+        EXISTS(SELECT 1 FROM cliente WHERE IDCliente = p_ClienteID) AS Existe,
+        IFNULL((SELECT socio FROM cliente WHERE IDCliente = p_ClienteID), 0) AS EsSocio;
+END//
+DELIMITER ;
+
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;

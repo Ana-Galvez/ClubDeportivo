@@ -6,12 +6,8 @@ using System.Threading.Tasks;
 
 namespace ClubDeportivo.Entidades
 {
-    internal class E_NoSocio
+    internal class E_NoSocio : E_Cliente
     {
-        public int IDCliente { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-
-        public List<E_PagoActividad> Pagos { get; set; } = new();
+        public List<E_PagoActividad> Pagos { get; set; } = new(); 
     }
 }

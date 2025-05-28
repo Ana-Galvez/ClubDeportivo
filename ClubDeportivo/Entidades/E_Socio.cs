@@ -9,12 +9,9 @@ using System.Threading.Tasks;
 
 namespace ClubDeportivo.Entidades
 {
-    public class E_Socio
+    public class E_Socio : E_Cliente
     {
-        public int IDCliente { get; set; }
-        public string Nombre { get; set; }
-        public string Apellido { get; set; }
-        public bool EsSocio { get; set; }
+
     }
 
     public class CuotaImpaga

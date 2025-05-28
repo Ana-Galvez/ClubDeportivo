@@ -9,23 +9,8 @@ using System.Threading.Tasks;
 
 namespace ClubDeportivo.Datos
 {
-    internal class Socio
+    internal class Socio : Cliente
     {
-        public static bool EsSocio(int idCliente)
-        {
-            using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
-            {
-                sqlCon.Open();
-                string query = "SELECT Socio FROM cliente WHERE IDCliente = @id";
-                using (MySqlCommand cmd = new MySqlCommand(query, sqlCon))
-                {
-                    cmd.Parameters.AddWithValue("@id", idCliente);
-                    object result = cmd.ExecuteScalar();
-                    return result != null && Convert.ToBoolean(result);
-                }
-            }
-        }
-
         public static DataTable ObtenerCuotasImpagas(int idCliente)
         {
             DataTable tabla = new DataTable();
@@ -45,31 +30,7 @@ namespace ClubDeportivo.Datos
             return tabla;
         }
 
-        public static DatosSocio ObtenerDatosSocio(int idCliente)
-        {
-            using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
-            {
-                sqlCon.Open();
-                string query = "SELECT CONCAT(Nombre, ' ', Apellido) AS nombreCompleto, Socio FROM cliente WHERE IDCliente = @id";
-                using (MySqlCommand cmd = new MySqlCommand(query, sqlCon))
-                {
-                    cmd.Parameters.AddWithValue("@id", idCliente);
-                    using (MySqlDataReader reader = cmd.ExecuteReader())
-                    {
-                        if (reader.Read())
-                        {
-                            return new DatosSocio
-                            {
-                                NombreApellido = reader.GetString(0),
-                                EsSocio = !reader.IsDBNull(1) && reader.GetBoolean(1)
-                            };
-                        }
-                    }
-                }
-            }
-            return null;
-        }
-
+       
         public static void RegistrarPago(int idCuota, DateTime fechaPago)
         {
             using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())

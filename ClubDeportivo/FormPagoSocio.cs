@@ -23,6 +23,8 @@ namespace ClubDeportivo
         {
             InitializeComponent();
             nombreUsuario = usuario;
+            //si ingreso un idCliente incorrecto igual puedo cerrar el form
+            buttonPagoSocioCancelar.CausesValidation = false;
         }
 
 

@@ -11,26 +11,46 @@ namespace ClubDeportivo.Datos
 {
     internal class Socio : Cliente
     {
-        public static DataTable ObtenerCuotasImpagas(int idCliente)
+        public static List<E_Cuota> ObtenerCuotasImpagas(int idCliente)
         {
-            DataTable tabla = new DataTable();
+            List<E_Cuota> cuotas = new List<E_Cuota>();
+
             using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
             {
                 sqlCon.Open();
-                string query = @"SELECT IdCuota, FechaVencimiento, Monto
-                                 FROM cuotas 
-                                 WHERE IDCliente = @id AND Estado = 'Pendiente'";
+                string query = @"SELECT IdCuota, IDCliente, Monto, ModoPago, Estado, FechaPago, FechaVencimiento
+                         FROM cuotas 
+                         WHERE IDCliente = @id AND Estado = 'Pendiente'";
+
                 using (MySqlCommand cmd = new MySqlCommand(query, sqlCon))
                 {
                     cmd.Parameters.AddWithValue("@id", idCliente);
-                    MySqlDataAdapter da = new MySqlDataAdapter(cmd);
-                    da.Fill(tabla);
+
+                    using (var reader = cmd.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            var cuota = new E_Cuota()
+                            {
+                                IdCuota = reader.GetInt32("IdCuota"),
+                                IdCliente = reader.GetInt32("IDCliente"),
+                                Monto = reader.GetDecimal("Monto"),
+                                ModoPago = reader.IsDBNull(reader.GetOrdinal("ModoPago")) ? null : reader.GetString("ModoPago"),
+                                Estado = reader.GetString("Estado"),
+                                FechaPago = reader.IsDBNull(reader.GetOrdinal("FechaPago")) ? DateTime.MinValue : reader.GetDateTime("FechaPago"),
+                                FechaVencimiento = reader.GetDateTime("FechaVencimiento")
+                            };
+                            cuotas.Add(cuota);
+                        }
+                    }
                 }
             }
-            return tabla;
+
+            return cuotas;
         }
 
-       
+
+
         public static void RegistrarPagoCuota(int idCuota, DateTime fechaPago)
         {
             using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())

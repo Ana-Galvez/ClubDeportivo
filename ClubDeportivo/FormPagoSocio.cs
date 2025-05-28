@@ -60,10 +60,11 @@ namespace ClubDeportivo
                     return;
                 }
 
-                DataTable cuotas = Socio.ObtenerCuotasImpagas(idCliente);
+                List<E_Cuota> cuotas = Socio.ObtenerCuotasImpagas(idCliente);
+
                 BeginInvoke(new Action(() =>
                 {
-                    if (cuotas.Rows.Count == 0)
+                    if (cuotas == null || cuotas.Count == 0)
                     {
                         MessageBox.Show("No hay cuotas pendientes para este cliente.", "Sin cuotas", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         comboBoxSeleccionarCuota.DataSource = null;
@@ -72,12 +73,13 @@ namespace ClubDeportivo
                     else
                     {
                         comboBoxSeleccionarCuota.DataSource = cuotas;
-                        comboBoxSeleccionarCuota.DisplayMember = "FechaVencimiento";
-                        comboBoxSeleccionarCuota.ValueMember = "IdCuota";
+                        comboBoxSeleccionarCuota.DisplayMember = "FechaVencimiento"; // nombre de la propiedad de E_Cuota
+                        comboBoxSeleccionarCuota.ValueMember = "IdCuota"; // nombre de la propiedad de E_Cuota
                         comboBoxSeleccionarCuota.Refresh();
                         comboBoxSeleccionarCuota.Update();
                     }
                 }));
+
             }
             else
             {
@@ -121,9 +123,9 @@ namespace ClubDeportivo
 
         private void comboBoxSeleccionarCuota_Monto(object sender, EventArgs e)
         {
-            if (comboBoxSeleccionarCuota.SelectedItem is DataRowView filaSeleccionada)
+            if (comboBoxSeleccionarCuota.SelectedItem is E_Cuota cuotaSeleccionada)
             {
-                decimal monto = Convert.ToDecimal(filaSeleccionada["Monto"]);
+                decimal monto = cuotaSeleccionada.Monto;
                 textBoxMontoPagoSocio.Text = monto.ToString();
             }
         }

@@ -200,7 +200,7 @@ INSERT INTO Cuotas (IDCliente, Monto, ModoPago, Estado, FechaPago, FechaVencimie
 
 CREATE TABLE IF NOT EXISTS noSocios (
   IDCliente INT(11) NOT NULL,
-  FechaAltaNoSocio DATE NOT NULL DEFAULT CURDATE(),
+  FechaAltaNoSocio DATE NOT NULL DEFAULT (CURDATE()),
   PRIMARY KEY (IDCliente),
   CONSTRAINT fk_nosocio_cliente
     FOREIGN KEY (IDCliente) REFERENCES cliente(IDCliente)
@@ -223,7 +223,7 @@ CREATE TABLE IF NOT EXISTS pago_actividad (
   IdPagoActividad INT AUTO_INCREMENT PRIMARY KEY,
   IDCliente INT NOT NULL,
   IdActividad INT NOT NULL,
-  FechaPago DATE NOT NULL DEFAULT CURRENT_DATE,
+  FechaPago DATE NOT NULL DEFAULT (CURRENT_DATE),
   ModoPago ENUM('Efectivo', 'Tarjeta', 'Transferencia') NOT NULL DEFAULT 'Efectivo',
   Monto DECIMAL(10,2) NOT NULL,
   Estado ENUM('Pagada', 'Pendiente') NOT NULL DEFAULT 'Pendiente',
@@ -250,3 +250,13 @@ INSERT INTO actividades (Nombre, DiaSemana, Hora, Precio) VALUES
 ('Danza', 'Lunes', '11:00:00', 8000),
 ('Danza', 'Miércoles', '11:00:00', 8000),
 ('Danza', 'Viernes', '11:00:00', 8000);
+
+SELECT * FROM cliente WHERE IDCliente = 2;
+SELECT * FROM pago_actividad WHERE IDCliente = 4;
+DELETE FROM pago_actividad WHERE IDCliente = 3;
+DELETE FROM cliente WHERE IDCliente = 7;
+DELETE FROM pago_actividad WHERE IDCliente = 3;
+
+
+select * from cliente;
+select * from pago_actividad;

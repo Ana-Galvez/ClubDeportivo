@@ -43,7 +43,6 @@ namespace ClubDeportivo
                     comboBoxSeleccionarActividad.DisplayMember = "NombreYDia";
                     comboBoxSeleccionarActividad.ValueMember = "IDActividad";
                     comboBoxSeleccionarActividad.SelectedIndex = 0;
-
                 }
                 else
                 {
@@ -99,33 +98,59 @@ namespace ClubDeportivo
 
         private void comboBoxSeleccionarActividad_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (comboBoxSeleccionarActividad.SelectedValue is int idActividadSeleccionada)
+            if (comboBoxSeleccionarActividad.SelectedValue != null &&
+                int.TryParse(comboBoxSeleccionarActividad.SelectedValue.ToString(), out int idActividadSeleccionada))
             {
                 E_Actividad actividad = actividades.FirstOrDefault(a => a.IDActividad == idActividadSeleccionada);
 
                 if (actividad != null)
                 {
                     textBoxHoraActividad.Text = actividad.Hora.ToString(@"hh\:mm");
-                    textBoxMontoPagoNoSocio.Text = actividad.Precio.ToString(); 
+                    textBoxMontoPagoNoSocio.Text = actividad.Precio.ToString("F2");
                 }
             }
         }
+
         private string ValidarCamposObligatoriosDetalle()
         {
-            string actividad = comboBoxSeleccionarActividad.SelectedItem?.ToString() ?? "";
+            string actividad = (comboBoxSeleccionarActividad.SelectedItem as E_Actividad)?.NombreYDia ?? "";
+            string horario = textBoxHoraActividad.Text;
+
+            if (string.IsNullOrWhiteSpace(horario) || horario == "00:00")
+            {
+                return "Debes seleccionar una actividad.";
+            }
+
             return ValidacionCamposNoSocio.ValidarCamposPagoNoSocio(
                 actividad,
-                textBoxHoraActividad.Text,
+                horario,
                 textBoxMontoPagoNoSocio.Text
             );
         }
+
         private void buttonPagoNoSocioAceptar_Click(object sender, EventArgs e)
         {
-            MySqlConnection sqlCon = new MySqlConnection();
+            string errorValidacion = ValidarCamposObligatoriosDetalle();
+            if (!string.IsNullOrEmpty(errorValidacion))
+            {
+                MessageBox.Show(errorValidacion, "Campos incompletos", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (!int.TryParse(textBoxIdClienteNoSocio.Text, out int idCliente))
+            {
+                MessageBox.Show("ID Cliente inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            if (!decimal.TryParse(textBoxMontoPagoNoSocio.Text, out decimal monto))
+            {
+                MessageBox.Show("Monto inválido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
             try
             {
-                int idCliente = Convert.ToInt32(textBoxIdClienteNoSocio.Text);
-                decimal monto = decimal.Parse(textBoxMontoPagoNoSocio.Text);
                 DateTime fechaPago = DateTime.Now;
                 var datosNoSocio = Cliente.ObtenerDatosCliente(idCliente);
                 // Obtener datos de la db y pasarlos al formulario siguiente
@@ -144,20 +169,17 @@ namespace ClubDeportivo
                 int idActividadSeleccionada = Convert.ToInt32(comboBoxSeleccionarActividad.SelectedValue);
                 // Insertar el pago
                 NoSocio.RegistrarPagoActividad(idCliente, idActividadSeleccionada, fechaPago, monto);
+
+                MessageBox.Show("Pago registrado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
+                doc.Show();
+                this.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Error: {ex.Message}\n\nStackTrace:\n{ex.StackTrace}",
-        "MENSAJE DEL CATCH", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            "MENSAJE DEL CATCH", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            finally
-            {
-                if (sqlCon.State == ConnectionState.Open)
-                { sqlCon.Close(); }
-            }
-            MessageBox.Show("Pago registrado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            doc.Show();
-            this.Close();
         }
 
         private void buttonPagoNoSocioCancelar_Click(object sender, EventArgs e)
@@ -165,6 +187,10 @@ namespace ClubDeportivo
             new FormHome(nombreUsuario).Show();
             this.Close();
         }
-    } 
+
+        private void labelPagoNoSocioTitulo_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
-    

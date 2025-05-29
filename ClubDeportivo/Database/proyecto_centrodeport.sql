@@ -250,13 +250,3 @@ INSERT INTO actividades (Nombre, DiaSemana, Hora, Precio) VALUES
 ('Danza', 'Lunes', '11:00:00', 8000),
 ('Danza', 'Miércoles', '11:00:00', 8000),
 ('Danza', 'Viernes', '11:00:00', 8000);
-
-SELECT * FROM cliente WHERE IDCliente = 2;
-SELECT * FROM pago_actividad WHERE IDCliente = 4;
-DELETE FROM pago_actividad WHERE IDCliente = 3;
-DELETE FROM cliente WHERE IDCliente = 7;
-DELETE FROM pago_actividad WHERE IDCliente = 3;
-
-
-select * from cliente;
-select * from pago_actividad;

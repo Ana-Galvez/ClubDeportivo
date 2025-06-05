@@ -16,8 +16,41 @@
 
 
 -- Volcando estructura de base de datos para proyecto
+DROP DATABASE IF EXISTS `proyecto`;
 CREATE DATABASE IF NOT EXISTS `proyecto` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci */;
 USE `proyecto`;
+
+-- Volcando estructura para tabla proyecto.actividades
+CREATE TABLE IF NOT EXISTS `actividades` (
+  `IDActividad` int(11) NOT NULL AUTO_INCREMENT,
+  `Nombre` varchar(50) NOT NULL,
+  `DiaSemana` varchar(15) NOT NULL,
+  `Hora` time DEFAULT NULL,
+  `Precio` decimal(10,2) NOT NULL,
+  PRIMARY KEY (`IDActividad`)
+) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla proyecto.actividades: ~18 rows (aproximadamente)
+DELETE FROM `actividades`;
+INSERT INTO `actividades` (`IDActividad`, `Nombre`, `DiaSemana`, `Hora`, `Precio`) VALUES
+	(1, 'Natación', 'Lunes', '11:00:00', 5000.00),
+	(2, 'Natación', 'Jueves', '15:00:00', 5000.00),
+	(3, 'Pilates', 'Lunes', '18:00:00', 8000.00),
+	(4, 'Pilates', 'Miércoles', '12:00:00', 8000.00),
+	(5, 'Tenis', 'Miércoles', '18:00:00', 10000.00),
+	(6, 'Tenis', 'Viernes', '20:00:00', 10000.00),
+	(7, 'Musculación', 'Martes', '19:00:00', 5000.00),
+	(8, 'Musculación', 'Jueves', '19:00:00', 5000.00),
+	(9, 'Yoga', 'Lunes', '16:00:00', 5000.00),
+	(10, 'Yoga', 'Miércoles', '16:00:00', 5000.00),
+	(11, 'Aerobic', 'Martes', '18:00:00', 5000.00),
+	(12, 'Aerobic', 'Jueves', '12:00:00', 5000.00),
+	(13, 'Danza', 'Lunes', '19:00:00', 8000.00),
+	(14, 'Danza', 'Miércoles', '19:00:00', 8000.00),
+	(15, 'Danza', 'Viernes', '19:00:00', 8000.00),
+	(16, 'Danza', 'Lunes', '11:00:00', 8000.00),
+	(17, 'Danza', 'Miércoles', '11:00:00', 8000.00),
+	(18, 'Danza', 'Viernes', '11:00:00', 8000.00);
 
 -- Volcando estructura para tabla proyecto.cliente
 CREATE TABLE IF NOT EXISTS `cliente` (
@@ -37,10 +70,33 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.cliente: ~3 rows (aproximadamente)
-INSERT INTO `cliente` (`IDCliente`,`Nombre`, `Apellido`, `FechaNacimiento`, `DNI`, `Genero`, `Direccion`, `Telefono`, `FechaInscripcion`, `AptoFisico`, `Socio`) VALUES
-	(1,'Vir', 'Cardoso', '1983-06-02', 30001294, 'F', 'Rep siria 2705', '2914634607', '2025-05-12', 1, 1),
-	(2,'ana', 'card', '1983-05-10', 30351293, 'F', 'aa', '111', '2025-05-12', 1, 0),
-	(3,'11', '11', '1984-05-12', 11, 'F', '1111', '111', '2025-05-12', 1, 1);
+DELETE FROM `cliente`;
+INSERT INTO `cliente` (`IDCliente`, `Nombre`, `Apellido`, `FechaNacimiento`, `DNI`, `Genero`, `Direccion`, `Telefono`, `FechaInscripcion`, `AptoFisico`, `Socio`) VALUES
+	(1, 'Vir', 'Cardoso', '1983-06-02', 30001294, 'F', 'Rep siria 2705', '2914634607', '2025-05-12', 1, 1),
+	(2, 'ana', 'card', '1983-05-10', 30351293, 'F', 'aa', '111', '2025-05-12', 1, 0),
+	(3, '11', '11', '1984-05-12', 11, 'F', '1111', '111', '2025-05-12', 1, 1);
+
+-- Volcando estructura para tabla proyecto.cuotas
+CREATE TABLE IF NOT EXISTS `cuotas` (
+  `IdCuota` int(11) NOT NULL AUTO_INCREMENT,
+  `IDCliente` int(11) NOT NULL,
+  `Monto` decimal(10,2) NOT NULL,
+  `ModoPago` enum('Efectivo','Tarjeta','Transferencia') DEFAULT NULL,
+  `Estado` enum('Pagada','Pendiente') NOT NULL,
+  `FechaPago` date DEFAULT NULL,
+  `FechaVencimiento` date NOT NULL,
+  `CantCuotas` int(3) DEFAULT 0 COMMENT 'Pago tarjeta, cant cuotas',
+  `UltDigitosTarj` int(10) DEFAULT 0 COMMENT 'Ult digitos tarjeta',
+  PRIMARY KEY (`IdCuota`),
+  KEY `fk_cuota_cliente` (`IDCliente`),
+  CONSTRAINT `fk_cuota_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`) ON DELETE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla proyecto.cuotas: ~2 rows (aproximadamente)
+DELETE FROM `cuotas`;
+INSERT INTO `cuotas` (`IdCuota`, `IDCliente`, `Monto`, `ModoPago`, `Estado`, `FechaPago`, `FechaVencimiento`, `CantCuotas`, `UltDigitosTarj`) VALUES
+	(1, 1, 1500.00, 'Efectivo', 'Pagada', '2025-05-10', '2025-06-10', 0, 0),
+	(2, 3, 1200.00, 'Efectivo', 'Pendiente', '2025-05-15', '2025-06-10', 0, 0);
 
 -- Volcando estructura para procedimiento proyecto.IngresoLogin
 DELIMITER //
@@ -56,6 +112,19 @@ begin
 
 end//
 DELIMITER ;
+
+-- Volcando estructura para tabla proyecto.nosocios
+CREATE TABLE IF NOT EXISTS `nosocios` (
+  `IDCliente` int(11) NOT NULL,
+  `FechaAltaNoSocio` date NOT NULL DEFAULT curdate(),
+  PRIMARY KEY (`IDCliente`),
+  CONSTRAINT `fk_nosocio_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla proyecto.nosocios: ~1 rows (aproximadamente)
+DELETE FROM `nosocios`;
+INSERT INTO `nosocios` (`IDCliente`, `FechaAltaNoSocio`) VALUES
+	(2, '2025-05-10');
 
 -- Volcando estructura para procedimiento proyecto.NuevoCliente
 DELIMITER //
@@ -108,6 +177,25 @@ BEGIN
 END//
 DELIMITER ;
 
+-- Volcando estructura para tabla proyecto.pago_actividad
+CREATE TABLE IF NOT EXISTS `pago_actividad` (
+  `IdPagoActividad` int(11) NOT NULL AUTO_INCREMENT,
+  `IDCliente` int(11) NOT NULL,
+  `IdActividad` int(11) NOT NULL,
+  `FechaPago` date NOT NULL DEFAULT curdate(),
+  `ModoPago` enum('Efectivo','Tarjeta','Transferencia') NOT NULL DEFAULT 'Efectivo',
+  `Monto` decimal(10,2) NOT NULL,
+  `Estado` enum('Pagada','Pendiente') NOT NULL DEFAULT 'Pendiente',
+  PRIMARY KEY (`IdPagoActividad`),
+  KEY `IDCliente` (`IDCliente`),
+  KEY `IdActividad` (`IdActividad`),
+  CONSTRAINT `pago_actividad_ibfk_1` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`) ON DELETE CASCADE,
+  CONSTRAINT `pago_actividad_ibfk_2` FOREIGN KEY (`IdActividad`) REFERENCES `actividades` (`IDActividad`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla proyecto.pago_actividad: ~0 rows (aproximadamente)
+DELETE FROM `pago_actividad`;
+
 -- Volcando estructura para tabla proyecto.roles
 CREATE TABLE IF NOT EXISTS `roles` (
   `RolUsu` int(11) NOT NULL,
@@ -116,9 +204,24 @@ CREATE TABLE IF NOT EXISTS `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.roles: ~2 rows (aproximadamente)
+DELETE FROM `roles`;
 INSERT INTO `roles` (`RolUsu`, `NomRol`) VALUES
 	(120, 'Administrador'),
 	(121, 'Empleado');
+
+-- Volcando estructura para tabla proyecto.socios
+CREATE TABLE IF NOT EXISTS `socios` (
+  `IDCliente` int(11) NOT NULL,
+  `FechaAltaSocio` date NOT NULL,
+  PRIMARY KEY (`IDCliente`),
+  CONSTRAINT `fk_socio_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- Volcando datos para la tabla proyecto.socios: ~2 rows (aproximadamente)
+DELETE FROM `socios`;
+INSERT INTO `socios` (`IDCliente`, `FechaAltaSocio`) VALUES
+	(1, '2025-05-10'),
+	(3, '2025-05-15');
 
 -- Volcando estructura para tabla proyecto.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -132,12 +235,13 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   CONSTRAINT `fk_usuario` FOREIGN KEY (`RolUsu`) REFERENCES `roles` (`RolUsu`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla proyecto.usuario: ~0 rows (aproximadamente)
-INSERT INTO `usuario` (`CodUsu`,`NombreUsu`, `PassUsu`, `RolUsu`, `Activo`) VALUES
+-- Volcando datos para la tabla proyecto.usuario: ~1 rows (aproximadamente)
+DELETE FROM `usuario`;
+INSERT INTO `usuario` (`CodUsu`, `NombreUsu`, `PassUsu`, `RolUsu`, `Activo`) VALUES
 	(1, 'Ana', '123456', 120, 1);
 
--- Volcando datos para el procedure verificarClienteID
-  	DELIMITER //
+-- Volcando estructura para procedimiento proyecto.VerificarClienteID
+DELIMITER //
 CREATE PROCEDURE `VerificarClienteID`(
     IN p_ClienteID INT
 )
@@ -147,10 +251,9 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando datos para el procedure VerificarClienteIDYBooleanSocio, para obtener si el cliente esta registrado y es o no socio
-DELIMITER $$
-
-CREATE PROCEDURE VerificarClienteIDYBooleanSocio(IN p_ClienteID INT)
+-- Volcando estructura para procedimiento proyecto.VerificarClienteIDYBooleanSocio
+DELIMITER //
+CREATE PROCEDURE `VerificarClienteIDYBooleanSocio`(IN p_ClienteID INT)
 BEGIN
     DECLARE vExiste BOOL DEFAULT FALSE;
 
@@ -163,99 +266,11 @@ BEGIN
     ELSE
         SELECT FALSE AS Existe, FALSE AS EsSocio FROM DUAL;
     END IF;
-END$$
-
+END//
 DELIMITER ;
-
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
 /*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;
-
--- Volcando estructura para la tabla proyecto.socios 
-CREATE TABLE IF NOT EXISTS `socios` (
-  `IDCliente` INT(11) NOT NULL,
-  `FechaAltaSocio` DATE NOT NULL,
-  PRIMARY KEY (`IDCliente`),
-  CONSTRAINT `fk_socio_cliente`
-    FOREIGN KEY (`IDCliente`) REFERENCES `cliente`(`IDCliente`)
-    ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Volcando datos para la tabla proyecto.socios 
-INSERT INTO socios (IDCliente, FechaAltaSocio) VALUES
-(1, '2025-05-10'),
-(3,'2025-05-15');
-
--- Volcando estructura para la tabla proyecto.cuotas
-CREATE TABLE IF NOT EXISTS `Cuotas` (
-  `IdCuota` INT(11) NOT NULL AUTO_INCREMENT,
-  `IDCliente` INT(11) NOT NULL,
-  `Monto` DECIMAL(10,2) NOT NULL,
-  `ModoPago` ENUM('Efectivo', 'Tarjeta', 'Transferencia') NOT NULL,
-  `Estado` ENUM('Pagada', 'Pendiente') NOT NULL,
-  `FechaPago` DATE NOT NULL,
-  `FechaVencimiento` DATE NOT NULL,
-  PRIMARY KEY (`IdCuota`),
-  CONSTRAINT `fk_cuota_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente`(`IDCliente`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- Volcando datos para la tabla proyecto.cuotas 
-INSERT INTO Cuotas (IDCliente, Monto, ModoPago, Estado, FechaPago, FechaVencimiento) VALUES
-(1, 1500.00, 'Efectivo', 'Pagada', '2025-05-10', '2025-06-10'),
-(3, 1200.00, 'Efectivo', 'Pendiente', '2025-05-15', '2025-06-10');
-
-CREATE TABLE IF NOT EXISTS noSocios (
-  IDCliente INT(11) NOT NULL,
-  FechaAltaNoSocio DATE NOT NULL DEFAULT (CURDATE()),
-  PRIMARY KEY (IDCliente),
-  CONSTRAINT fk_nosocio_cliente
-    FOREIGN KEY (IDCliente) REFERENCES cliente(IDCliente)
-    ON DELETE CASCADE
-);
-
--- Volcando datos para la tabla proyecto.socios 
-INSERT INTO noSocios (IDCliente, FechaAltaNoSocio) VALUES
-(2, '2025-05-10');
-
-CREATE TABLE IF NOT EXISTS actividades (
-  IDActividad INT AUTO_INCREMENT PRIMARY KEY,
-  Nombre VARCHAR(50) NOT NULL,
-  DiaSemana VARCHAR(15) NOT NULL,
-  Hora TIME,
-  Precio DECIMAL(10,2) NOT NULL
-);
-
-CREATE TABLE IF NOT EXISTS pago_actividad (
-  IdPagoActividad INT AUTO_INCREMENT PRIMARY KEY,
-  IDCliente INT NOT NULL,
-  IdActividad INT NOT NULL,
-  FechaPago DATE NOT NULL DEFAULT (CURRENT_DATE),
-  ModoPago ENUM('Efectivo', 'Tarjeta', 'Transferencia') NOT NULL DEFAULT 'Efectivo',
-  Monto DECIMAL(10,2) NOT NULL,
-  Estado ENUM('Pagada', 'Pendiente') NOT NULL DEFAULT 'Pendiente',
-  FOREIGN KEY (IDCliente) REFERENCES cliente(IDCliente) ON DELETE CASCADE,
-  FOREIGN KEY (IdActividad) REFERENCES actividades(IdActividad) ON DELETE CASCADE
-);
-
-INSERT INTO actividades (Nombre, DiaSemana, Hora, Precio) VALUES
-('Natación', 'Lunes', '11:00:00', 5000),
-('Natación', 'Jueves', '15:00:00', 5000),
-('Pilates', 'Lunes', '18:00:00', 8000),
-('Pilates', 'Miércoles', '12:00:00', 8000),
-('Tenis', 'Miércoles', '18:00:00', 10000),
-('Tenis', 'Viernes', '20:00:00', 10000),
-('Musculación', 'Martes', '19:00:00', 5000),
-('Musculación', 'Jueves', '19:00:00', 5000),
-('Yoga', 'Lunes', '16:00:00', 5000),
-('Yoga', 'Miércoles', '16:00:00', 5000),
-('Aerobic', 'Martes', '18:00:00', 5000),
-('Aerobic', 'Jueves', '12:00:00', 5000),
-('Danza', 'Lunes', '19:00:00', 8000),
-('Danza', 'Miércoles', '19:00:00', 8000),
-('Danza', 'Viernes', '19:00:00', 8000),
-('Danza', 'Lunes', '11:00:00', 8000),
-('Danza', 'Miércoles', '11:00:00', 8000),
-('Danza', 'Viernes', '11:00:00', 8000);

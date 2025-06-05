@@ -16,6 +16,7 @@ namespace ClubDeportivo
     {
         private string nombreUsuario;
         public ModalReciboNoSocio doc = new ModalReciboNoSocio();
+        private bool cancelando = false;
         // Constructor con parámetro
         public FormPagoNoSocio(string usuario)
         {
@@ -62,6 +63,8 @@ namespace ClubDeportivo
 
         private void textBoxIdClienteNoSocio_Validating(object sender, CancelEventArgs e)
         {
+            if (cancelando) return;
+
             if (!ValidacionIdClienteHelper.ValidarIdCliente(textBoxIdClienteNoSocio, out int idCliente))
             {
                 e.Cancel = true;
@@ -193,8 +196,9 @@ namespace ClubDeportivo
 
         private void buttonPagoNoSocioCancelar_Click(object sender, EventArgs e)
         {
-            new FormHome(nombreUsuario).Show();
+            cancelando = true;
             this.Close();
+            new FormHome(nombreUsuario).Show();
         }
 
         private void labelPagoNoSocioTitulo_Click(object sender, EventArgs e)

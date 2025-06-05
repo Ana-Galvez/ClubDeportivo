@@ -19,6 +19,7 @@ namespace ClubDeportivo
     {
         private string nombreUsuario;
         public ModalReciboSocio doc = new ModalReciboSocio();
+        private bool cancelando = false;
         public FormPagoSocio(string usuario)
         {
             InitializeComponent();
@@ -133,6 +134,8 @@ namespace ClubDeportivo
         }
         private void textBoxIdClienteSocio_Validating(object sender, CancelEventArgs e)
         {
+            if (cancelando) return;
+
             if (!ValidarYProcesarIdCliente())
             {
                 e.Cancel = true;
@@ -204,8 +207,10 @@ namespace ClubDeportivo
         }
         private void buttonPagoSocioCancelar_Click(object sender, EventArgs e)
         {
-            new FormHome(nombreUsuario).Show();
+            cancelando = true;
             this.Close();
+            new FormHome(nombreUsuario).Show();
+            
         }
     }
     }

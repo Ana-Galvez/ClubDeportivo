@@ -148,16 +148,25 @@ END//
 DELIMITER ;
 
 -- Volcando datos para el procedure VerificarClienteIDYBooleanSocio, para obtener si el cliente esta registrado y es o no socio
-DELIMITER //
-CREATE PROCEDURE `VerificarClienteIDYBooleanSocio`(
-    IN p_ClienteID INT
-)
+DELIMITER $$
+
+CREATE PROCEDURE VerificarClienteIDYBooleanSocio(IN p_ClienteID INT)
 BEGIN
-    SELECT 
-        EXISTS(SELECT 1 FROM cliente WHERE IDCliente = p_ClienteID) AS Existe,
-        IFNULL((SELECT socio FROM cliente WHERE IDCliente = p_ClienteID), 0) AS EsSocio;
-END//
+    DECLARE vExiste BOOL DEFAULT FALSE;
+
+    SELECT COUNT(*) > 0 INTO vExiste FROM cliente WHERE IDCliente = p_ClienteID;
+
+    IF vExiste THEN
+        SELECT TRUE AS Existe, socio AS EsSocio
+        FROM cliente
+        WHERE IDCliente = p_ClienteID;
+    ELSE
+        SELECT FALSE AS Existe, FALSE AS EsSocio FROM DUAL;
+    END IF;
+END$$
+
 DELIMITER ;
+
 
 /*!40103 SET TIME_ZONE=IFNULL(@OLD_TIME_ZONE, 'system') */;
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;

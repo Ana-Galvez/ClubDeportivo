@@ -26,6 +26,11 @@ namespace ClubDeportivo
         private List<E_Actividad> actividades;
         private void FormPagoNoSocio_Load(object sender, EventArgs e)
         {
+            MessageBox.Show(
+        "Recuerda que los no socios solo abonan en efectivo",
+        "Ayuda para pago no socios",
+        MessageBoxButtons.OK,
+        MessageBoxIcon.Exclamation);
             try
             {
                 actividades = NoSocio.ObtenerActividades();
@@ -65,9 +70,13 @@ namespace ClubDeportivo
 
             var (existe, esSocio) = new Cliente().VerificarClienteIDYBooleanSocio(idCliente);
 
-            if (!existe || esSocio)
+            if (!existe)
             {
-                MessageBox.Show("El ID del cliente no existe o es socio.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("El ID del cliente no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                e.Cancel = true;
+            }else if (esSocio)
+            {
+                MessageBox.Show("El cliente es socio no se puede registrar el pago.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 e.Cancel = true;
             }
         }

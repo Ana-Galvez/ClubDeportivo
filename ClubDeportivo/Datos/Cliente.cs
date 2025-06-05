@@ -64,22 +64,30 @@ namespace ClubDeportivo.Datos
         }
         public (bool existe, bool esSocio) VerificarClienteIDYBooleanSocio(int idCliente)
         {
-            using var sqlCon = Conexion.getInstancia().CrearConexion();
-            using var cmd = new MySqlCommand("VerificarClienteIDYBooleanSocio", sqlCon);
-            cmd.CommandType = CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("p_ClienteID", idCliente);
-
-            sqlCon.Open();
-            using var reader = cmd.ExecuteReader();
-
-            if (reader.Read())
+            try
             {
-                bool esSocio = !reader.IsDBNull(reader.GetOrdinal("EsSocio")) && reader.GetBoolean("EsSocio");
+                using var sqlCon = Conexion.getInstancia().CrearConexion();
+                using var cmd = new MySqlCommand("VerificarClienteIDYBooleanSocio", sqlCon);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("p_ClienteID", idCliente);
 
-                return (true, esSocio);
+                sqlCon.Open();
+                using var reader = cmd.ExecuteReader();
+
+                if (reader.Read())
+                {
+                    bool existe = reader.GetBoolean("Existe");
+                    bool esSocio = reader.GetBoolean("EsSocio");
+                    return (existe, esSocio);
+                }
+                return (false, false);
             }
-            return (false, false);
+            catch
+            {
+                return (false, false);
+            }
         }
+
         public static bool ValidarYProcesarIdCliente(string textoId, out int idCliente)
     {
         idCliente = 0;

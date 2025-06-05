@@ -52,9 +52,17 @@ namespace ClubDeportivo
                 //Valida el cliente existe y es socio
                 var (existe, esSocio) = new Cliente().VerificarClienteIDYBooleanSocio(idCliente);
 
+                if (!existe)
+                {
+                    MessageBox.Show("El ID del cliente no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (!esSocio)
+                {
+                    MessageBox.Show("El cliente no es socio, no se puede registrar el pago.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+
                 if (!existe || !esSocio)
                 {
-                    MessageBox.Show("El ID del cliente no existe o no es socio .", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     BeginInvoke(new Action(() =>
                     {
                         comboBoxSeleccionarCuota.DataSource = null;

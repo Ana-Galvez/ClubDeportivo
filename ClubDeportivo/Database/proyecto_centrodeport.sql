@@ -31,7 +31,6 @@ CREATE TABLE IF NOT EXISTS `actividades` (
 ) ENGINE=InnoDB AUTO_INCREMENT=19 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.actividades: ~18 rows (aproximadamente)
-DELETE FROM `actividades`;
 INSERT INTO `actividades` (`IDActividad`, `Nombre`, `DiaSemana`, `Hora`, `Precio`) VALUES
 	(1, 'Natación', 'Lunes', '11:00:00', 5000.00),
 	(2, 'Natación', 'Jueves', '15:00:00', 5000.00),
@@ -70,7 +69,6 @@ CREATE TABLE IF NOT EXISTS `cliente` (
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.cliente: ~3 rows (aproximadamente)
-DELETE FROM `cliente`;
 INSERT INTO `cliente` (`IDCliente`, `Nombre`, `Apellido`, `FechaNacimiento`, `DNI`, `Genero`, `Direccion`, `Telefono`, `FechaInscripcion`, `AptoFisico`, `Socio`) VALUES
 	(1, 'Vir', 'Cardoso', '1983-06-02', 30001294, 'F', 'Rep siria 2705', '2914634607', '2025-05-12', 1, 1),
 	(2, 'ana', 'card', '1983-05-10', 30351293, 'F', 'aa', '111', '2025-05-12', 1, 0),
@@ -93,7 +91,6 @@ CREATE TABLE IF NOT EXISTS `cuotas` (
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.cuotas: ~2 rows (aproximadamente)
-DELETE FROM `cuotas`;
 INSERT INTO `cuotas` (`IdCuota`, `IDCliente`, `Monto`, `ModoPago`, `Estado`, `FechaPago`, `FechaVencimiento`, `CantCuotas`, `UltDigitosTarj`) VALUES
 	(1, 1, 1500.00, 'Efectivo', 'Pagada', '2025-05-10', '2025-06-10', 0, 0),
 	(2, 3, 1200.00, 'Efectivo', 'Pendiente', '2025-05-15', '2025-06-10', 0, 0);
@@ -122,7 +119,6 @@ CREATE TABLE IF NOT EXISTS `nosocios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.nosocios: ~1 rows (aproximadamente)
-DELETE FROM `nosocios`;
 INSERT INTO `nosocios` (`IDCliente`, `FechaAltaNoSocio`) VALUES
 	(2, '2025-05-10');
 
@@ -194,7 +190,6 @@ CREATE TABLE IF NOT EXISTS `pago_actividad` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.pago_actividad: ~0 rows (aproximadamente)
-DELETE FROM `pago_actividad`;
 
 -- Volcando estructura para tabla proyecto.roles
 CREATE TABLE IF NOT EXISTS `roles` (
@@ -204,7 +199,6 @@ CREATE TABLE IF NOT EXISTS `roles` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.roles: ~2 rows (aproximadamente)
-DELETE FROM `roles`;
 INSERT INTO `roles` (`RolUsu`, `NomRol`) VALUES
 	(120, 'Administrador'),
 	(121, 'Empleado');
@@ -218,7 +212,6 @@ CREATE TABLE IF NOT EXISTS `socios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.socios: ~2 rows (aproximadamente)
-DELETE FROM `socios`;
 INSERT INTO `socios` (`IDCliente`, `FechaAltaSocio`) VALUES
 	(1, '2025-05-10'),
 	(3, '2025-05-15');
@@ -236,7 +229,6 @@ CREATE TABLE IF NOT EXISTS `usuario` (
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.usuario: ~1 rows (aproximadamente)
-DELETE FROM `usuario`;
 INSERT INTO `usuario` (`CodUsu`, `NombreUsu`, `PassUsu`, `RolUsu`, `Activo`) VALUES
 	(1, 'Ana', '123456', 120, 1);
 

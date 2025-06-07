@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   UNIQUE KEY `DNI` (`DNI`)
 ) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla proyecto.cliente: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla proyecto.cliente: ~4 rows (aproximadamente)
 INSERT INTO `cliente` (`IDCliente`, `Nombre`, `Apellido`, `FechaNacimiento`, `DNI`, `Genero`, `Direccion`, `Telefono`, `FechaInscripcion`, `AptoFisico`, `Socio`) VALUES
 	(1, 'Vir', 'Cardoso', '1983-06-02', 30001294, 'F', 'Rep siria 2705', '2914634607', '2025-05-12', 1, 1),
 	(2, 'ana', 'card', '1983-05-10', 30351293, 'F', 'aa', '111', '2025-05-12', 1, 0),
@@ -163,6 +163,11 @@ BEGIN
         IF p_Socio = 1 THEN
             INSERT INTO socios (IDCliente, FechaAltaSocio)
             VALUES (nuevoID, p_FechaInscripcion);
+            
+            -- Creoamos la cuota inicial
+	        INSERT INTO `cuotas` ( `IDCliente`, `Monto`, `ModoPago`, `Estado`, `FechaPago`, `FechaVencimiento`, `CantCuotas`, `UltDigitosTarj`) 
+			  VALUES ( nuevoID, 150000.00, NULL, 'Pendiente', NULL, DATE_ADD(CURDATE(), INTERVAL 1 MONTH), 0, 0);
+			  
         ELSE
             INSERT INTO noSocios (IDCliente, FechaAltaNoSocio)
             VALUES (nuevoID, p_FechaInscripcion);
@@ -170,9 +175,6 @@ BEGIN
 
         SET rta = nuevoID;
         
-        -- Creoamos la cuota inicial
-        INSERT INTO `cuotas` ( `IDCliente`, `Monto`, `ModoPago`, `Estado`, `FechaPago`, `FechaVencimiento`, `CantCuotas`, `UltDigitosTarj`) 
-		  VALUES ( nuevoID, 150000.00, NULL, 'Pendiente', NULL, DATE_ADD(CURDATE(), INTERVAL 1 MONTH), 0, 0);
 
     ELSE
         -- Si el DNI ya existe, devolvemos -1 como señal
@@ -221,7 +223,7 @@ CREATE TABLE IF NOT EXISTS `socios` (
   CONSTRAINT `fk_socio_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla proyecto.socios: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla proyecto.socios: ~3 rows (aproximadamente)
 INSERT INTO `socios` (`IDCliente`, `FechaAltaSocio`) VALUES
 	(1, '2025-05-10'),
 	(3, '2025-05-15'),

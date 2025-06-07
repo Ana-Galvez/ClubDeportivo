@@ -37,14 +37,14 @@ namespace ClubDeportivo
             comboBoxNumCuota.Enabled = habilitar;
             labelNumTarjeta.Enabled = habilitar;
             textBoxNumTarjeta.Enabled = habilitar;
-            textBoxNumVerificacion.Enabled = habilitar;
-            labelNumVerificacion.Enabled = habilitar;
-            labelFechVenc.Enabled = habilitar;
-            dateTimePickerFechVen.Enabled = habilitar;
+            //textBoxNumVerificacion.Enabled = habilitar;
+            //labelNumVerificacion.Enabled = habilitar;
+            //labelFechVenc.Enabled = habilitar;
+            //dateTimePickerFechVen.Enabled = habilitar;
             label5Warning.Enabled = habilitar;
             label6Warning.Enabled = habilitar;
-            label7Warning.Enabled = habilitar;
-            label8Warning.Enabled = habilitar;
+            //label7Warning.Enabled = habilitar;
+            //label8Warning.Enabled = habilitar;
         }
         private void CargarCuotasImpagas()
         {
@@ -149,9 +149,9 @@ namespace ClubDeportivo
                 comboBoxSeleccionarCuota.Text,
                 comboBoxModoPago.Text,
                 textBoxNumTarjeta.Text,
-                textBoxNumVerificacion.Text,
-                comboBoxNumCuota.Text,
-                dateTimePickerFechVen.Value
+                //textBoxNumVerificacion.Text,
+                comboBoxNumCuota.Text/*,
+                dateTimePickerFechVen.Value*/
             );
         }
         private void buttonPagoSocioAceptar_Click(object sender, EventArgs e)
@@ -172,8 +172,10 @@ namespace ClubDeportivo
                 doc.nombreApellido = datosSocio;
 
                 // Datos ingresados manualmente en el formulario y pasarlos al formulario siguiente
-                doc.idCliente = Convert.ToInt32(textBoxIdClienteSocio.Text);
-                doc.montoPago = decimal.Parse(textBoxMontoPagoSocio.Text);
+                int idCliente = Convert.ToInt32(textBoxIdClienteSocio.Text);
+                doc.idCliente = idCliente;
+                decimal monto = decimal.Parse(textBoxMontoPagoSocio.Text);
+                doc.montoPago = monto;
                 doc.modoPago = comboBoxModoPago.SelectedItem.ToString();
                 if (comboBoxSeleccionarCuota.SelectedItem is E_Cuota cuota)
                 {
@@ -181,14 +183,25 @@ namespace ClubDeportivo
                 }
                 doc.numCuotas = string.IsNullOrEmpty(comboBoxNumCuota.Text) ? null : int.Parse(comboBoxNumCuota.Text);
                 doc.numTarjeta = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumTarjeta.Text : null;
-                doc.numVerificacion = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumVerificacion.Text : null;
+               /* doc.numVerificacion = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumVerificacion.Text : null;*/
 
                 int idCuotaSeleccionada = Convert.ToInt32(comboBoxSeleccionarCuota.SelectedValue);
                 //usuario para home
                 doc.usuarioActual = nombreUsuario;
+                int cantCuotas = 0;
+                int digTarj = 0;
+                if (doc.modoPago == "Tarjeta")
+                {
+                    cantCuotas = Convert.ToInt32(comboBoxNumCuota.SelectedItem.ToString());
+                    digTarj = Convert.ToInt32(textBoxNumTarjeta.Text);
 
+                    
+                }
+                
                 // Actualizar estado de la cuota existente
-                Socio.RegistrarPagoCuota(idCuotaSeleccionada, DateTime.UtcNow);
+                Socio.RegistrarPagoCuota(idCuotaSeleccionada, DateTime.UtcNow, doc.modoPago, cantCuotas, digTarj);
+
+                Socio.CrearProximaCuota(idCliente, monto);
 
             }
             catch (Exception ex)
@@ -202,6 +215,7 @@ namespace ClubDeportivo
                 { sqlCon.Close(); }
             }
             MessageBox.Show("Pago registrado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            
             doc.Show();
             this.Close();
         }

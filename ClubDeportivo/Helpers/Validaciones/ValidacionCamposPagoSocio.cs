@@ -13,9 +13,10 @@ namespace ClubDeportivo.Helpers.Validaciones
             string cuota,
             string modoPago,
             string numTarjeta,
-            string numVerificacion,
-            string numCuotas,
-            DateTime fechaVencimiento)
+            //string numVerificacion,
+            string numCuotas/*,
+            DateTime fechaVencimiento*/
+            )
         {
             if (string.IsNullOrWhiteSpace(monto))
                 return "Debe ingresar el monto a pagar.";
@@ -28,17 +29,17 @@ namespace ClubDeportivo.Helpers.Validaciones
 
             if (modoPago == "Tarjeta")
             {
-                if (fechaVencimiento.Date <= DateTime.Today)
+                /*if (fechaVencimiento.Date <= DateTime.Today)
                     return "La fecha de vencimiento de la tarjeta debe ser futura.";
-
+                */
                 if (string.IsNullOrWhiteSpace(numCuotas))
                     return "Debe ingresar la cantidad de cuotas.";
 
                 if (string.IsNullOrWhiteSpace(numTarjeta))
                     return "Debe ingresar el N° de tarjeta.";
 
-                if (string.IsNullOrWhiteSpace(numVerificacion))
-                    return "Debe ingresar el N° de verificación de la tarjeta.";
+                /*if (string.IsNullOrWhiteSpace(numVerificacion))
+                    return "Debe ingresar el N° de verificación de la tarjeta.";*/
             }
 
             return "";

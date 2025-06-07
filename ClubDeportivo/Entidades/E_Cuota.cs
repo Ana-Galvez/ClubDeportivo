@@ -15,6 +15,9 @@ namespace ClubDeportivo.Entidades
         public string Estado { get; set; }
         public DateTime FechaPago { get; set; }
         public DateTime FechaVencimiento { get; set; }
+        public int CantCuotas { get; set; }          // Cantidad de cuotas (si se pagó con tarjeta)
+        public int UltDigitosTarj { get; set; }      // Últimos dígitos de la tarjeta
+
 
         //Sobreescribo para obtener todos los datos relevantes del pago de cuota
         public override string ToString()

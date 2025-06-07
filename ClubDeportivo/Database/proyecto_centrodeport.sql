@@ -66,13 +66,14 @@ CREATE TABLE IF NOT EXISTS `cliente` (
   `Socio` tinyint(4) NOT NULL,
   PRIMARY KEY (`IDCliente`),
   UNIQUE KEY `DNI` (`DNI`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.cliente: ~3 rows (aproximadamente)
 INSERT INTO `cliente` (`IDCliente`, `Nombre`, `Apellido`, `FechaNacimiento`, `DNI`, `Genero`, `Direccion`, `Telefono`, `FechaInscripcion`, `AptoFisico`, `Socio`) VALUES
 	(1, 'Vir', 'Cardoso', '1983-06-02', 30001294, 'F', 'Rep siria 2705', '2914634607', '2025-05-12', 1, 1),
 	(2, 'ana', 'card', '1983-05-10', 30351293, 'F', 'aa', '111', '2025-05-12', 1, 0),
-	(3, '11', '11', '1984-05-12', 11, 'F', '1111', '111', '2025-05-12', 1, 1);
+	(3, '11', '11', '1984-05-12', 11, 'F', '1111', '111', '2025-05-12', 1, 1),
+	(5, 'Fernado', 'Sanchez', '1988-08-07', 9876543, 'M', 'calle 123', '291454687', '2025-06-07', 1, 1);
 
 -- Volcando estructura para tabla proyecto.cuotas
 CREATE TABLE IF NOT EXISTS `cuotas` (
@@ -88,12 +89,15 @@ CREATE TABLE IF NOT EXISTS `cuotas` (
   PRIMARY KEY (`IdCuota`),
   KEY `fk_cuota_cliente` (`IDCliente`),
   CONSTRAINT `fk_cuota_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`) ON DELETE CASCADE
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla proyecto.cuotas: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla proyecto.cuotas: ~5 rows (aproximadamente)
 INSERT INTO `cuotas` (`IdCuota`, `IDCliente`, `Monto`, `ModoPago`, `Estado`, `FechaPago`, `FechaVencimiento`, `CantCuotas`, `UltDigitosTarj`) VALUES
-	(1, 1, 1500.00, 'Efectivo', 'Pagada', '2025-05-10', '2025-06-10', 0, 0),
-	(2, 3, 1200.00, 'Efectivo', 'Pendiente', '2025-05-15', '2025-06-10', 0, 0);
+	(1, 1, 1500.00, 'Tarjeta', 'Pagada', '2025-06-07', '2025-06-10', 3, 1234),
+	(2, 3, 1200.00, 'Transferencia', 'Pagada', '2025-06-07', '2025-06-10', 0, 0),
+	(3, 1, 1500.00, NULL, 'Pendiente', NULL, '2025-07-06', 0, 0),
+	(4, 3, 1200.00, NULL, 'Pendiente', NULL, '2025-07-06', 0, 0),
+	(5, 5, 150000.00, NULL, 'Pendiente', NULL, '2025-07-07', 0, 0);
 
 -- Volcando estructura para procedimiento proyecto.IngresoLogin
 DELIMITER //
@@ -118,24 +122,24 @@ CREATE TABLE IF NOT EXISTS `nosocios` (
   CONSTRAINT `fk_nosocio_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla proyecto.nosocios: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla proyecto.nosocios: ~0 rows (aproximadamente)
 INSERT INTO `nosocios` (`IDCliente`, `FechaAltaNoSocio`) VALUES
 	(2, '2025-05-10');
 
 -- Volcando estructura para procedimiento proyecto.NuevoCliente
 DELIMITER //
 CREATE PROCEDURE `NuevoCliente`(
-    IN p_Nombre VARCHAR(30),
-    IN p_Apellido VARCHAR(40),
-    IN p_FechaNacimiento DATE,
-    IN p_DNI INT,
-    IN p_Genero VARCHAR(20),
-    IN p_Direccion VARCHAR(60),
-    IN p_Telefono VARCHAR(30),
-    IN p_FechaInscripcion DATE,
-    IN p_AptoFisico BOOLEAN,
-    IN p_Socio BOOLEAN,
-    OUT rta INT
+	IN `p_Nombre` VARCHAR(30),
+	IN `p_Apellido` VARCHAR(40),
+	IN `p_FechaNacimiento` DATE,
+	IN `p_DNI` INT,
+	IN `p_Genero` VARCHAR(20),
+	IN `p_Direccion` VARCHAR(60),
+	IN `p_Telefono` VARCHAR(30),
+	IN `p_FechaInscripcion` DATE,
+	IN `p_AptoFisico` BOOLEAN,
+	IN `p_Socio` BOOLEAN,
+	OUT `rta` INT
 )
 BEGIN
     DECLARE existe INT DEFAULT 0;
@@ -165,6 +169,10 @@ BEGIN
         END IF;
 
         SET rta = nuevoID;
+        
+        -- Creoamos la cuota inicial
+        INSERT INTO `cuotas` ( `IDCliente`, `Monto`, `ModoPago`, `Estado`, `FechaPago`, `FechaVencimiento`, `CantCuotas`, `UltDigitosTarj`) 
+		  VALUES ( nuevoID, 150000.00, NULL, 'Pendiente', NULL, DATE_ADD(CURDATE(), INTERVAL 1 MONTH), 0, 0);
 
     ELSE
         -- Si el DNI ya existe, devolvemos -1 como señal
@@ -187,9 +195,11 @@ CREATE TABLE IF NOT EXISTS `pago_actividad` (
   KEY `IdActividad` (`IdActividad`),
   CONSTRAINT `pago_actividad_ibfk_1` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`) ON DELETE CASCADE,
   CONSTRAINT `pago_actividad_ibfk_2` FOREIGN KEY (`IdActividad`) REFERENCES `actividades` (`IDActividad`) ON DELETE CASCADE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- Volcando datos para la tabla proyecto.pago_actividad: ~0 rows (aproximadamente)
+INSERT INTO `pago_actividad` (`IdPagoActividad`, `IDCliente`, `IdActividad`, `FechaPago`, `ModoPago`, `Monto`, `Estado`) VALUES
+	(1, 2, 1, '2025-06-06', 'Efectivo', 5000.00, 'Pagada');
 
 -- Volcando estructura para tabla proyecto.roles
 CREATE TABLE IF NOT EXISTS `roles` (
@@ -214,7 +224,8 @@ CREATE TABLE IF NOT EXISTS `socios` (
 -- Volcando datos para la tabla proyecto.socios: ~2 rows (aproximadamente)
 INSERT INTO `socios` (`IDCliente`, `FechaAltaSocio`) VALUES
 	(1, '2025-05-10'),
-	(3, '2025-05-15');
+	(3, '2025-05-15'),
+	(5, '2025-06-07');
 
 -- Volcando estructura para tabla proyecto.usuario
 CREATE TABLE IF NOT EXISTS `usuario` (
@@ -228,7 +239,7 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   CONSTRAINT `fk_usuario` FOREIGN KEY (`RolUsu`) REFERENCES `roles` (`RolUsu`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla proyecto.usuario: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla proyecto.usuario: ~0 rows (aproximadamente)
 INSERT INTO `usuario` (`CodUsu`, `NombreUsu`, `PassUsu`, `RolUsu`, `Activo`) VALUES
 	(1, 'Ana', '123456', 120, 1);
 

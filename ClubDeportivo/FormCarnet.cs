@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing.Printing;
+using ClubDeportivo;
 
 
 namespace ClubDeportivo
@@ -46,6 +47,37 @@ namespace ClubDeportivo
         {
             buttonCarnetVolver.Visible = false;
             buttonImprimirCarnet.Visible = false;
+            SaveFileDialog saveDialog = new SaveFileDialog();
+            saveDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
+            saveDialog.Title = "Guardar carnet como PDF";
+            saveDialog.FileName = "Carnet de Miembro.pdf";
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
+            {
+                PrintDocument pd = new PrintDocument();
+                pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
+                pd.PrinterSettings.PrinterName = "Microsoft Print to PDF";
+                pd.PrinterSettings.PrintToFile = true;
+                pd.PrinterSettings.PrintFileName = saveDialog.FileName;
+                pd.DefaultPageSettings.Landscape = true;
+
+                try
+                {
+                    pd.Print();
+                    MessageBox.Show("Carnet guardado exitosamente.", "AVISO DEL SISTEMA",
+                        MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Error al guardar: " + ex.Message, "ERROR",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+
+            buttonCarnetVolver.Visible = true;
+            buttonImprimirCarnet.Visible = true;
+        }
+            /*
             PrintDocument pd = new PrintDocument();
             pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
             pd.PrinterSettings.PrinterName = "Microsoft Print to PDF";
@@ -59,7 +91,7 @@ namespace ClubDeportivo
             FormHome principal = new FormHome(usuario);
             principal.Show();
             this.Close();
-        }
+        }*/
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {

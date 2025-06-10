@@ -106,14 +106,20 @@ namespace ClubDeportivo
 
         private void buttonImprimirListado_Click(object sender, EventArgs e)
         {
-           
+
         }
 
-        
+        private void labelTitulo_Click(object sender, EventArgs e)
+        {
 
-       
+        }
 
-        
+        private void buttonSalir_Click(object sender, EventArgs e)
+        {
+            FormHome home = new FormHome(nombreUsuario);
+            home.Show();
+            this.Hide(); 
+        }
     }
 }
 

@@ -61,6 +61,9 @@ namespace ClubDeportivo
 
         private void buttonListadoSociosMorosos_Click_1(object sender, EventArgs e)
         {
+            FormVencimiento nuevoListado = new FormVencimiento(nombreUsuario);
+            nuevoListado.Show();
+            this.Hide();
 
         }
 

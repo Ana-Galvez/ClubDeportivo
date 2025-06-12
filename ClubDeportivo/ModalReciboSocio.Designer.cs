@@ -48,6 +48,7 @@
             labelReciboSocioMontoDb = new Label();
             label3 = new Label();
             label1 = new Label();
+            buttonReciboSocioCancelar = new Button();
             panelReciboPagoNoSocio.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -243,11 +244,26 @@
             label1.TabIndex = 78;
             label1.Text = "$";
             // 
+            // buttonReciboSocioCancelar
+            // 
+            buttonReciboSocioCancelar.BackColor = Color.FromArgb(128, 0, 70, 160);
+            buttonReciboSocioCancelar.FlatStyle = FlatStyle.Flat;
+            buttonReciboSocioCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            buttonReciboSocioCancelar.ForeColor = Color.White;
+            buttonReciboSocioCancelar.Location = new Point(101, 382);
+            buttonReciboSocioCancelar.Name = "buttonReciboSocioCancelar";
+            buttonReciboSocioCancelar.Size = new Size(200, 32);
+            buttonReciboSocioCancelar.TabIndex = 105;
+            buttonReciboSocioCancelar.Text = "Cancelar";
+            buttonReciboSocioCancelar.UseVisualStyleBackColor = false;
+            buttonReciboSocioCancelar.Click += buttonReciboSocioCancelar_Click;
+            // 
             // ModalReciboSocio
             // 
             AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(401, 386);
+            ClientSize = new Size(401, 426);
+            Controls.Add(buttonReciboSocioCancelar);
             Controls.Add(label1);
             Controls.Add(labelReciboSocioMontoDb);
             Controls.Add(label3);
@@ -300,5 +316,6 @@
         private Label labelReciboSocioMontoDb;
         private Label label3;
         private Label label1;
+        private Button buttonReciboSocioCancelar;
     }
 }

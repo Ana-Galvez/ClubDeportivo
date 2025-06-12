@@ -55,7 +55,7 @@ namespace ClubDeportivo
                 ModoPago = modoPago,
                 EsSocio = true
             };
-            var impresion = new ImpresionReciboPago(datos, buttonReciboSocioImprimir,usuarioActual);
+            var impresion = new ImpresionReciboPago(datos, buttonReciboSocioImprimir, usuarioActual);
 
             impresion.Boton();
             this.Close();
@@ -92,6 +92,12 @@ namespace ClubDeportivo
 
             //new FormHome(usuarioActual).Show();
             //this.Close();
+        }
+
+        private void buttonReciboSocioCancelar_Click(object sender, EventArgs e)
+        {
+            new FormHome(usuarioActual).Show();
+            this.Close();
         }
 
         //private void ImprimirRecibo(object sender, PrintPageEventArgs e)

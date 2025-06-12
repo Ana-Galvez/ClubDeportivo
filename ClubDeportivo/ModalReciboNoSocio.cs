@@ -53,38 +53,44 @@ namespace ClubDeportivo
             this.Close();
 
 
-        //    buttonReciboNoSocioImprimir.Visible = false;
+            //    buttonReciboNoSocioImprimir.Visible = false;
 
-        //    // Mostrar cuadro de diálogo para elegir nombre y ruta del PDF
-        //    SaveFileDialog saveDialog = new SaveFileDialog();
-        //    saveDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
-        //    saveDialog.Title = "Guardar comprobante como PDF";
-        //    saveDialog.FileName = "Comprobante de Pago No Socio";
+            //    // Mostrar cuadro de diálogo para elegir nombre y ruta del PDF
+            //    SaveFileDialog saveDialog = new SaveFileDialog();
+            //    saveDialog.Filter = "Archivos PDF (*.pdf)|*.pdf";
+            //    saveDialog.Title = "Guardar comprobante como PDF";
+            //    saveDialog.FileName = "Comprobante de Pago No Socio";
 
-        //    if (saveDialog.ShowDialog() == DialogResult.OK)
-        //    {
-        //        PrintDocument pd = new PrintDocument();
-        //        pd.PrintPage += new PrintPageEventHandler(ImprimirRecibo);
-        //        pd.PrinterSettings.PrinterName = "Microsoft Print to PDF"; // Cambia esto al nombre de tu impresora si es necesario
-        //        pd.PrinterSettings.PrintToFile = true; // Configura la orientación del papel
-        //        pd.PrinterSettings.PrintFileName = saveDialog.FileName;
-        //        pd.DefaultPageSettings.Landscape = true;
+            //    if (saveDialog.ShowDialog() == DialogResult.OK)
+            //    {
+            //        PrintDocument pd = new PrintDocument();
+            //        pd.PrintPage += new PrintPageEventHandler(ImprimirRecibo);
+            //        pd.PrinterSettings.PrinterName = "Microsoft Print to PDF"; // Cambia esto al nombre de tu impresora si es necesario
+            //        pd.PrinterSettings.PrintToFile = true; // Configura la orientación del papel
+            //        pd.PrinterSettings.PrintFileName = saveDialog.FileName;
+            //        pd.DefaultPageSettings.Landscape = true;
 
-        //        try
-        //        {
-        //            pd.Print();
-        //            MessageBox.Show("Impresión exitosa", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        //        }
-        //        catch (Exception ex)
-        //        {
-        //            MessageBox.Show("Error al imprimir: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-        //        }
-        //    }
+            //        try
+            //        {
+            //            pd.Print();
+            //            MessageBox.Show("Impresión exitosa", "AVISO DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //        }
+            //        catch (Exception ex)
+            //        {
+            //            MessageBox.Show("Error al imprimir: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        }
+            //    }
 
-        //    buttonReciboNoSocioImprimir.Visible = true;
+            //    buttonReciboNoSocioImprimir.Visible = true;
 
-        //    new FormHome(usuarioActual).Show();
-        //    this.Close();
+            //    new FormHome(usuarioActual).Show();
+            //    this.Close();
+        }
+
+        private void buttonReciboNoSocioCancelar_Click(object sender, EventArgs e)
+        {
+            new FormHome(usuarioActual).Show();
+            this.Close();
         }
 
         //private void ImprimirRecibo(object sender, PrintPageEventArgs e)

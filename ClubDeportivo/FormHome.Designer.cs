@@ -44,7 +44,7 @@
             labelBienvenida.AutoSize = true;
             labelBienvenida.BackColor = Color.Transparent;
             labelBienvenida.Font = new Font("Segoe UI", 15.75F);
-            labelBienvenida.Location = new Point(319, 96);
+            labelBienvenida.Location = new Point(319, 109);
             labelBienvenida.Name = "labelBienvenida";
             labelBienvenida.Size = new Size(146, 30);
             labelBienvenida.TabIndex = 0;
@@ -57,9 +57,9 @@
             buttonRegistrarCliente.FlatStyle = FlatStyle.Flat;
             buttonRegistrarCliente.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             buttonRegistrarCliente.ForeColor = Color.White;
-            buttonRegistrarCliente.Location = new Point(319, 174);
+            buttonRegistrarCliente.Location = new Point(319, 197);
             buttonRegistrarCliente.Name = "buttonRegistrarCliente";
-            buttonRegistrarCliente.Size = new Size(163, 33);
+            buttonRegistrarCliente.Size = new Size(163, 37);
             buttonRegistrarCliente.TabIndex = 1;
             buttonRegistrarCliente.Text = "Registrar Cliente";
             buttonRegistrarCliente.UseVisualStyleBackColor = false;
@@ -71,9 +71,9 @@
             buttonRegistrarPago.FlatStyle = FlatStyle.Flat;
             buttonRegistrarPago.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             buttonRegistrarPago.ForeColor = Color.White;
-            buttonRegistrarPago.Location = new Point(319, 247);
+            buttonRegistrarPago.Location = new Point(319, 280);
             buttonRegistrarPago.Name = "buttonRegistrarPago";
-            buttonRegistrarPago.Size = new Size(163, 33);
+            buttonRegistrarPago.Size = new Size(163, 37);
             buttonRegistrarPago.TabIndex = 2;
             buttonRegistrarPago.Text = "Registrar Pago";
             buttonRegistrarPago.UseVisualStyleBackColor = false;
@@ -85,11 +85,11 @@
             buttonListadoSociosMorosos.FlatStyle = FlatStyle.Flat;
             buttonListadoSociosMorosos.Font = new Font("Segoe UI", 9.75F, FontStyle.Bold);
             buttonListadoSociosMorosos.ForeColor = Color.White;
-            buttonListadoSociosMorosos.Location = new Point(319, 320);
+            buttonListadoSociosMorosos.Location = new Point(319, 363);
             buttonListadoSociosMorosos.Name = "buttonListadoSociosMorosos";
-            buttonListadoSociosMorosos.Size = new Size(163, 33);
+            buttonListadoSociosMorosos.Size = new Size(163, 37);
             buttonListadoSociosMorosos.TabIndex = 3;
-            buttonListadoSociosMorosos.Text = "Listado Socios Morosos";
+            buttonListadoSociosMorosos.Text = "Listado Vencimientos";
             buttonListadoSociosMorosos.UseVisualStyleBackColor = false;
             buttonListadoSociosMorosos.Click += buttonListadoSociosMorosos_Click_1;
             // 
@@ -101,14 +101,14 @@
             panelHeader.ForeColor = Color.FromArgb(0, 70, 160);
             panelHeader.Location = new Point(1, 0);
             panelHeader.Name = "panelHeader";
-            panelHeader.Size = new Size(798, 53);
+            panelHeader.Size = new Size(798, 60);
             panelHeader.TabIndex = 4;
             // 
             // buttonSalir
             // 
-            buttonSalir.Location = new Point(692, 16);
+            buttonSalir.Location = new Point(692, 18);
             buttonSalir.Name = "buttonSalir";
-            buttonSalir.Size = new Size(95, 23);
+            buttonSalir.Size = new Size(95, 26);
             buttonSalir.TabIndex = 1;
             buttonSalir.Text = "Cerrar Sesión";
             buttonSalir.UseVisualStyleBackColor = true;
@@ -119,7 +119,7 @@
             labelHeader.AutoSize = true;
             labelHeader.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelHeader.ForeColor = Color.White;
-            labelHeader.Location = new Point(11, 18);
+            labelHeader.Location = new Point(11, 20);
             labelHeader.Name = "labelHeader";
             labelHeader.Size = new Size(144, 21);
             labelHeader.TabIndex = 0;
@@ -128,10 +128,10 @@
             // 
             // FormHome
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(7F, 17F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
-            ClientSize = new Size(800, 397);
+            ClientSize = new Size(800, 450);
             Controls.Add(panelHeader);
             Controls.Add(buttonListadoSociosMorosos);
             Controls.Add(buttonRegistrarPago);

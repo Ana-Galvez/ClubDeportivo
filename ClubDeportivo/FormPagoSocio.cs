@@ -37,15 +37,12 @@ namespace ClubDeportivo
             comboBoxNumCuota.Enabled = habilitar;
             labelNumTarjeta.Enabled = habilitar;
             textBoxNumTarjeta.Enabled = habilitar;
-            //textBoxNumVerificacion.Enabled = habilitar;
-            //labelNumVerificacion.Enabled = habilitar;
-            //labelFechVenc.Enabled = habilitar;
-            //dateTimePickerFechVen.Enabled = habilitar;
             label5Warning.Enabled = habilitar;
             label6Warning.Enabled = habilitar;
-            //label7Warning.Enabled = habilitar;
-            //label8Warning.Enabled = habilitar;
+            
         }
+
+        //Fc. para obtener las cuotas impagas de un cliente que debe ser socio
         private void CargarCuotasImpagas()
         {
             if (int.TryParse(textBoxIdClienteSocio.Text, out int idCliente))
@@ -149,9 +146,7 @@ namespace ClubDeportivo
                 comboBoxSeleccionarCuota.Text,
                 comboBoxModoPago.Text,
                 textBoxNumTarjeta.Text,
-                //textBoxNumVerificacion.Text,
-                comboBoxNumCuota.Text/*,
-                dateTimePickerFechVen.Value*/
+                comboBoxNumCuota.Text
             );
         }
         private void buttonPagoSocioAceptar_Click(object sender, EventArgs e)
@@ -183,8 +178,6 @@ namespace ClubDeportivo
                 }
                 doc.numCuotas = string.IsNullOrEmpty(comboBoxNumCuota.Text) ? null : int.Parse(comboBoxNumCuota.Text);
                 doc.numTarjeta = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumTarjeta.Text : null;
-               /* doc.numVerificacion = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumVerificacion.Text : null;*/
-
                 int idCuotaSeleccionada = Convert.ToInt32(comboBoxSeleccionarCuota.SelectedValue);
                 //usuario para home
                 doc.usuarioActual = nombreUsuario;

@@ -77,21 +77,7 @@ namespace ClubDeportivo
             buttonCarnetVolver.Visible = true;
             buttonImprimirCarnet.Visible = true;
         }
-            /*
-            PrintDocument pd = new PrintDocument();
-            pd.PrintPage += new PrintPageEventHandler(printDocument1_PrintPage);
-            pd.PrinterSettings.PrinterName = "Microsoft Print to PDF";
-            pd.DefaultPageSettings.Landscape = true;
-            pd.Print();
-
-            MessageBox.Show("Impresión exitosa", "AVISO DEL SISTEMA",
-            MessageBoxButtons.OK, MessageBoxIcon.Information);
-            buttonCarnetVolver.Visible = true;
-            buttonImprimirCarnet.Visible = true;
-            FormHome principal = new FormHome(usuario);
-            principal.Show();
-            this.Close();
-        }*/
+            
 
         private void printDocument1_PrintPage(object sender, PrintPageEventArgs e)
         {

@@ -53,7 +53,6 @@ namespace ClubDeportivo
 
         }
         //GÉNERO
-        //############################################
         private void radioButtonFemenino_CheckedChanged(object sender, EventArgs e)
         {
 
@@ -68,7 +67,7 @@ namespace ClubDeportivo
         {
 
         }
-        //############################################
+        
         //DIRECCIÓN
         private void textBoxDireccion_TextChanged(object sender, EventArgs e)
         {
@@ -84,7 +83,6 @@ namespace ClubDeportivo
         {
 
         }
-        //############################################
         //¿APTO FÍSICO?
         private void radioButtonAptoFisicoSi_CheckedChanged(object sender, EventArgs e)
         {
@@ -94,7 +92,7 @@ namespace ClubDeportivo
         {
 
         }
-        //############################################
+        
         //¿SOCIO?
         private void radioButtonSocioSi_CheckedChanged(object sender, EventArgs e)
         {

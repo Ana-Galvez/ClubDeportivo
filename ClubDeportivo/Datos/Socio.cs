@@ -35,9 +35,7 @@ namespace ClubDeportivo.Datos
                                 IdCuota = reader.GetInt32("IdCuota"),
                                 IdCliente = reader.GetInt32("IDCliente"),
                                 Monto = reader.GetDecimal("Monto"),
-                                //ModoPago = reader.IsDBNull(reader.GetOrdinal("ModoPago")) ? null : reader.GetString("ModoPago"),
                                 Estado = reader.GetString("Estado"),
-                                //FechaPago = reader.IsDBNull(reader.GetOrdinal("FechaPago")) ? DateTime.MinValue : reader.GetDateTime("FechaPago"),
                                 FechaVencimiento = reader.GetDateTime("FechaVencimiento")
                             };
                             cuotas.Add(cuota);
@@ -48,8 +46,6 @@ namespace ClubDeportivo.Datos
 
             return cuotas;
         }
-
-
 
         public static void RegistrarPagoCuota(int idCuota, DateTime fechaPago,string modoPago, int cantCuotas, int nrosTarjeta)
         {

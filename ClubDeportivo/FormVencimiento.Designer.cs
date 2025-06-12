@@ -39,6 +39,7 @@
             colTelefono = new DataGridViewTextBoxColumn();
             colMonto = new DataGridViewTextBoxColumn();
             colFechaVenc = new DataGridViewTextBoxColumn();
+            buttonVencimientosCancelar = new Button();
             panelRegistroHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCuotas).BeginInit();
             SuspendLayout();
@@ -84,7 +85,7 @@
             dgvCuotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvCuotas.Columns.AddRange(new DataGridViewColumn[] { colIDCliente, colApellido, colNombre, colDNI, colTelefono, colMonto, colFechaVenc });
             dgvCuotas.GridColor = Color.Black;
-            dgvCuotas.Location = new Point(27, 109);
+            dgvCuotas.Location = new Point(28, 108);
             dgvCuotas.Name = "dgvCuotas";
             dgvCuotas.ReadOnly = true;
             dgvCuotas.RightToLeft = RightToLeft.No;
@@ -133,11 +134,26 @@
             colFechaVenc.Name = "colFechaVenc";
             colFechaVenc.ReadOnly = true;
             // 
+            // buttonVencimientosCancelar
+            // 
+            buttonVencimientosCancelar.BackColor = Color.FromArgb(128, 0, 70, 160);
+            buttonVencimientosCancelar.FlatStyle = FlatStyle.Flat;
+            buttonVencimientosCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
+            buttonVencimientosCancelar.ForeColor = Color.White;
+            buttonVencimientosCancelar.Location = new Point(297, 357);
+            buttonVencimientosCancelar.Name = "buttonVencimientosCancelar";
+            buttonVencimientosCancelar.Size = new Size(200, 28);
+            buttonVencimientosCancelar.TabIndex = 38;
+            buttonVencimientosCancelar.Text = "Cancelar";
+            buttonVencimientosCancelar.UseVisualStyleBackColor = false;
+            buttonVencimientosCancelar.Click += buttonVencimientosCancelar_Click;
+            // 
             // FormVencimiento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 397);
+            Controls.Add(buttonVencimientosCancelar);
             Controls.Add(dgvCuotas);
             Controls.Add(panelRegistroHeader);
             Controls.Add(labelTitulo);
@@ -158,7 +174,7 @@
         #endregion
 
         private Label labelTitulo;
-        private Button buttonRegistroClienteCancelar;
+        private Button buttonVencimientosCancelar;
         private Panel panelRegistroHeader;
         private Label labelRegistroHeader;
         private DataGridView dgvCuotas;

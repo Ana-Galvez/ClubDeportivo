@@ -113,13 +113,6 @@ namespace ClubDeportivo
         {
 
         }
-
-        private void buttonSalir_Click(object sender, EventArgs e)
-        {
-            FormHome home = new FormHome(nombreUsuario);
-            home.Show();
-            this.Hide(); 
-        }
     }
 }
 

@@ -39,7 +39,6 @@
             colTelefono = new DataGridViewTextBoxColumn();
             colMonto = new DataGridViewTextBoxColumn();
             colFechaVenc = new DataGridViewTextBoxColumn();
-            buttonSalir = new Button();
             panelRegistroHeader.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvCuotas).BeginInit();
             SuspendLayout();
@@ -59,7 +58,6 @@
             // panelRegistroHeader
             // 
             panelRegistroHeader.BackColor = Color.FromArgb(0, 70, 160);
-            panelRegistroHeader.Controls.Add(buttonSalir);
             panelRegistroHeader.Controls.Add(labelRegistroHeader);
             panelRegistroHeader.Location = new Point(1, 0);
             panelRegistroHeader.Name = "panelRegistroHeader";
@@ -136,19 +134,6 @@
             colFechaVenc.Name = "colFechaVenc";
             colFechaVenc.ReadOnly = true;
             // 
-            // buttonSalir
-            // 
-            buttonSalir.BackColor = Color.FromArgb(128, 0, 70, 160);
-            buttonSalir.FlatStyle = FlatStyle.Flat;
-            buttonSalir.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
-            buttonSalir.Location = new Point(711, 7);
-            buttonSalir.Name = "buttonSalir";
-            buttonSalir.Size = new Size(76, 28);
-            buttonSalir.TabIndex = 57;
-            buttonSalir.Text = "Salir";
-            buttonSalir.UseVisualStyleBackColor = false;
-            buttonSalir.Click += buttonSalir_Click;
-            // 
             // FormVencimiento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -185,6 +170,5 @@
         private DataGridViewTextBoxColumn colTelefono;
         private DataGridViewTextBoxColumn colMonto;
         private DataGridViewTextBoxColumn colFechaVenc;
-        private Button buttonSalir;
     }
 }

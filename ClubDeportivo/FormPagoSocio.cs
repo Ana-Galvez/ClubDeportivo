@@ -85,8 +85,8 @@ namespace ClubDeportivo
                     else
                     {
                         comboBoxSeleccionarCuota.DataSource = cuotas;
-                        comboBoxSeleccionarCuota.DisplayMember = "FechaVencimiento"; 
-                        comboBoxSeleccionarCuota.ValueMember = "IdCuota"; 
+                        comboBoxSeleccionarCuota.DisplayMember = "FechaVencimiento";
+                        comboBoxSeleccionarCuota.ValueMember = "IdCuota";
                         comboBoxSeleccionarCuota.Refresh();
                         comboBoxSeleccionarCuota.Update();
                     }
@@ -183,7 +183,7 @@ namespace ClubDeportivo
                 }
                 doc.numCuotas = string.IsNullOrEmpty(comboBoxNumCuota.Text) ? null : int.Parse(comboBoxNumCuota.Text);
                 doc.numTarjeta = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumTarjeta.Text : null;
-               /* doc.numVerificacion = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumVerificacion.Text : null;*/
+                /* doc.numVerificacion = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumVerificacion.Text : null;*/
 
                 int idCuotaSeleccionada = Convert.ToInt32(comboBoxSeleccionarCuota.SelectedValue);
                 //usuario para home
@@ -195,9 +195,9 @@ namespace ClubDeportivo
                     cantCuotas = Convert.ToInt32(comboBoxNumCuota.SelectedItem.ToString());
                     digTarj = Convert.ToInt32(textBoxNumTarjeta.Text);
 
-                    
+
                 }
-                
+
                 // Actualizar estado de la cuota existente
                 Socio.RegistrarPagoCuota(idCuotaSeleccionada, DateTime.UtcNow, doc.modoPago, cantCuotas, digTarj);
 
@@ -215,7 +215,7 @@ namespace ClubDeportivo
                 { sqlCon.Close(); }
             }
             MessageBox.Show("Pago registrado correctamente", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
-            
+
             doc.Show();
             this.Close();
         }
@@ -224,7 +224,12 @@ namespace ClubDeportivo
             cancelando = true;
             this.Close();
             new FormHome(nombreUsuario).Show();
-            
+
+        }
+
+        private void comboBoxNumCuota_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
-    }
+}

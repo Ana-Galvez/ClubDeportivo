@@ -112,6 +112,7 @@
             comboBoxNumCuota.Name = "comboBoxNumCuota";
             comboBoxNumCuota.Size = new Size(161, 23);
             comboBoxNumCuota.TabIndex = 51;
+            comboBoxNumCuota.SelectedIndexChanged += comboBoxNumCuota_SelectedIndexChanged;
             // 
             // labelNumCuota
             // 

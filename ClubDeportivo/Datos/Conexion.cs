@@ -24,7 +24,6 @@ namespace ClubDeportivo.Datos
             int mensaje;
 
             // Se crean las var para recibir los datos desde el teclado 
-
             string T_servidor = "Servidor";
             string T_puerto = "Puerto";
             string T_usuario = "Usuario";
@@ -32,7 +31,6 @@ namespace ClubDeportivo.Datos
 
             // Se utiliza un ciclo con while para volver a repetir el ingreso de datos
             // la var correcta la inicializamos para ingresar al ciclo
-
             while (correcto != true)
             {
                 // Armamos los cuadros de dialogo para el ingreso de datos 
@@ -76,7 +74,6 @@ namespace ClubDeportivo.Datos
 
 
             // Reemplazamos los datos concretos por las variables
-
             this.baseDatos = "Proyecto";
             this.servidor = T_servidor; // "localhost";
             this.puerto = T_puerto; // "3306";

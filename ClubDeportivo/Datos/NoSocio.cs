@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace ClubDeportivo.Datos
 {
-    internal class NoSocio
+    internal class NoSocio : Cliente
     {
         //obtener listado de actividades
     public static List<E_Actividad> ObtenerActividades()

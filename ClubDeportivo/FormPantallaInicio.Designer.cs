@@ -98,6 +98,7 @@
             Padding = new Padding(10, 0, 0, 0);
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";
+            Load += FormPantallaInicio_Load;
             panelHeader.ResumeLayout(false);
             panelHeader.PerformLayout();
             ResumeLayout(false);

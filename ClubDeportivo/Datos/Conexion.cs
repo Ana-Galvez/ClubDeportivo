@@ -62,13 +62,37 @@ namespace ClubDeportivo.Datos
                 }
                 else
                 {
-                    MessageBox.Show(
+                    /*MessageBox.Show(
                         "¡INGRESO EXITOSO!",
                         "MENSAJE DEL SISTEMA",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information
                     );
                     correcto = true;
+                    */
+                    try
+                    {
+                        string testConexion = "datasource = " + T_servidor +
+                                          ";port = " + T_puerto +
+                                          ";username = " + T_usuario +
+                                          ";password = " + T_clave +
+                                          ";Database = Proyecto";
+
+                        using (var conn = new MySqlConnection(testConexion))
+                        {
+                            conn.Open();
+                            conn.Close();
+                            correcto = true;
+                        }
+
+                        MessageBox.Show("¡CONEXIÓN EXITOSA!", "MENSAJE DEL SISTEMA", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error al conectar con la base de datos:\n" + ex.Message,
+                                        "Error de conexión", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        correcto = false;
+                    }
                 }
             }
 

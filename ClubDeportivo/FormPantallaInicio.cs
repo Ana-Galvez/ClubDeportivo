@@ -13,5 +13,12 @@ namespace ClubDeportivo
             nuevoFormulario.Show();
             this.Hide(); //la deja en memoria
         }
+
+        private void FormPantallaInicio_Load(object sender, EventArgs e)
+        {
+            //pido los datos y creo la conexion a la base de datos
+            var con = Datos.Conexion.getInstancia().CrearConexion();
+            
+        }
     }
 }

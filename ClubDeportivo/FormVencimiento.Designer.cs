@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormVencimiento));
             labelTitulo = new Label();
             panelRegistroHeader = new Panel();
             labelRegistroHeader = new Label();
@@ -160,6 +161,7 @@
             Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point, 0);
             ForeColor = Color.White;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormVencimiento";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";

@@ -208,7 +208,7 @@
             label12.AutoSize = true;
             label12.Location = new Point(581, 124);
             label12.Name = "label12";
-            label12.Size = new Size(52, 15);
+            label12.Size = new Size(53, 15);
             label12.TabIndex = 50;
             label12.Text = "Teléfono";
             // 
@@ -369,6 +369,7 @@
             Controls.Add(labelCarnetTitulo);
             Controls.Add(panelCarnetHeader);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormCarnet";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";

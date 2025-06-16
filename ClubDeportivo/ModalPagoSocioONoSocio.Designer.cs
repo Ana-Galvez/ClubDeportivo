@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ModalPagoSocioONoSocio));
             labelModalPagoPregunta = new Label();
             buttonModalPagoNo = new Button();
             buttonModalPagoSi = new Button();
@@ -122,6 +123,7 @@
             Controls.Add(buttonModalPagoNo);
             Controls.Add(buttonModalPagoSi);
             Controls.Add(panelModalPagoHeader);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MinimizeBox = false;
             Name = "ModalPagoSocioONoSocio";
             StartPosition = FormStartPosition.CenterParent;

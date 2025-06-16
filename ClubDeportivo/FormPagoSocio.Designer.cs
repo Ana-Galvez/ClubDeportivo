@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPagoSocio));
             buttonPagoSocioCancelar = new Button();
             buttonPagoSocioAceptar = new Button();
             textBoxNumTarjeta = new TextBox();
@@ -351,6 +352,7 @@
             Controls.Add(textBoxIdClienteSocio);
             Controls.Add(labelIdClienteSocio);
             Controls.Add(panelPagoSocioHeader);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormPagoSocio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";

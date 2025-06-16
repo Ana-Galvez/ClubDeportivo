@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPantallaInicio));
             panelHeader = new Panel();
             labelHeader = new Label();
             labelInicioBienvenida = new Label();
@@ -92,6 +93,7 @@
             Controls.Add(labelInicioBienvenida);
             Controls.Add(panelHeader);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormPantallaInicio";
             Padding = new Padding(10, 0, 0, 0);
             StartPosition = FormStartPosition.CenterScreen;

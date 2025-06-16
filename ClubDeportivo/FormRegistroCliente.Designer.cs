@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormRegistroCliente));
             labelRegistroTitulo = new Label();
             labelNombre = new Label();
             textBoxNombre = new TextBox();
@@ -78,7 +79,7 @@
             labelRegistroTitulo.AutoSize = true;
             labelRegistroTitulo.Font = new Font("Segoe UI", 14.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelRegistroTitulo.ForeColor = Color.Black;
-            labelRegistroTitulo.Location = new Point(307, 81);
+            labelRegistroTitulo.Location = new Point(307, 71);
             labelRegistroTitulo.Name = "labelRegistroTitulo";
             labelRegistroTitulo.Size = new Size(167, 25);
             labelRegistroTitulo.TabIndex = 8;
@@ -87,26 +88,26 @@
             // labelNombre
             // 
             labelNombre.AutoSize = true;
-            labelNombre.Location = new Point(27, 128);
+            labelNombre.Location = new Point(27, 113);
             labelNombre.Name = "labelNombre";
-            labelNombre.Size = new Size(57, 17);
+            labelNombre.Size = new Size(51, 15);
             labelNombre.TabIndex = 9;
             labelNombre.Text = "Nombre";
             // 
             // textBoxNombre
             // 
-            textBoxNombre.Location = new Point(191, 125);
+            textBoxNombre.Location = new Point(191, 110);
             textBoxNombre.Name = "textBoxNombre";
-            textBoxNombre.Size = new Size(161, 25);
+            textBoxNombre.Size = new Size(161, 23);
             textBoxNombre.TabIndex = 10;
             textBoxNombre.Tag = "required";
             textBoxNombre.TextChanged += textBoxNombre_TextChanged;
             // 
             // textBoxApellido
             // 
-            textBoxApellido.Location = new Point(191, 165);
+            textBoxApellido.Location = new Point(191, 146);
             textBoxApellido.Name = "textBoxApellido";
-            textBoxApellido.Size = new Size(161, 25);
+            textBoxApellido.Size = new Size(161, 23);
             textBoxApellido.TabIndex = 12;
             textBoxApellido.Tag = "required";
             textBoxApellido.TextChanged += textBoxApellido_TextChanged;
@@ -114,37 +115,37 @@
             // labelApellido
             // 
             labelApellido.AutoSize = true;
-            labelApellido.Location = new Point(27, 168);
+            labelApellido.Location = new Point(27, 148);
             labelApellido.Name = "labelApellido";
-            labelApellido.Size = new Size(56, 17);
+            labelApellido.Size = new Size(51, 15);
             labelApellido.TabIndex = 11;
             labelApellido.Text = "Apellido";
             // 
             // labelFechNac
             // 
             labelFechNac.AutoSize = true;
-            labelFechNac.Location = new Point(27, 212);
+            labelFechNac.Location = new Point(27, 187);
             labelFechNac.Name = "labelFechNac";
-            labelFechNac.Size = new Size(127, 17);
+            labelFechNac.Size = new Size(117, 15);
             labelFechNac.TabIndex = 13;
             labelFechNac.Text = "Fecha de nacimiento";
             // 
             // dateTimePickerFechNac
             // 
             dateTimePickerFechNac.Format = DateTimePickerFormat.Short;
-            dateTimePickerFechNac.Location = new Point(191, 206);
+            dateTimePickerFechNac.Location = new Point(191, 182);
             dateTimePickerFechNac.Margin = new Padding(0);
             dateTimePickerFechNac.Name = "dateTimePickerFechNac";
-            dateTimePickerFechNac.Size = new Size(161, 25);
+            dateTimePickerFechNac.Size = new Size(161, 23);
             dateTimePickerFechNac.TabIndex = 14;
             dateTimePickerFechNac.Tag = "\"required\"";
             dateTimePickerFechNac.ValueChanged += dateTimePickerFechNac_ValueChanged;
             // 
             // textBoxDNI
             // 
-            textBoxDNI.Location = new Point(191, 247);
+            textBoxDNI.Location = new Point(191, 218);
             textBoxDNI.Name = "textBoxDNI";
-            textBoxDNI.Size = new Size(161, 25);
+            textBoxDNI.Size = new Size(161, 23);
             textBoxDNI.TabIndex = 16;
             textBoxDNI.Tag = "required";
             textBoxDNI.TextChanged += textBoxDNI_TextChanged;
@@ -152,18 +153,18 @@
             // labelDNI
             // 
             labelDNI.AutoSize = true;
-            labelDNI.Location = new Point(27, 250);
+            labelDNI.Location = new Point(27, 221);
             labelDNI.Name = "labelDNI";
-            labelDNI.Size = new Size(30, 17);
+            labelDNI.Size = new Size(27, 15);
             labelDNI.TabIndex = 15;
             labelDNI.Text = "DNI";
             // 
             // radioButtonPrefNoDecir
             // 
             radioButtonPrefNoDecir.AutoSize = true;
-            radioButtonPrefNoDecir.Location = new Point(101, 14);
+            radioButtonPrefNoDecir.Location = new Point(101, 12);
             radioButtonPrefNoDecir.Name = "radioButtonPrefNoDecir";
-            radioButtonPrefNoDecir.Size = new Size(124, 21);
+            radioButtonPrefNoDecir.Size = new Size(112, 19);
             radioButtonPrefNoDecir.TabIndex = 20;
             radioButtonPrefNoDecir.TabStop = true;
             radioButtonPrefNoDecir.Text = "Prefiero no decir";
@@ -173,9 +174,9 @@
             // dateTimePickerFechIns
             // 
             dateTimePickerFechIns.Format = DateTimePickerFormat.Short;
-            dateTimePickerFechIns.Location = new Point(603, 120);
+            dateTimePickerFechIns.Location = new Point(603, 106);
             dateTimePickerFechIns.Name = "dateTimePickerFechIns";
-            dateTimePickerFechIns.Size = new Size(161, 25);
+            dateTimePickerFechIns.Size = new Size(161, 23);
             dateTimePickerFechIns.TabIndex = 26;
             dateTimePickerFechIns.Tag = "";
             dateTimePickerFechIns.ValueChanged += dateTimePickerFechIns_ValueChanged;
@@ -183,17 +184,17 @@
             // labelFechInsc
             // 
             labelFechInsc.AutoSize = true;
-            labelFechInsc.Location = new Point(439, 126);
+            labelFechInsc.Location = new Point(439, 111);
             labelFechInsc.Name = "labelFechInsc";
-            labelFechInsc.Size = new Size(126, 17);
+            labelFechInsc.Size = new Size(115, 15);
             labelFechInsc.TabIndex = 25;
             labelFechInsc.Text = "Fecha de inscripción";
             // 
             // textBoxTelefono
             // 
-            textBoxTelefono.Location = new Point(190, 330);
+            textBoxTelefono.Location = new Point(190, 291);
             textBoxTelefono.Name = "textBoxTelefono";
-            textBoxTelefono.Size = new Size(161, 25);
+            textBoxTelefono.Size = new Size(161, 23);
             textBoxTelefono.TabIndex = 24;
             textBoxTelefono.Tag = "required";
             textBoxTelefono.TextChanged += textBoxTelefono_TextChanged;
@@ -201,17 +202,17 @@
             // labelTelefono
             // 
             labelTelefono.AutoSize = true;
-            labelTelefono.Location = new Point(26, 333);
+            labelTelefono.Location = new Point(26, 294);
             labelTelefono.Name = "labelTelefono";
-            labelTelefono.Size = new Size(58, 17);
+            labelTelefono.Size = new Size(53, 15);
             labelTelefono.TabIndex = 23;
             labelTelefono.Text = "Teléfono";
             // 
             // textBoxDireccion
             // 
-            textBoxDireccion.Location = new Point(191, 288);
+            textBoxDireccion.Location = new Point(191, 254);
             textBoxDireccion.Name = "textBoxDireccion";
-            textBoxDireccion.Size = new Size(161, 25);
+            textBoxDireccion.Size = new Size(161, 23);
             textBoxDireccion.TabIndex = 22;
             textBoxDireccion.Tag = "required";
             textBoxDireccion.TextChanged += textBoxDireccion_TextChanged;
@@ -219,18 +220,18 @@
             // labelDireccion
             // 
             labelDireccion.AutoSize = true;
-            labelDireccion.Location = new Point(27, 291);
+            labelDireccion.Location = new Point(27, 257);
             labelDireccion.Name = "labelDireccion";
-            labelDireccion.Size = new Size(62, 17);
+            labelDireccion.Size = new Size(57, 15);
             labelDireccion.TabIndex = 21;
             labelDireccion.Text = "Dirección";
             // 
             // radioButtonAptoFisicoNo
             // 
             radioButtonAptoFisicoNo.AutoSize = true;
-            radioButtonAptoFisicoNo.Location = new Point(150, 31);
+            radioButtonAptoFisicoNo.Location = new Point(150, 27);
             radioButtonAptoFisicoNo.Name = "radioButtonAptoFisicoNo";
-            radioButtonAptoFisicoNo.Size = new Size(46, 21);
+            radioButtonAptoFisicoNo.Size = new Size(43, 19);
             radioButtonAptoFisicoNo.TabIndex = 29;
             radioButtonAptoFisicoNo.TabStop = true;
             radioButtonAptoFisicoNo.Text = "NO";
@@ -240,9 +241,9 @@
             // radioButtonAptoFisicoSi
             // 
             radioButtonAptoFisicoSi.AutoSize = true;
-            radioButtonAptoFisicoSi.Location = new Point(92, 31);
+            radioButtonAptoFisicoSi.Location = new Point(92, 27);
             radioButtonAptoFisicoSi.Name = "radioButtonAptoFisicoSi";
-            radioButtonAptoFisicoSi.Size = new Size(36, 21);
+            radioButtonAptoFisicoSi.Size = new Size(34, 19);
             radioButtonAptoFisicoSi.TabIndex = 28;
             radioButtonAptoFisicoSi.TabStop = true;
             radioButtonAptoFisicoSi.Text = "SI";
@@ -252,9 +253,9 @@
             // radioButtonSocioNo
             // 
             radioButtonSocioNo.AutoSize = true;
-            radioButtonSocioNo.Location = new Point(136, 35);
+            radioButtonSocioNo.Location = new Point(136, 31);
             radioButtonSocioNo.Name = "radioButtonSocioNo";
-            radioButtonSocioNo.Size = new Size(46, 21);
+            radioButtonSocioNo.Size = new Size(43, 19);
             radioButtonSocioNo.TabIndex = 33;
             radioButtonSocioNo.TabStop = true;
             radioButtonSocioNo.Text = "NO";
@@ -264,9 +265,9 @@
             // radioButtonSocioSi
             // 
             radioButtonSocioSi.AutoSize = true;
-            radioButtonSocioSi.Location = new Point(78, 35);
+            radioButtonSocioSi.Location = new Point(78, 31);
             radioButtonSocioSi.Name = "radioButtonSocioSi";
-            radioButtonSocioSi.Size = new Size(36, 21);
+            radioButtonSocioSi.Size = new Size(34, 19);
             radioButtonSocioSi.TabIndex = 32;
             radioButtonSocioSi.TabStop = true;
             radioButtonSocioSi.Text = "SI";
@@ -279,9 +280,9 @@
             buttonRegistroClienteAceptar.FlatStyle = FlatStyle.Flat;
             buttonRegistroClienteAceptar.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             buttonRegistroClienteAceptar.ForeColor = Color.White;
-            buttonRegistroClienteAceptar.Location = new Point(222, 395);
+            buttonRegistroClienteAceptar.Location = new Point(222, 349);
             buttonRegistroClienteAceptar.Name = "buttonRegistroClienteAceptar";
-            buttonRegistroClienteAceptar.Size = new Size(200, 32);
+            buttonRegistroClienteAceptar.Size = new Size(200, 28);
             buttonRegistroClienteAceptar.TabIndex = 34;
             buttonRegistroClienteAceptar.Text = "Aceptar y emitir carnet";
             buttonRegistroClienteAceptar.UseVisualStyleBackColor = false;
@@ -293,9 +294,9 @@
             buttonRegistroClienteCancelar.FlatStyle = FlatStyle.Flat;
             buttonRegistroClienteCancelar.Font = new Font("Segoe UI", 11F, FontStyle.Bold);
             buttonRegistroClienteCancelar.ForeColor = Color.White;
-            buttonRegistroClienteCancelar.Location = new Point(466, 395);
+            buttonRegistroClienteCancelar.Location = new Point(466, 349);
             buttonRegistroClienteCancelar.Name = "buttonRegistroClienteCancelar";
-            buttonRegistroClienteCancelar.Size = new Size(200, 32);
+            buttonRegistroClienteCancelar.Size = new Size(200, 28);
             buttonRegistroClienteCancelar.TabIndex = 35;
             buttonRegistroClienteCancelar.Text = "Cancelar";
             buttonRegistroClienteCancelar.UseVisualStyleBackColor = false;
@@ -307,7 +308,7 @@
             panelRegistroHeader.Controls.Add(labelRegistroHeader);
             panelRegistroHeader.Location = new Point(1, 0);
             panelRegistroHeader.Name = "panelRegistroHeader";
-            panelRegistroHeader.Size = new Size(801, 48);
+            panelRegistroHeader.Size = new Size(801, 42);
             panelRegistroHeader.TabIndex = 36;
             // 
             // labelRegistroHeader
@@ -315,7 +316,7 @@
             labelRegistroHeader.AutoSize = true;
             labelRegistroHeader.Font = new Font("Segoe UI", 14.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelRegistroHeader.ForeColor = Color.White;
-            labelRegistroHeader.Location = new Point(0, 11);
+            labelRegistroHeader.Location = new Point(0, 10);
             labelRegistroHeader.Name = "labelRegistroHeader";
             labelRegistroHeader.Padding = new Padding(10, 0, 0, 0);
             labelRegistroHeader.Size = new Size(181, 25);
@@ -326,9 +327,9 @@
             // radioButtonFemenino
             // 
             radioButtonFemenino.AutoSize = true;
-            radioButtonFemenino.Location = new Point(19, 14);
+            radioButtonFemenino.Location = new Point(19, 12);
             radioButtonFemenino.Name = "radioButtonFemenino";
-            radioButtonFemenino.Size = new Size(32, 21);
+            radioButtonFemenino.Size = new Size(31, 19);
             radioButtonFemenino.TabIndex = 18;
             radioButtonFemenino.TabStop = true;
             radioButtonFemenino.Text = "F";
@@ -338,9 +339,9 @@
             // radioButtonMasculino
             // 
             radioButtonMasculino.AutoSize = true;
-            radioButtonMasculino.Location = new Point(57, 14);
+            radioButtonMasculino.Location = new Point(57, 12);
             radioButtonMasculino.Name = "radioButtonMasculino";
-            radioButtonMasculino.Size = new Size(38, 21);
+            radioButtonMasculino.Size = new Size(36, 19);
             radioButtonMasculino.TabIndex = 19;
             radioButtonMasculino.TabStop = true;
             radioButtonMasculino.Text = "M";
@@ -352,9 +353,9 @@
             groupBoxGenero.Controls.Add(radioButtonPrefNoDecir);
             groupBoxGenero.Controls.Add(radioButtonMasculino);
             groupBoxGenero.Controls.Add(radioButtonFemenino);
-            groupBoxGenero.Location = new Point(439, 166);
+            groupBoxGenero.Location = new Point(439, 146);
             groupBoxGenero.Name = "groupBoxGenero";
-            groupBoxGenero.Size = new Size(325, 45);
+            groupBoxGenero.Size = new Size(325, 40);
             groupBoxGenero.TabIndex = 37;
             groupBoxGenero.TabStop = false;
             groupBoxGenero.Tag = "\"required\"";
@@ -364,9 +365,9 @@
             // 
             groupBoxAptoFisico.Controls.Add(radioButtonAptoFisicoNo);
             groupBoxAptoFisico.Controls.Add(radioButtonAptoFisicoSi);
-            groupBoxAptoFisico.Location = new Point(439, 225);
+            groupBoxAptoFisico.Location = new Point(439, 199);
             groupBoxAptoFisico.Name = "groupBoxAptoFisico";
-            groupBoxAptoFisico.Size = new Size(325, 61);
+            groupBoxAptoFisico.Size = new Size(325, 54);
             groupBoxAptoFisico.TabIndex = 38;
             groupBoxAptoFisico.TabStop = false;
             groupBoxAptoFisico.Tag = "\"required\"";
@@ -376,9 +377,9 @@
             // 
             groupBoxSocio.Controls.Add(radioButtonSocioNo);
             groupBoxSocio.Controls.Add(radioButtonSocioSi);
-            groupBoxSocio.Location = new Point(439, 292);
+            groupBoxSocio.Location = new Point(439, 258);
             groupBoxSocio.Name = "groupBoxSocio";
-            groupBoxSocio.Size = new Size(325, 70);
+            groupBoxSocio.Size = new Size(325, 62);
             groupBoxSocio.TabIndex = 39;
             groupBoxSocio.TabStop = false;
             groupBoxSocio.Tag = "\"required\"";
@@ -389,7 +390,7 @@
             labelAsterisco.AutoSize = true;
             labelAsterisco.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             labelAsterisco.ForeColor = Color.Red;
-            labelAsterisco.Location = new Point(358, 129);
+            labelAsterisco.Location = new Point(358, 114);
             labelAsterisco.Name = "labelAsterisco";
             labelAsterisco.Size = new Size(17, 21);
             labelAsterisco.TabIndex = 40;
@@ -400,7 +401,7 @@
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.ForeColor = Color.Red;
-            label1.Location = new Point(358, 168);
+            label1.Location = new Point(358, 148);
             label1.Name = "label1";
             label1.Size = new Size(17, 21);
             label1.TabIndex = 41;
@@ -411,7 +412,7 @@
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label2.ForeColor = Color.Red;
-            label2.Location = new Point(358, 206);
+            label2.Location = new Point(358, 182);
             label2.Name = "label2";
             label2.Size = new Size(17, 21);
             label2.TabIndex = 42;
@@ -422,7 +423,7 @@
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label3.ForeColor = Color.Red;
-            label3.Location = new Point(358, 246);
+            label3.Location = new Point(358, 217);
             label3.Name = "label3";
             label3.Size = new Size(17, 21);
             label3.TabIndex = 43;
@@ -433,7 +434,7 @@
             label4.AutoSize = true;
             label4.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label4.ForeColor = Color.Red;
-            label4.Location = new Point(358, 292);
+            label4.Location = new Point(358, 258);
             label4.Name = "label4";
             label4.Size = new Size(17, 21);
             label4.TabIndex = 44;
@@ -444,7 +445,7 @@
             label5.AutoSize = true;
             label5.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label5.ForeColor = Color.Red;
-            label5.Location = new Point(357, 333);
+            label5.Location = new Point(357, 294);
             label5.Name = "label5";
             label5.Size = new Size(17, 21);
             label5.TabIndex = 45;
@@ -455,7 +456,7 @@
             label6.AutoSize = true;
             label6.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label6.ForeColor = Color.Red;
-            label6.Location = new Point(770, 180);
+            label6.Location = new Point(770, 159);
             label6.Name = "label6";
             label6.Size = new Size(17, 21);
             label6.TabIndex = 46;
@@ -466,7 +467,7 @@
             label7.AutoSize = true;
             label7.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label7.ForeColor = Color.Red;
-            label7.Location = new Point(770, 248);
+            label7.Location = new Point(770, 219);
             label7.Name = "label7";
             label7.Size = new Size(17, 21);
             label7.TabIndex = 47;
@@ -477,7 +478,7 @@
             label8.AutoSize = true;
             label8.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label8.ForeColor = Color.Red;
-            label8.Location = new Point(770, 314);
+            label8.Location = new Point(770, 277);
             label8.Name = "label8";
             label8.Size = new Size(17, 21);
             label8.TabIndex = 48;
@@ -488,7 +489,7 @@
             labelWarning.AutoSize = true;
             labelWarning.Font = new Font("Segoe UI", 8.25F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelWarning.ForeColor = Color.Red;
-            labelWarning.Location = new Point(357, 375);
+            labelWarning.Location = new Point(357, 331);
             labelWarning.Name = "labelWarning";
             labelWarning.Size = new Size(125, 13);
             labelWarning.TabIndex = 49;
@@ -496,9 +497,9 @@
             // 
             // FormRegistroCliente
             // 
-            AutoScaleDimensions = new SizeF(7F, 17F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(800, 397);
             Controls.Add(labelWarning);
             Controls.Add(label8);
             Controls.Add(label7);
@@ -531,6 +532,7 @@
             Controls.Add(labelNombre);
             Controls.Add(labelRegistroTitulo);
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormRegistroCliente";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";

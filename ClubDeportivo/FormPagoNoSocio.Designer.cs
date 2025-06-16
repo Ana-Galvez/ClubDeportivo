@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPagoNoSocio));
             panelPagoNoSocioHeader = new Panel();
             labelInicioHeader = new Label();
             labelPagoNoSocioTitulo = new Label();
@@ -272,6 +273,7 @@
             Controls.Add(labelIdClienteNoSocio);
             Controls.Add(labelPagoNoSocioTitulo);
             Controls.Add(panelPagoNoSocioHeader);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "FormPagoNoSocio";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";

@@ -44,34 +44,44 @@ namespace ClubDeportivo
                 if (lista.Count == 0)
                 {   //si no hay datos muestro alerta
                     MessageBox.Show("No hay socios con cuotas vencidas hoy.", "Información", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    FormHome nuevoFormulario = new FormHome(nombreUsuario);
+                    nuevoFormulario.Show();
+
+                    // Cerrás esta pantalla
+                    this.Close();
                     return;
                 }
-                //recorro la lista que contiene los datos, creo filas en la grilla y cargo los datos
-                foreach (var item in lista)
+                else
                 {
-                    int fila = dgvCuotas.Rows.Add();
-                    dgvCuotas.Rows[fila].Cells["colIDCliente"].Value = item.IDCliente;
-                    dgvCuotas.Rows[fila].Cells["colNombre"].Value = item.Nombre;
-                    dgvCuotas.Rows[fila].Cells["colApellido"].Value = item.Apellido;
-                    dgvCuotas.Rows[fila].Cells["colDNI"].Value = item.DNI;
-                    dgvCuotas.Rows[fila].Cells["colTelefono"].Value = item.Telefono;
-                    dgvCuotas.Rows[fila].Cells["colMonto"].Value = item.Monto.ToString("C2");
-                    dgvCuotas.Rows[fila].Cells["colFechaVenc"].Value = item.FechaVencimiento.ToShortDateString();
+                    //recorro la lista que contiene los datos, creo filas en la grilla y cargo los datos
+                    foreach (var item in lista)
+                    {
+                        int fila = dgvCuotas.Rows.Add();
+                        dgvCuotas.Rows[fila].Cells["colIDCliente"].Value = item.IDCliente;
+                        dgvCuotas.Rows[fila].Cells["colNombre"].Value = item.Nombre;
+                        dgvCuotas.Rows[fila].Cells["colApellido"].Value = item.Apellido;
+                        dgvCuotas.Rows[fila].Cells["colDNI"].Value = item.DNI;
+                        dgvCuotas.Rows[fila].Cells["colTelefono"].Value = item.Telefono;
+                        dgvCuotas.Rows[fila].Cells["colMonto"].Value = item.Monto.ToString("C2");
+                        dgvCuotas.Rows[fila].Cells["colFechaVenc"].Value = item.FechaVencimiento.ToShortDateString();
+                    }
+                    //mejoro estilo de la grilla
+                    dgvCuotas.DefaultCellStyle.BackColor = Color.White;
+                    dgvCuotas.DefaultCellStyle.ForeColor = Color.Black;
+                    dgvCuotas.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 70, 160); // azul 
+                    dgvCuotas.DefaultCellStyle.SelectionForeColor = Color.White;
+                    dgvCuotas.DefaultCellStyle.Font = new Font("Segoe UI", 9);
+                    dgvCuotas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 70, 160);
+                    dgvCuotas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
+                    dgvCuotas.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
+                    dgvCuotas.ColumnHeadersHeight = 35;
+                    dgvCuotas.BorderStyle = BorderStyle.None;
+                    dgvCuotas.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+                    dgvCuotas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
+                    dgvCuotas.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
+
                 }
-                //mejoro estilo de la grilla
-                dgvCuotas.DefaultCellStyle.BackColor = Color.White;
-                dgvCuotas.DefaultCellStyle.ForeColor = Color.Black;
-                dgvCuotas.DefaultCellStyle.SelectionBackColor = Color.FromArgb(0, 70, 160); // azul 
-                dgvCuotas.DefaultCellStyle.SelectionForeColor = Color.White;
-                dgvCuotas.DefaultCellStyle.Font = new Font("Segoe UI", 9);
-                dgvCuotas.ColumnHeadersDefaultCellStyle.BackColor = Color.FromArgb(0, 70, 160);
-                dgvCuotas.ColumnHeadersDefaultCellStyle.ForeColor = Color.White;
-                dgvCuotas.ColumnHeadersDefaultCellStyle.Font = new Font("Segoe UI", 10, FontStyle.Bold);
-                dgvCuotas.ColumnHeadersHeight = 35;
-                dgvCuotas.BorderStyle = BorderStyle.None;
-                dgvCuotas.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
-                dgvCuotas.ColumnHeadersBorderStyle = DataGridViewHeaderBorderStyle.Single;
-                dgvCuotas.AlternatingRowsDefaultCellStyle.BackColor = Color.FromArgb(245, 245, 245);
+                    
 
             }
             catch (Exception ex)

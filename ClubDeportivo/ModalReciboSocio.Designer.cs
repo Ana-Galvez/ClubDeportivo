@@ -261,9 +261,9 @@
             // 
             // ModalReciboSocio
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
+            AutoScaleMode = AutoScaleMode.None;
             ClientSize = new Size(401, 376);
+            ControlBox = false;
             Controls.Add(buttonReciboSocioCancelar);
             Controls.Add(label1);
             Controls.Add(labelReciboSocioMontoDb);
@@ -284,7 +284,11 @@
             Controls.Add(labelNombreYApellidoSocioDb);
             Controls.Add(labelNombreReciboSocio);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
+            MdiChildrenMinimizedAnchorBottom = false;
+            MinimizeBox = false;
             Name = "ModalReciboSocio";
+            ShowInTaskbar = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";
             Load += ModalReciboSocio_Load;

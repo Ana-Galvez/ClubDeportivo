@@ -71,7 +71,7 @@ namespace ClubDeportivo.Datos
             }
         }
 
-        public static void CrearProximaCuota(int idCliente, decimal monto)
+        public static void CrearPrimerCuota(int idCliente, decimal monto)
         {
 
             using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
@@ -86,6 +86,29 @@ namespace ClubDeportivo.Datos
                 {
                     DateTime fechaVencimiento = DateTime.Today.AddMonths(1);
 
+                    cmd.Parameters.AddWithValue("@idCliente", idCliente);
+                    cmd.Parameters.AddWithValue("@monto", monto);
+                    cmd.Parameters.AddWithValue("@fechaVencimiento", fechaVencimiento);
+
+                    cmd.ExecuteNonQuery();
+                }
+            }
+
+        }
+
+        public static void CrearProximaCuota(int idCliente, decimal monto, DateTime fechaVencimiento )
+        {
+
+            using (MySqlConnection sqlCon = Conexion.getInstancia().CrearConexion())
+            {
+                sqlCon.Open();
+
+                string query = @"INSERT INTO cuotas 
+                         (IDCliente, Monto, Estado, FechaVencimiento)
+                         VALUES (@idCliente, @monto, 'Pendiente', @fechaVencimiento)";
+
+                using (MySqlCommand cmd = new MySqlCommand(query, sqlCon))
+                {
                     cmd.Parameters.AddWithValue("@idCliente", idCliente);
                     cmd.Parameters.AddWithValue("@monto", monto);
                     cmd.Parameters.AddWithValue("@fechaVencimiento", fechaVencimiento);

@@ -169,6 +169,8 @@ namespace ClubDeportivo
                 // Obtener datos de la db y pasarlos al formulario siguiente
                 doc.nombreApellido = datosSocio;
 
+                DateTime proxVenc = DateTime.UtcNow;
+
                 // Datos ingresados manualmente en el formulario y pasarlos al formulario siguiente
                 int idCliente = Convert.ToInt32(textBoxIdClienteSocio.Text);
                 doc.idCliente = idCliente;
@@ -178,6 +180,7 @@ namespace ClubDeportivo
                 if (comboBoxSeleccionarCuota.SelectedItem is E_Cuota cuota)
                 {
                     doc.cuotaAbonada = cuota.FechaVencimiento.ToString("dd/MM/yyyy");
+                    proxVenc = cuota.FechaVencimiento.AddMonths(1);
                 }
                 doc.numCuotas = string.IsNullOrEmpty(comboBoxNumCuota.Text) ? null : int.Parse(comboBoxNumCuota.Text);
                 doc.numTarjeta = comboBoxModoPago.SelectedItem.ToString() == "tarjeta" ? textBoxNumTarjeta.Text : null;
@@ -197,7 +200,7 @@ namespace ClubDeportivo
                 // Actualizar estado de la cuota existente
                 Socio.RegistrarPagoCuota(idCuotaSeleccionada, DateTime.UtcNow, doc.modoPago, cantCuotas, digTarj);
 
-                Socio.CrearProximaCuota(idCliente, monto);
+                Socio.CrearProximaCuota(idCliente, monto, proxVenc);
 
             }
             catch (Exception ex)

@@ -244,6 +244,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(401, 376);
+            ControlBox = false;
             Controls.Add(buttonReciboNoSocioCancelar);
             Controls.Add(buttonReciboNoSocioImprimir);
             Controls.Add(labelReciboNoSocioHoraDb);
@@ -263,6 +264,7 @@
             Controls.Add(panelReciboPagoNoSocio);
             Icon = (Icon)resources.GetObject("$this.Icon");
             Name = "ModalReciboNoSocio";
+            ShowIcon = false;
             StartPosition = FormStartPosition.CenterScreen;
             Text = "CLUB DEPORTIVO";
             Load += ModalReciboNoSocio_Load;

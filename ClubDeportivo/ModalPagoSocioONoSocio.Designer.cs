@@ -124,6 +124,7 @@
             Controls.Add(buttonModalPagoSi);
             Controls.Add(panelModalPagoHeader);
             Icon = (Icon)resources.GetObject("$this.Icon");
+            MaximizeBox = false;
             MinimizeBox = false;
             Name = "ModalPagoSocioONoSocio";
             StartPosition = FormStartPosition.CenterParent;

@@ -1,4 +1,5 @@
 ﻿using System.Data;
+using ClubDeportivo.Helpers;
 
 namespace ClubDeportivo
 {
@@ -7,6 +8,7 @@ namespace ClubDeportivo
         public FormIniciarSesion()
         {
             InitializeComponent();
+           
         }
 
         private void buttonIngresar_Click(object sender, EventArgs e)

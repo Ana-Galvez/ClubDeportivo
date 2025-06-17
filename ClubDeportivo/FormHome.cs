@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using ClubDeportivo.Helpers;
 
 namespace ClubDeportivo
 {
@@ -18,6 +19,7 @@ namespace ClubDeportivo
             InitializeComponent();
             nombreUsuario = usuario;
             labelBienvenida.Text = $"¡Bienvenido/a, {nombreUsuario}!";
+           
         }
 
         private void labelBienvenida_Click(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using ClubDeportivo.Datos;
 using ClubDeportivo.Entidades;
+using ClubDeportivo.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,6 +22,8 @@ namespace ClubDeportivo
             InitializeComponent();
             nombreUsuario = usuario;
             fechaInicial = dateTimePickerFechNac.Value;
+
+           
         }
         //al cargar el formulario sale un recordatorio del apto fisico
         private void FormRegistroCliente_Load(object sender, EventArgs e)

@@ -1,5 +1,6 @@
 ﻿using ClubDeportivo.Datos;
 using ClubDeportivo.Entidades;
+using ClubDeportivo.Helpers;
 using ClubDeportivo.Helpers.Validaciones;
 using MySql.Data.MySqlClient;
 using System;
@@ -26,6 +27,8 @@ namespace ClubDeportivo
             nombreUsuario = usuario;
             //si ingreso un idCliente incorrecto igual puedo cerrar el form
             buttonPagoSocioCancelar.CausesValidation = false;
+
+            
         }
 
 

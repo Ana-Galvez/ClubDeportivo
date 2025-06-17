@@ -1,5 +1,6 @@
 ﻿using ClubDeportivo.Datos;
 using ClubDeportivo.Entidades;
+using ClubDeportivo.Helpers;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;

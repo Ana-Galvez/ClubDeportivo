@@ -62,14 +62,6 @@ namespace ClubDeportivo.Datos
                 }
                 else
                 {
-                    /*MessageBox.Show(
-                        "¡INGRESO EXITOSO!",
-                        "MENSAJE DEL SISTEMA",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Information
-                    );
-                    correcto = true;
-                    */
                     try
                     {
                         string testConexion = "datasource = " + T_servidor +

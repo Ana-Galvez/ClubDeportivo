@@ -85,7 +85,7 @@ namespace ClubDeportivo.Helpers
             e.Graphics.DrawString(datos.EsSocio ? "Factura de Socio" : "Factura de No Socio", fontTitulo, brush, 200, posY);
             posY += espacioEntreLineas * 2;
 
-            e.Graphics.DrawString(datos.EsSocio ? $"Número de Socio: {datos.IdCliente}" : $"Número de No Socio: {datos.IdCliente}", font, brush, 200, posY); posY += espacioEntreLineas;
+            e.Graphics.DrawString(datos.EsSocio ? $"ID de cliente: {datos.IdCliente}" : $"ID de cliente: {datos.IdCliente}", font, brush, 200, posY); posY += espacioEntreLineas;
             e.Graphics.DrawString($"Nombre y Apellido: {datos.NombreApellido}", font, brush, 200, posY); posY += espacioEntreLineas;
 
             if (datos.EsSocio)

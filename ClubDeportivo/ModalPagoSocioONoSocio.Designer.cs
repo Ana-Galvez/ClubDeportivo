@@ -123,6 +123,7 @@
             Controls.Add(buttonModalPagoNo);
             Controls.Add(buttonModalPagoSi);
             Controls.Add(panelModalPagoHeader);
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             MinimizeBox = false;

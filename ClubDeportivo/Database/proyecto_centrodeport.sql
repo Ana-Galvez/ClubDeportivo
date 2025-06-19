@@ -130,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `nosocios` (
   CONSTRAINT `fk_nosocio_cliente` FOREIGN KEY (`IDCliente`) REFERENCES `cliente` (`IDCliente`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla proyecto.nosocios: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla proyecto.nosocios: ~2 rows (aproximadamente)
 INSERT INTO `nosocios` (`IDCliente`, `FechaAltaNoSocio`) VALUES
 	(2, '2025-05-10'),
 	(7, '2025-06-16');
@@ -208,7 +208,7 @@ CREATE TABLE IF NOT EXISTS `pago_actividad` (
   CONSTRAINT `pago_actividad_ibfk_2` FOREIGN KEY (`IdActividad`) REFERENCES `actividades` (`IDActividad`) ON DELETE CASCADE
 ) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- Volcando datos para la tabla proyecto.pago_actividad: ~0 rows (aproximadamente)
+-- Volcando datos para la tabla proyecto.pago_actividad: ~3 rows (aproximadamente)
 INSERT INTO `pago_actividad` (`IdPagoActividad`, `IDCliente`, `IdActividad`, `FechaPago`, `ModoPago`, `Monto`, `Estado`) VALUES
 	(1, 2, 1, '2025-06-06', 'Efectivo', 5000.00, 'Pagada'),
 	(2, 2, 2, '2025-06-16', 'Efectivo', 5000.00, 'Pagada'),
@@ -245,7 +245,7 @@ INSERT INTO `socios` (`IDCliente`, `FechaAltaSocio`) VALUES
 CREATE TABLE IF NOT EXISTS `usuario` (
   `CodUsu` int(11) NOT NULL AUTO_INCREMENT,
   `NombreUsu` varchar(20) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
-  `PassUsu` varchar(15) CHARACTER SET utf8mb4 COLLATE utf8mb4_bin DEFAULT NULL,
+  `PassUsu` varchar(15) CHARACTER SET utf8 COLLATE utf8_bin DEFAULT NULL,
   `RolUsu` int(11) DEFAULT NULL,
   `Activo` tinyint(1) DEFAULT 1,
   PRIMARY KEY (`CodUsu`),

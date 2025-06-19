@@ -170,13 +170,20 @@ namespace ClubDeportivo
             bool aptoFisico = radioButtonAptoFisicoSi.Checked;
             // Socio o no socio
             bool socio = radioButtonSocioSi.Checked;
+            //Verificar que el ingreso de DNi solo sea números
+            int dni;
+            if(!int.TryParse(textBoxDNI.Text.Trim(),out dni))
+            {
+                MessageBox.Show("El campo DNI debe contener SÓLO NÚMEROS.", "ERROR DE DATOS", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             // objeto cliente
             Entidades.E_Cliente cliente = new Entidades.E_Cliente
             {
                 Nombre = textBoxNombre.Text.Trim(),
                 Apellido = textBoxApellido.Text.Trim(),
                 FechaNacimiento = dateTimePickerFechNac.Value.Date,
-                DNI = int.Parse(textBoxDNI.Text.Trim()),
+                DNI = dni,
                 Genero = genero,
                 Direccion = textBoxDireccion.Text.Trim(),
                 Telefono = textBoxTelefono.Text.Trim(),

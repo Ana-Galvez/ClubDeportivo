@@ -19,6 +19,7 @@ namespace ClubDeportivo
             InitializeComponent();
             nombreUsuario = usuario;
             labelBienvenida.Text = $"¡Bienvenido/a, {nombreUsuario}!";
+
            
         }
 
